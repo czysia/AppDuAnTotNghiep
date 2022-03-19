@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">AppDuAnTotNghiep</string>
+    <string name="gia_1">Gia: 15000 d</string>
+    <string name="nut_bam_1">them vao gio hang</string>
+    <string name="chi_tiet_1">Chi tiet san pham</string>
+
 </resources>
