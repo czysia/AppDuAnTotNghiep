@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-
     <color name="gray">#C0BEBE</color>
     <color name="bgBottomNavigation">#fe485a</color>
     <color name="blank">#696969</color>

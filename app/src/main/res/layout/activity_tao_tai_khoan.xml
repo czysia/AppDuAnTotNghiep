@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".TaoTaiKhoanActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -20,7 +20,7 @@
             android:layout_weight= "9">
 
             <ImageView
-                android:id="@+id/loginLogo"
+                android:id="@+id/signupLogo"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
                 android:layout_centerHorizontal="true"
@@ -35,23 +35,23 @@
                 android:layout_marginLeft="20dp"
                 android:layout_marginRight="20dp"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_centerHorizontal="true"
                 android:layout_marginTop="20dp"
-                android:layout_below="@+id/loginLogo">
+                android:layout_centerHorizontal="true"
+                android:layout_below="@+id/signupLogo"
+                android:layout_gravity="center">
+
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/edtEmail"
                     android:hint="Nhập Email"
                     android:paddingLeft="10dp"
                     android:lines="1"
                     android:drawablePadding="10dp"
-
+                    android:drawableLeft="@drawable/ic_email"
+                    android:drawableStart="@drawable/ic_email"
                     android:inputType="textEmailAddress"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"/>
             </com.google.android.material.textfield.TextInputLayout>
-<!--            android:drawableLeft="@drawable/ic_email"-->
-<!--            android:drawableStart="@drawable/ic_email"-->
 
 
             <com.google.android.material.textfield.TextInputLayout
@@ -61,14 +61,14 @@
                 android:layout_marginRight="20dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
+                android:layout_marginTop="10dp"
                 android:layout_centerHorizontal="true"
                 app:counterEnabled="true"
-                android:layout_marginTop="20dp"
                 android:layout_below="@+id/inputEmail"
                 app:passwordToggleEnabled="true">
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/edtPassword"
-                    android:hint="Nhập Password"
+                    android:hint="Nhập mật khẩu"
                     android:lines="1"
                     android:drawablePadding="10dp"
                     android:paddingLeft="10dp"
@@ -76,49 +76,58 @@
                     android:inputType="textPassword"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"/>
+            </com.google.android.material.textfield.TextInputLayout>
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/inputRePass"
+                android:layout_width="match_parent"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_centerHorizontal="true"
+                app:counterEnabled="true"
+                android:layout_marginTop="10dp"
+                android:layout_below="@+id/inputPass"
+                app:passwordToggleEnabled="true">
 
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/edtRePassword"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:drawableStart="@drawable/ic_registration"
+                    android:drawableLeft="@drawable/ic_registration"
+                    android:drawablePadding="10dp"
+                    android:hint="Nhập lại mật khẩu"
+                    android:inputType="textPassword"
+                    android:lines="1"
+                    android:paddingLeft="10dp"
+                    android:singleLine="true" />
             </com.google.android.material.textfield.TextInputLayout>
 
-
             <ProgressBar
-                android:id="@+id/pbLogin"
+                android:id="@+id/pbRegister"
                 android:layout_width="80dp"
                 android:layout_height="80dp"
-                android:layout_marginTop="20dp"
+                android:layout_below="@+id/inputRePass"
                 android:layout_centerInParent="true"
+                android:layout_marginTop="20dp"
                 android:visibility="invisible" />
 
-            <TextView
-                android:id="@+id/txtForgetPass"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerHorizontal="true"
-                android:layout_below="@+id/pbLogin"
-                android:layout_marginTop="25dp"
-                android:text="Quên Mật Khẩu?"
-                android:textColor="#BD2808"
-                android:textSize="15sp"
-                android:textStyle="normal" />
-
-
             <Button
-                android:id="@+id/btnSignIn"
+                android:id="@+id/btnSignUp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/pbLogin"
+                android:layout_below="@+id/pbRegister"
                 android:layout_marginLeft="20dp"
                 android:layout_marginTop="60dp"
                 android:layout_marginRight="20dp"
                 android:layout_marginBottom="20dp"
                 android:background="@drawable/my_button"
-                android:radius="10dp"
-                android:text="Đăng Nhập"
+                android:text="Đăng Ký"
                 android:textColor="@color/white"
                 android:textSize="18sp"
-                android:textStyle="normal" />
+                android:textStyle="bold" />
         </RelativeLayout>
-
-
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
@@ -131,11 +140,12 @@
                 android:layout_height="wrap_content"
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="25dp"
-                android:text="TẠO TÀI KHOẢN"
                 android:textColor="#BD2808"
+                android:text="ĐĂNG NHẬP"
                 android:textSize="16sp"
                 android:textStyle="bold" />
         </RelativeLayout>
+
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
