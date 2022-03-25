@@ -13,11 +13,13 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.DuAnTotNghiep">
         <activity
-            android:name=".TrangChuActivity"
+            android:name=".QuenMatKhauActivity"
             android:exported="false" />
         <activity
-            android:name=".DangKyActivity"
-            android:exported="false" />
+            android:name=".TrangChuActivity"
+            android:exported="false"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+        <activity android:name=".DangKyActivity" />
         <activity android:name=".MainActivity" />
         <activity
             android:name=".ManHinhChaoActivity"

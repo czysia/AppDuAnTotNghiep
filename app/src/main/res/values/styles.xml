@@ -7,7 +7,7 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
     <style name="EditTextThemeObs" parent="Theme.AppCompat.Light.DarkActionBar">
-        <item name="colorControlNormal">@color/grey_10</item>
+        <item name="colorControlNormal">#BD2808</item>
         <item name="colorControlActivated">@color/colorPrimary</item>
     </style>
     <style name="Yellow.Small.AppCompatRatingBar" parent="Base.Widget.AppCompat.RatingBar.Small">

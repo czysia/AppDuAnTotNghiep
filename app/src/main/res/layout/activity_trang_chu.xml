@@ -26,8 +26,8 @@
                     android:id="@+id/search_bar"
                     android:layout_width="wrap_content"
                     android:layout_height="70dp"
-                    android:paddingLeft="27dp"
-                    android:background="#BD2808">
+                    android:background="#BD2808"
+                    android:paddingLeft="27dp">
 
                     <androidx.cardview.widget.CardView
                         android:layout_width="match_parent"
@@ -84,31 +84,34 @@
                 <LinearLayout
                     android:id="@+id/ln1"
                     android:layout_width="match_parent"
+                    android:layout_height="230dp"
                     android:layout_below="@+id/search_bar"
-                    android:layout_height="200dp">
+                    android:background="@color/colorPrimary"
+                    >
+
                     <androidx.cardview.widget.CardView
-                        android:layout_margin="10dp"
                         android:layout_width="match_parent"
-                        android:layout_height="200dp"
-                        app:cardCornerRadius="20dp">
-
-
+                        android:layout_height="210dp"
+                        android:layout_margin="10dp"
+                        app:cardCornerRadius="20dp"
+                        android:background="@color/colorPrimary"
+                        >
                         <com.smarteist.autoimageslider.SliderView
                             android:id="@+id/imageSlider"
                             android:layout_width="match_parent"
-                            android:layout_height="200dp"
-                            app:sliderAnimationDuration="600"
+                            android:layout_height="220dp"
+                            app:sliderAnimationDuration="800"
                             app:sliderAutoCycleDirection="back_and_forth"
                             app:sliderAutoCycleEnabled="true"
-                            app:sliderIndicatorAnimationDuration="600"
+                            app:sliderIndicatorAnimationDuration="800"
                             app:sliderIndicatorGravity="center_horizontal|bottom"
-                            app:sliderIndicatorMargin="15dp"
+                            app:sliderIndicatorMargin="20dp"
                             app:sliderIndicatorOrientation="horizontal"
                             app:sliderIndicatorPadding="3dp"
                             app:sliderIndicatorRadius="2dp"
                             app:sliderIndicatorSelectedColor="#5A5A5A"
                             app:sliderIndicatorUnselectedColor="#FFF"
-                            app:sliderScrollTimeInSec="1"
+                            app:sliderScrollTimeInSec="8"
                             app:sliderStartAutoCycle="true" />
                     </androidx.cardview.widget.CardView>
 
@@ -117,24 +120,21 @@
 
                 <LinearLayout
                     android:id="@+id/category_title"
-                    android:layout_marginBottom="5dp"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="center_vertical"
-                    android:layout_marginTop="10dp"
+                    android:layout_height="30dp"
                     android:layout_below="@id/ln1"
+                    android:layout_marginTop="20dp"
+                    android:gravity="center_vertical"
                     android:orientation="horizontal">
-
                     <TextView
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
+                        android:layout_marginLeft="15dp"
                         android:layout_weight="1"
                         android:text="Sản Phẩm Mới"
-                        android:textSize="20sp"
                         android:textColor="#BD2808"
-
-                        android:layout_marginLeft="15dp"
-                        android:textStyle="bold"/>
+                        android:textSize="20sp"
+                        android:textStyle="bold" />
 
 
                 </LinearLayout>
@@ -145,12 +145,13 @@
                     android:layout_height="400dp"
                     android:layout_below="@id/category_title"
                     android:layout_marginStart="10dp"
-                    android:layout_marginTop="10dp"
+                    android:layout_marginTop="20dp"
                     android:layout_marginEnd="10dp"
                     android:layout_marginBottom="10dp"
                     android:orientation="horizontal" />
 
-        </RelativeLayout>
+            </RelativeLayout>
+
     </RelativeLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
