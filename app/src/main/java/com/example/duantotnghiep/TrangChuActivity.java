@@ -4,11 +4,11 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
-public class TaoTaiKhoanActivity extends AppCompatActivity {
+public class TrangChuActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_tao_tai_khoan);
+        setContentView(R.layout.activity_trang_chu);
     }
 }

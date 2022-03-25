@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".TaoTaiKhoanActivity">
+    tools:context=".DangKyActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -46,11 +46,12 @@
                     android:paddingLeft="10dp"
                     android:lines="1"
                     android:drawablePadding="10dp"
-                    android:drawableLeft="@drawable/ic_email"
-                    android:drawableStart="@drawable/ic_email"
+
                     android:inputType="textEmailAddress"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"/>
+<!--                android:drawableLeft="@drawable/ic_email"-->
+<!--                android:drawableStart="@drawable/ic_email"-->
             </com.google.android.material.textfield.TextInputLayout>
 
 
@@ -94,14 +95,15 @@
                     android:id="@+id/edtRePassword"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:drawableStart="@drawable/ic_registration"
-                    android:drawableLeft="@drawable/ic_registration"
+
                     android:drawablePadding="10dp"
                     android:hint="Nhập lại mật khẩu"
                     android:inputType="textPassword"
                     android:lines="1"
                     android:paddingLeft="10dp"
                     android:singleLine="true" />
+<!--                android:drawableStart="@drawable/ic_registration"-->
+<!--                android:drawableLeft="@drawable/ic_registration"-->
             </com.google.android.material.textfield.TextInputLayout>
 
             <ProgressBar
@@ -119,7 +121,7 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/pbRegister"
                 android:layout_marginLeft="20dp"
-                android:layout_marginTop="60dp"
+                android:layout_marginTop="50dp"
                 android:layout_marginRight="20dp"
                 android:layout_marginBottom="20dp"
                 android:background="@drawable/my_button"
@@ -140,8 +142,8 @@
                 android:layout_height="wrap_content"
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="25dp"
-                android:textColor="#BD2808"
                 android:text="ĐĂNG NHẬP"
+                android:textColor="#BD2808"
                 android:textSize="16sp"
                 android:textStyle="bold" />
         </RelativeLayout>
