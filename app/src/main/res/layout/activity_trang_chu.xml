@@ -1,35 +1,61 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.drawerlayout.widget.DrawerLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/drawer_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".TrangChuActivity">
-    <RelativeLayout
+    android:fitsSystemWindows="true"
+    tools:openDrawer="start">
+
+    <include
+        android:id="@+id/app_bar_navigation_drawer"
+        layout="@layout/app_bar_trang_chu"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <com.google.android.material.navigation.NavigationView
+        android:id="@+id/nav_view"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        android:fitsSystemWindows="true"
+        app:headerLayout="@layout/nav_header_trang_chu"
+        app:menu="@menu/activity_main_drawer" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@android:color/white"/>
-
-
+        tools:context=".TrangChuActivity">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@android:color/white"/>
 
         <RelativeLayout
             android:layout_width="match_parent"
             android:id="@+id/nsv"
             android:background="@android:color/white"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            >
 
             <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="match_parent"
+                >
 
                 <RelativeLayout
                     android:id="@+id/search_bar"
                     android:layout_width="wrap_content"
                     android:layout_height="70dp"
-                    android:background="#BD2808"
-                    android:paddingLeft="27dp">
+                    android:background="#BD2808">
+
 
                     <androidx.cardview.widget.CardView
+
                         android:layout_width="match_parent"
                         android:layout_height="40dp"
                         android:layout_marginLeft="20dp"
@@ -40,9 +66,9 @@
                         app:cardBackgroundColor="@android:color/white"
                         app:cardCornerRadius="5dp"
                         app:cardElevation="3dp"
-
                         app:cardUseCompatPadding="false"
                         app:layout_collapseMode="parallax">
+
 
                         <LinearLayout
 
@@ -52,7 +78,20 @@
 
                             <RelativeLayout
                                 android:layout_width="50dp"
+                                android:layout_height="match_parent">
 
+                                <ImageView
+                                    android:id="@+id/btn_drawer"
+                                    android:layout_width="50dp"
+                                    android:layout_height="50dp"
+                                    android:layout_centerInParent="true"
+                                    android:background="@color/colorPrimary"
+                                    android:src="@drawable/drawer" />
+
+                            </RelativeLayout>
+
+                            <RelativeLayout
+                                android:layout_width="50dp"
                                 android:layout_height="match_parent">
 
                                 <ImageView
@@ -64,6 +103,7 @@
 
                             </RelativeLayout>
 
+
                             <TextView
                                 android:id="@+id/search_text"
                                 android:layout_width="0dp"
@@ -73,7 +113,8 @@
                                 android:text="Tìm Kiếm"
                                 android:textAppearance="@style/Base.TextAppearance.AppCompat.Subhead"
                                 android:textColor="#BD2808"
-                                android:textSize="18sp" />
+                                android:textSize="18sp"
+                                android:textStyle="bold"/>
 
                         </LinearLayout>
 
@@ -152,6 +193,11 @@
 
             </RelativeLayout>
 
-    </RelativeLayout>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+
+        </RelativeLayout>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.drawerlayout.widget.DrawerLayout>

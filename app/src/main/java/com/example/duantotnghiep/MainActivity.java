@@ -14,11 +14,9 @@ import com.google.android.material.textfield.TextInputLayout;
 
 public class MainActivity extends AppCompatActivity {
         Button btnSignIn;
-        TextView txtSignUp;
+        TextView txtSignUp, txtForgetPass;
         TextInputLayout inputEmail,inputPass;
         TextInputEditText edtemail, edtpassword;
-
-        
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,11 +24,13 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         AnhxaDangNhap();
         DangNhap();
-        ManTaotaikhoan();
+        DangKy();
+        QuenMatKhau();
     }
     private void AnhxaDangNhap(){
         btnSignIn = findViewById(R.id.btnSignIn);
         txtSignUp = findViewById(R.id.txtSignIn);
+        txtForgetPass = findViewById(R.id.txtForgetPass);
         inputEmail = findViewById(R.id.inputEmail);
         inputPass = findViewById(R.id.inputPass);
         edtemail = findViewById(R.id.edtEmail);
@@ -47,11 +47,20 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
-    private void ManTaotaikhoan(){
+    private void DangKy(){
         txtSignUp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this, DangKyActivity.class);
+                startActivity(intent);
+            }
+        });
+    }
+    private void QuenMatKhau(){
+        txtForgetPass.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, QuenMatKhauActivity.class);
                 startActivity(intent);
             }
         });
