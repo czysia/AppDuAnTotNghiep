@@ -1,5 +1,9 @@
 package org.sonnnph12414.appduantotnghiep.api;
 
+import org.sonnnph12414.appduantotnghiep.model.GioHang;
+
+import java.util.List;
+
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
@@ -22,5 +26,6 @@ public class APIClient {
         }
         return retrofit;
     }
-
+    //tao bien toan cuc cho phan gio hang
+    public static List<GioHang> manggiohang;
 }

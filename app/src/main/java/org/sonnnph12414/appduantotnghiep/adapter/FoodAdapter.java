@@ -1,6 +1,7 @@
 package org.sonnnph12414.appduantotnghiep.adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,6 +14,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 
 import org.sonnnph12414.appduantotnghiep.R;
+import org.sonnnph12414.appduantotnghiep.activity.ChiTietActivity;
 import org.sonnnph12414.appduantotnghiep.model.Food;
 
 import java.util.List;
@@ -37,6 +39,7 @@ public class FoodAdapter extends RecyclerView.Adapter<FoodAdapter.ViewHolder>{
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+
         Food food = foodList.get(position);
         if (food == null) {
             return;
@@ -45,6 +48,17 @@ public class FoodAdapter extends RecyclerView.Adapter<FoodAdapter.ViewHolder>{
         holder.tvFoodName.setText(food.getName());
         holder.tvFoodPrice.setText(food.getPrice());
         holder.tvFoodInfo.setText(food.getIngredients());
+        //click vào ảnh
+        holder.imgFood.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (!view.isLongClickable()){
+                    Intent intent = new Intent(context, ChiTietActivity.class);
+                    intent.putExtra("chitiet",food);
+                }
+            }
+        });
+
     }
 
     @Override
