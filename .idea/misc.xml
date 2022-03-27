@@ -4,10 +4,14 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/DATN/DATN2021/App/AppDuAnTotNghiep/app/src/main/res/drawable/bgr_border_only.xml" value="0.33076923076923076" />
+        <entry key="..\:/DATN/DATN2021/App/AppDuAnTotNghiep/app/src/main/res/drawable/bgr_ed.xml" value="0.33076923076923076" />
+        <entry key="..\:/DATN/DATN2021/App/AppDuAnTotNghiep/app/src/main/res/drawable/bgr_ed_ghi_chu.xml" value="0.33076923076923076" />
         <entry key="..\:/DATN/DATN2021/App/AppDuAnTotNghiep/app/src/main/res/drawable/ic_arrow_back_24.xml" value="0.33076923076923076" />
         <entry key="..\:/DATN/DATN2021/App/AppDuAnTotNghiep/app/src/main/res/drawable/ic_home_circle.xml" value="0.33076923076923076" />
+        <entry key="..\:/DATN/DATN2021/App/AppDuAnTotNghiep/app/src/main/res/drawable/ic_shopping.xml" value="0.33076923076923076" />
         <entry key="..\:/DATN/DATN2021/App/AppDuAnTotNghiep/app/src/main/res/layout/activity_main.xml" value="0.17395833333333333" />
         <entry key="..\:/DATN/DATN2021/App/AppDuAnTotNghiep/app/src/main/res/layout/fragment_food.xml" value="0.31979166666666664" />
+        <entry key="..\:/DATN/DATN2021/App/AppDuAnTotNghiep/app/src/main/res/layout/fragment_thanh_toan.xml" value="0.3161231884057971" />
         <entry key="..\:/DATN/DATN2021/App/AppDuAnTotNghiep/app/src/main/res/layout/item_food.xml" value="0.31979166666666664" />
       </map>
     </option>
