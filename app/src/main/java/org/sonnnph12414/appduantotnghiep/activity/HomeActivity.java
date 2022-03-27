@@ -31,6 +31,8 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
+import org.sonnnph12414.appduantotnghiep.R;
+
 public class HomeActivity extends AppCompatActivity {
     Toolbar toolbar;
     ViewFlipper viewFlipper;
@@ -89,6 +91,8 @@ public class HomeActivity extends AppCompatActivity {
         listViewManHinhChinh = findViewById(R.id.listviewmanhinhchinh);
         navigationView = findViewById(R.id.navigationview);
         drawerLayout = findViewById(R.id.drawerlayout);
+        //khoi tao list
+        if (APIClient.manggiohang == null){APIClient.manggiohang = new ArrayList<>();}
     }
     private void viewCategories() {
         Call<List<Categories>> call = APIClient.create().getAllCategories();

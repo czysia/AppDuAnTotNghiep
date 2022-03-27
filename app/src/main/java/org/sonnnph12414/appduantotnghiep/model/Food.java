@@ -3,11 +3,12 @@ package org.sonnnph12414.appduantotnghiep.model;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 
-public class Food {
+public class Food implements Serializable {
     @SerializedName("image")
     @Expose
     ArrayList<String> image;
