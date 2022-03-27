@@ -53,7 +53,15 @@
                 android:textColor="#B71818"
                 android:text="Thùng 12 hộp x 85g"/>
         </LinearLayout>
-
+        <ImageButton
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:background="@drawable/bgr_border_only"
+            android:padding="8dp"
+            android:scaleType="fitCenter"
+            android:layout_gravity="center_vertical"
+            android:src="@drawable/oreo"
+            />
     </LinearLayout>
 
     <View

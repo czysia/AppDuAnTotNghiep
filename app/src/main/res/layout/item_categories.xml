@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="140dp"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:layout_margin="10dp">
+
+    <ImageButton
+        android:id="@+id/imgCategories"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:background="@drawable/bgr_border_only"
+        android:scaleType="fitCenter"
+        android:layout_gravity="center"
+        android:src="@drawable/oreo"
+
+        />
+    <TextView
+        android:id="@+id/tvCategoriesName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="2dp"
+        android:textStyle="bold"
+        android:textColor="#B71818"
+        android:textSize="20dp"
+        android:gravity="center"
+        android:text="Banh Bong lan"/>
+
+
+
+</LinearLayout>

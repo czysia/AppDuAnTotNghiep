@@ -12,6 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AppDuAnTotNghiep">
         <activity
+            android:name=".activity.FoodActivity"
+            android:exported="true" />
+        <activity
             android:name=".activity.ThanhToan"
             android:exported="false" />
         <activity
@@ -28,7 +31,7 @@
             android:exported="false" />
         <activity
             android:name=".MainActivity"
-            android:exported="true"></activity>
+            android:exported="true" />
     </application>
 
 </manifest>
