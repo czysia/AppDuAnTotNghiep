@@ -12,6 +12,24 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AppDuAnTotNghiep">
         <activity
+            android:name=".activity.SplashScreenActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".activity.SigninActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.ForGetPassActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.LoginActivity"
+            android:exported="false" />
+        <activity
             android:name=".activity.FoodActivity"
             android:exported="true" />
         <activity

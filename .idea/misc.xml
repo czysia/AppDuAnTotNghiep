@@ -17,6 +17,11 @@
         <entry key="..\:/DATN/DATN2021/App/AppDuAnTotNghiep/app/src/main/res/layout/item_categories.xml" value="0.3120471014492754" />
         <entry key="..\:/DATN/DATN2021/App/AppDuAnTotNghiep/app/src/main/res/layout/item_food.xml" value="0.31979166666666664" />
         <entry key="..\:/DATN/DATN2021/App/AppDuAnTotNghiep/app/src/main/res/layout/item_giohang.xml" value="0.3120471014492754" />
+        <entry key="app/src/main/res/drawable/rounded_button.xml" value="0.1775" />
+        <entry key="app/src/main/res/layout/activity_for_get_pass.xml" value="0.16312056737588654" />
+        <entry key="app/src/main/res/layout/activity_login.xml" value="0.33" />
+        <entry key="app/src/main/res/layout/activity_signin.xml" value="0.28351449275362317" />
+        <entry key="app/src/main/res/layout/activity_splash_screen.xml" value="0.28351449275362317" />
       </map>
     </option>
   </component>
