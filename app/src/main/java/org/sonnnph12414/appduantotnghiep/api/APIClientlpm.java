@@ -1,6 +1,7 @@
 package org.sonnnph12414.appduantotnghiep.api;
 
 
+import org.sonnnph12414.appduantotnghiep.model.Categories;
 import org.sonnnph12414.appduantotnghiep.model.Food;
 
 import java.util.List;
@@ -12,4 +13,7 @@ public interface APIClientlpm {
 
     @GET("api/products/getall")
     Call<List<Food>> getAllFood();
+
+    @GET("api/categories/getall")
+    Call<List<Categories>> getAllCategories();
 }

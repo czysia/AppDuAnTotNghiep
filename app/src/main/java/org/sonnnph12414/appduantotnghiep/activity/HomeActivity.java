@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
@@ -12,15 +13,23 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.Toast;
 import android.widget.ViewFlipper;
 
 import com.bumptech.glide.Glide;
 import com.google.android.material.navigation.NavigationView;
 
 import org.sonnnph12414.appduantotnghiep.R;
+import org.sonnnph12414.appduantotnghiep.adapter.CategoriesAdapter;
+import org.sonnnph12414.appduantotnghiep.api.APIClient;
+import org.sonnnph12414.appduantotnghiep.model.Categories;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class HomeActivity extends AppCompatActivity {
     Toolbar toolbar;
@@ -29,6 +38,7 @@ public class HomeActivity extends AppCompatActivity {
     NavigationView navigationView;
     ListView listViewManHinhChinh;
     DrawerLayout drawerLayout;
+    List<Categories> categoriesList;
 
 
     @Override
@@ -38,6 +48,8 @@ public class HomeActivity extends AppCompatActivity {
         Anhxa();
         ActionBar();
         ActionViewFlipper();
+        categoriesList= new ArrayList<>();
+        viewCategories();
     }
     private void ActionViewFlipper() {
         List<String> mangquangcao = new ArrayList<>();
@@ -77,5 +89,25 @@ public class HomeActivity extends AppCompatActivity {
         listViewManHinhChinh = findViewById(R.id.listviewmanhinhchinh);
         navigationView = findViewById(R.id.navigationview);
         drawerLayout = findViewById(R.id.drawerlayout);
+    }
+    private void viewCategories() {
+        Call<List<Categories>> call = APIClient.create().getAllCategories();
+        call.enqueue(new Callback<List<Categories>>() {
+            @Override
+            public void onResponse(Call<List<Categories>> call, Response<List<Categories>> response) {
+                categoriesList=response.body();
+                GridLayoutManager gridLayoutManager = new GridLayoutManager(getApplicationContext(),2,RecyclerView.HORIZONTAL,false);
+                CategoriesAdapter categoriesAdapter = new CategoriesAdapter(categoriesList,getApplicationContext());
+                recyclerViewManHinhChinh.setLayoutManager(gridLayoutManager);
+                recyclerViewManHinhChinh.setAdapter(categoriesAdapter);
+
+            }
+
+            @Override
+            public void onFailure(Call<List<Categories>> call, Throwable t) {
+                Toast.makeText(getApplicationContext(), t.getMessage(), Toast.LENGTH_SHORT).show();
+
+            }
+        });
     }
 }
