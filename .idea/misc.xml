@@ -20,8 +20,9 @@
         <entry key="..\:/Users/ASUS/AndroidStudioProjects/DuAnTotNghiep/app/src/main/res/layout/activity_quen_mat_khau.xml" value="0.2" />
         <entry key="..\:/Users/ASUS/AndroidStudioProjects/DuAnTotNghiep/app/src/main/res/layout/activity_tao_tai_khoan.xml" value="0.2" />
         <entry key="..\:/Users/ASUS/AndroidStudioProjects/DuAnTotNghiep/app/src/main/res/layout/activity_tim_kiem.xml" value="0.264" />
-        <entry key="..\:/Users/ASUS/AndroidStudioProjects/DuAnTotNghiep/app/src/main/res/layout/activity_trang_chu.xml" value="0.1" />
+        <entry key="..\:/Users/ASUS/AndroidStudioProjects/DuAnTotNghiep/app/src/main/res/layout/activity_trang_chu.xml" value="0.4" />
         <entry key="..\:/Users/ASUS/AndroidStudioProjects/DuAnTotNghiep/app/src/main/res/layout/app_bar_navigation_drawer.xml" value="0.20742753623188406" />
+        <entry key="..\:/Users/ASUS/AndroidStudioProjects/DuAnTotNghiep/app/src/main/res/layout/app_bar_trang_chu.xml" value="0.19021739130434784" />
         <entry key="..\:/Users/ASUS/AndroidStudioProjects/DuAnTotNghiep/app/src/main/res/layout/button_login.xml" value="0.2296195652173913" />
         <entry key="..\:/Users/ASUS/AndroidStudioProjects/DuAnTotNghiep/app/src/main/res/layout/content_navigation_drawer.xml" value="0.20742753623188406" />
         <entry key="..\:/Users/ASUS/AndroidStudioProjects/DuAnTotNghiep/app/src/main/res/layout/content_trang_chu.xml" value="0.17135416666666667" />
@@ -30,8 +31,9 @@
         <entry key="..\:/Users/ASUS/AndroidStudioProjects/DuAnTotNghiep/app/src/main/res/layout/fragment_slideshow.xml" value="0.20742753623188406" />
         <entry key="..\:/Users/ASUS/AndroidStudioProjects/DuAnTotNghiep/app/src/main/res/layout/manhinhchao_activity.xml" value="0.2" />
         <entry key="..\:/Users/ASUS/AndroidStudioProjects/DuAnTotNghiep/app/src/main/res/layout/nav_header_navigation_drawer.xml" value="0.20742753623188406" />
-        <entry key="..\:/Users/ASUS/AndroidStudioProjects/DuAnTotNghiep/app/src/main/res/layout/nav_header_trang_chu.xml" value="0.264" />
+        <entry key="..\:/Users/ASUS/AndroidStudioProjects/DuAnTotNghiep/app/src/main/res/layout/nav_header_trang_chu.xml" value="0.2" />
         <entry key="..\:/Users/ASUS/AndroidStudioProjects/DuAnTotNghiep/app/src/main/res/layout/slider_item.xml" value="0.18659420289855072" />
+        <entry key="..\:/Users/ASUS/AndroidStudioProjects/DuAnTotNghiep/app/src/main/res/menu/activity_main_drawer.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/ASUS/AndroidStudioProjects/DuAnTotNghiep/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.14635416666666667" />
         <entry key="..\:/Users/ASUS/AndroidStudioProjects/DuAnTotNghiep/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.14635416666666667" />
         <entry key="..\:/Users/ASUS/AndroidStudioProjects/DuAnTotNghiep/app/src/main/res/mipmap-anydpi-v26/icon.xml" value="0.14635416666666667" />

@@ -41,8 +41,7 @@
 
             <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                >
+                android:layout_height="match_parent">
 
                 <RelativeLayout
                     android:id="@+id/search_bar"
@@ -124,16 +123,15 @@
                     android:layout_width="match_parent"
                     android:layout_height="230dp"
                     android:layout_below="@+id/search_bar"
-                    android:background="@color/colorPrimary"
-                    >
+                    android:background="@color/colorPrimary">
 
                     <androidx.cardview.widget.CardView
                         android:layout_width="match_parent"
                         android:layout_height="210dp"
                         android:layout_margin="10dp"
-                        app:cardCornerRadius="20dp"
                         android:background="@color/colorPrimary"
-                        >
+                        app:cardCornerRadius="20dp">
+
                         <com.smarteist.autoimageslider.SliderView
                             android:id="@+id/imageSlider"
                             android:layout_width="match_parent"
@@ -164,6 +162,7 @@
                     android:layout_marginTop="20dp"
                     android:gravity="center_vertical"
                     android:orientation="horizontal">
+
                     <TextView
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"

@@ -37,11 +37,13 @@ public class TrangChuActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-     //Khai báo dưới đây!!
+
      binding = ActivityTrangChuBinding.inflate(getLayoutInflater());
      setContentView(binding.getRoot());
+        //Khai báo dưới đây!!
         AnhxaTrangChu();
         TimKiem();
+//        TrangChu();
 
         setSupportActionBar(binding.appBarTrangChu.toolbar);
 
@@ -63,10 +65,10 @@ public class TrangChuActivity extends AppCompatActivity {
         });
         DrawerLayout drawer = binding.drawerLayout;
         NavigationView navigationView = binding.navView;
-        // Passing each menu ID as a set of Ids because each
-        // menu should be considered as top level destinations.
+
+
         mAppBarConfiguration = new AppBarConfiguration.Builder(
-                R.id.nav_home, R.id.nav_gallery, R.id.nav_slideshow)
+                R.id.nav_home, R.id.nav_information, R.id.nav_signout)
                 .setOpenableLayout(drawer)
                 .build();
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_navigation_drawer);
@@ -76,6 +78,7 @@ public class TrangChuActivity extends AppCompatActivity {
 
     private void AnhxaTrangChu(){
         btnSearch = findViewById(R.id.btnSearch);
+//        nav_home = findViewById(R.id.nav_home);
     }
 
     private void TimKiem(){
@@ -87,10 +90,19 @@ public class TrangChuActivity extends AppCompatActivity {
             }
         });
     }
+//    private void TrangChu(){
+//        nav_home.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Intent intent = new Intent(TrangChuActivity.this, DangKyActivity.class);
+//                startActivity(intent);
+//            }
+//        });
+//    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
+
         getMenuInflater().inflate(R.menu.navigation_drawer, menu);
         return true;
     }
