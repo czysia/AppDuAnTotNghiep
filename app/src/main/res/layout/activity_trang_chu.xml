@@ -10,11 +10,10 @@
     tools:openDrawer="start">
 
     <include
-        android:id="@+id/app_bar_navigation_drawer"
+        android:id="@+id/app_bar_trang_chu"
         layout="@layout/app_bar_trang_chu"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
-
     <com.google.android.material.navigation.NavigationView
         android:id="@+id/nav_view"
         android:layout_width="wrap_content"
@@ -24,9 +23,7 @@
         app:headerLayout="@layout/nav_header_trang_chu"
         app:menu="@menu/activity_main_drawer" />
 
-    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context=".TrangChuActivity">
@@ -53,8 +50,8 @@
                     android:layout_height="70dp"
                     android:background="#BD2808">
 
-
                     <androidx.cardview.widget.CardView
+
 
                         android:layout_width="match_parent"
                         android:layout_height="40dp"
@@ -69,9 +66,7 @@
                         app:cardUseCompatPadding="false"
                         app:layout_collapseMode="parallax">
 
-
                         <LinearLayout
-
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:orientation="horizontal">
@@ -80,6 +75,7 @@
                                 android:layout_width="50dp"
                                 android:layout_height="match_parent">
 
+
                                 <ImageView
                                     android:id="@+id/btn_drawer"
                                     android:layout_width="50dp"
@@ -87,36 +83,37 @@
                                     android:layout_centerInParent="true"
                                     android:background="@color/colorPrimary"
                                     android:src="@drawable/drawer" />
-
                             </RelativeLayout>
+
 
                             <RelativeLayout
                                 android:layout_width="50dp"
-                                android:layout_height="match_parent">
+                                android:layout_height="match_parent"
+                                android:layout_marginLeft="135dp">
 
                                 <ImageView
-                                    android:id="@+id/btn_search"
-                                    android:layout_width="25dp"
-                                    android:layout_height="25dp"
+                                    android:id="@+id/logo"
+                                    android:layout_width="50dp"
+                                    android:layout_height="50dp"
                                     android:layout_centerInParent="true"
-                                    android:src="@drawable/search" />
-
+                                    android:src="@drawable/cart" />
                             </RelativeLayout>
 
-
-                            <TextView
-                                android:id="@+id/search_text"
-                                android:layout_width="0dp"
+                            <RelativeLayout
+                                android:layout_width="30dp"
                                 android:layout_height="match_parent"
-                                android:layout_weight="1"
-                                android:gravity="center_vertical"
-                                android:text="Tìm Kiếm"
-                                android:textAppearance="@style/Base.TextAppearance.AppCompat.Subhead"
-                                android:textColor="#BD2808"
-                                android:textSize="18sp"
-                                android:textStyle="bold"/>
+                                android:layout_marginLeft="140dp">
+
+                                <ImageView
+                                    android:id="@+id/btnSearch"
+                                    android:layout_width="30dp"
+                                    android:layout_height="30dp"
+                                    android:layout_centerInParent="true"
+                                    android:src="@drawable/search" />
+                            </RelativeLayout>
 
                         </LinearLayout>
+
 
                     </androidx.cardview.widget.CardView>
 

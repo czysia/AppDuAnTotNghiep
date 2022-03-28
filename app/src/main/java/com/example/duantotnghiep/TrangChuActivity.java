@@ -1,8 +1,10 @@
 package com.example.duantotnghiep;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.Menu;
+import android.widget.ImageView;
 
 import com.example.duantotnghiep.Adapter.SliderAdapter;
 import com.google.android.material.snackbar.Snackbar;
@@ -19,8 +21,9 @@ import com.smarteist.autoimageslider.SliderAnimations;
 import com.smarteist.autoimageslider.SliderView;
 
 public class TrangChuActivity extends AppCompatActivity {
-
+    ImageView btnSearch;
     SliderView sliderView;
+
     int[] images = {R.drawable.slide1,
             R.drawable.slide2,
             R.drawable.slide3,
@@ -28,16 +31,19 @@ public class TrangChuActivity extends AppCompatActivity {
             R.drawable.slide5};
 
     private AppBarConfiguration mAppBarConfiguration;
-private ActivityTrangChuBinding binding;
+    private ActivityTrangChuBinding binding;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+     //Khai báo dưới đây!!
      binding = ActivityTrangChuBinding.inflate(getLayoutInflater());
      setContentView(binding.getRoot());
+        AnhxaTrangChu();
+        TimKiem();
 
-        setSupportActionBar(binding.appBarNavigationDrawer.toolbar);
+        setSupportActionBar(binding.appBarTrangChu.toolbar);
 
         sliderView = findViewById(R.id.imageSlider);
 
@@ -48,7 +54,7 @@ private ActivityTrangChuBinding binding;
         sliderView.setSliderTransformAnimation(SliderAnimations.DEPTHTRANSFORMATION);
         sliderView.startAutoCycle();
 
-        binding.appBarNavigationDrawer.fab.setOnClickListener(new View.OnClickListener() {
+        binding.appBarTrangChu.fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
@@ -66,6 +72,20 @@ private ActivityTrangChuBinding binding;
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_navigation_drawer);
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
         NavigationUI.setupWithNavController(navigationView, navController);
+    }
+
+    private void AnhxaTrangChu(){
+        btnSearch = findViewById(R.id.btnSearch);
+    }
+
+    private void TimKiem(){
+        btnSearch.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(TrangChuActivity.this, TimKiemActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 
     @Override
