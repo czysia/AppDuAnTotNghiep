@@ -3,11 +3,17 @@ package org.sonnnph12414.appduantotnghiep.api;
 
 import org.sonnnph12414.appduantotnghiep.model.Categories;
 import org.sonnnph12414.appduantotnghiep.model.Food;
+import org.sonnnph12414.appduantotnghiep.model.ResponseUpdate;
+import org.sonnnph12414.appduantotnghiep.model.User;
 
 import java.util.List;
 
 import retrofit2.Call;
+import retrofit2.http.Body;
+import retrofit2.http.Field;
+import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
+import retrofit2.http.POST;
 
 public interface APIClientlpm {
 
@@ -16,4 +22,13 @@ public interface APIClientlpm {
 
     @GET("api/categories/getall")
     Call<List<Categories>> getAllCategories();
+
+    @POST("api/users/create")
+    @FormUrlEncoded
+    Call<ResponseUpdate> dangky(
+            @Field("id") String id,
+            @Field("email") String email,
+            @Field("password") String password,
+            @Field("repassword") String repassword
+    );
 }

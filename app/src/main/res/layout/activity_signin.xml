@@ -36,7 +36,8 @@
             android:layout_height="52dp"
             android:layout_margin="8dp"
             android:background="@drawable/rounded_edittext"
-            android:hint="Tên Tài Khoản"
+            android:hint="Email"
+            android:inputType="textEmailAddress"
             android:paddingLeft="16dp"
             android:textColor="#FFFFFF"
             android:textColorHint="#FFFFFF" />
@@ -87,4 +88,17 @@
         android:textSize="25sp"
         android:textStyle="bold"
         android:onClick="TroLaiDN"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:id="@+id/tvResult"/>
+    <ProgressBar
+        android:id="@+id/idLoadingPB"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:visibility="gone" />
+
 </LinearLayout>

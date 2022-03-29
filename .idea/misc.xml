@@ -29,6 +29,8 @@
         <entry key="..\:/android co ban/Re/AppDuAnTotNghiep/app/src/main/res/layout/fragment_thanh_toan.xml" value="0.20416666666666666" />
         <entry key="..\:/android co ban/Re/AppDuAnTotNghiep/app/src/main/res/layout/item_food.xml" value="0.33" />
         <entry key="..\:/android co ban/Re/AppDuAnTotNghiep/app/src/main/res/layout/item_giohang.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/activity_login.xml" value="0.33" />
+        <entry key="app/src/main/res/layout/activity_signin.xml" value="0.33" />
       </map>
     </option>
   </component>

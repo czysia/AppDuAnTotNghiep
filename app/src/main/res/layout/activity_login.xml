@@ -34,10 +34,10 @@
             android:id="@+id/edt_Username"
             android:layout_width="match_parent"
             android:layout_height="52dp"
-            android:layout_margin="8dp"
+            android:layout_margin="16dp"
             android:background="@drawable/rounded_edittext"
             android:hint="Tên Tài Khoản"
-            android:paddingLeft="16dp"
+            android:paddingLeft="10dp"
             android:textColor="#FFFFFF"
             android:textColorHint="#FFFFFF" />
 
@@ -45,7 +45,7 @@
             android:id="@+id/edt_Password"
             android:layout_width="match_parent"
             android:layout_height="52dp"
-            android:layout_margin="8dp"
+            android:layout_margin="10dp"
             android:background="@drawable/rounded_edittext"
             android:hint="Mật Khẩu"
             android:inputType="textPassword"
