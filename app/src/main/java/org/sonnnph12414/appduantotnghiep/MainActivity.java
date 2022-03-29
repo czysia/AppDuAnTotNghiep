@@ -28,11 +28,7 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class MainActivity extends AppCompatActivity {
-    Toolbar toolbar;
-    ViewFlipper viewFlipper;
-    RecyclerView recyclerViewManHinhChinh;
-    ListView listViewManHinhChinh;
-    NavigationView navigationView;
+
 
 
     @Override
@@ -40,16 +36,9 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Anhxa();
+
 
     }
 
-    private void Anhxa() {
-        toolbar =findViewById(R.id.toolbarmanhinhchinh);
-        viewFlipper =findViewById(R.id.viewflipper);
-        recyclerViewManHinhChinh =findViewById(R.id.recyclerview);
-        listViewManHinhChinh = findViewById(R.id.listviewmanhinhchinh);
-        navigationView =findViewById(R.id.navigationview);
-    }
 
 }

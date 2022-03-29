@@ -84,7 +84,7 @@ public class LoginActivity extends AppCompatActivity {
     public void Login(View view) {
         if (validater(edt_Username.getText().toString(), edt_Password.getText().toString())) {
             saveData();
-            Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+            Intent intent = new Intent(LoginActivity.this, HomeActivity.class);
             startActivity(intent);
         }
     }
