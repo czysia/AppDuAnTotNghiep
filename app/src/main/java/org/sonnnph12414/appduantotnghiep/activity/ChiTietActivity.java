@@ -30,7 +30,7 @@ public class ChiTietActivity extends AppCompatActivity {
         setContentView(R.layout.activity_chitiet);
         initView();
         ActionToolBar();
-        intitData();
+//        intitData();
     }
 
     private void intitData() {
@@ -52,7 +52,6 @@ public class ChiTietActivity extends AppCompatActivity {
         btnthem =findViewById(R.id.btnthemvaogiohang);
         spinner = findViewById(R.id.spinner);
         imghinhanh = findViewById(R.id.imgchitiet);
-        toolbar = findViewById(R.id.toolbar);
     }
 
     private void ActionToolBar() {
