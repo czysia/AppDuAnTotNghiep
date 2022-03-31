@@ -11,6 +11,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -21,6 +22,7 @@ import org.sonnnph12414.appduantotnghiep.R;
 import org.sonnnph12414.appduantotnghiep.activity.ChiTietActivity;
 import org.sonnnph12414.appduantotnghiep.activity.GioHangActivity;
 import org.sonnnph12414.appduantotnghiep.fragment.ChiTietFragment;
+import org.sonnnph12414.appduantotnghiep.fragment.GioHangFragment;
 import org.sonnnph12414.appduantotnghiep.model.Food;
 import org.sonnnph12414.appduantotnghiep.model.Foodbuy;
 
@@ -31,9 +33,9 @@ public class FoodAdapter extends RecyclerView.Adapter<FoodAdapter.ViewHolder>{
     List<Food> foodList;
     Context context;
 
-    public FoodAdapter(List<Food> foodList,Context context) {
+    public FoodAdapter(List<Food> foodList, Context context) {
         this.foodList = foodList;
-        this.context=context;
+        this.context = context;
 
     }
 
@@ -63,25 +65,23 @@ public class FoodAdapter extends RecyclerView.Adapter<FoodAdapter.ViewHolder>{
 //                 chua chuyen du lieu + mo fragment moi
                 if (!view.isLongClickable()){
                     Intent intent = new Intent(context, ChiTietActivity.class);
-                    Fragment fragment = new Fragment();
+                    Fragment fragment = new ChiTietFragment();
                     Bundle bundle = new Bundle();
-                    bundle.putString("chitietName", String.valueOf(holder.tvFoodName));
-                    bundle.putString("chitietPrice", String.valueOf(holder.tvFoodPrice));
-                    bundle.putString("chitietInfo", String.valueOf(holder.tvFoodInfo));
-                    bundle.putString("chitietImg", String.valueOf(holder.imgFood));
+                    bundle.putString("chitietName", holder.tvFoodName.getText().toString());
+                    bundle.putString("chitietPrice", holder.tvFoodPrice.getText().toString());
+                    bundle.putString("chitietInfo", holder.tvFoodInfo.getText().toString());
+                    bundle.putString("imgUrl", food.getImage().get(0));
                     fragment.setArguments(bundle);
+
                     Log.e("send","da chuyen");
 
-                }
-                sendDatatoFragment();
-            }
-            private void sendDatatoFragment() {
-                Foodbuy foodbuy = new Foodbuy(String.valueOf(holder.tvFoodName),String.valueOf(holder.tvFoodPrice),
-                        String.valueOf(holder.tvFoodInfo),String.valueOf(holder.imgFood));
-                EventBus.getDefault().postSticky(foodbuy);
+                    ((AppCompatActivity) context).getSupportFragmentManager()
+                            .beginTransaction()
+                            .replace(R.id.content_fame, fragment, null)
+                            .addToBackStack(null)
+                            .commit();
 
-                Intent i = new Intent(holder.imgFood.getContext(), GioHangActivity.class);
-                context.startActivity(i);
+                }
             }
         });
 

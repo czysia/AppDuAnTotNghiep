@@ -9,22 +9,27 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
 
+import com.bumptech.glide.Glide;
+
 import org.sonnnph12414.appduantotnghiep.R;
 
 import java.text.DecimalFormat;
 
-public class ChiTietFragment extends Fragment {
-    TextView tensp,giasp,mota;
-    Button btnthem;
-    ImageView imghinhanh;
+public class ChiTietFragment extends Fragment implements View.OnClickListener {
+    TextView tvName, tvPrice, tvDescription;
+    Button btnAddToCart;
+    ImageView imageView;
     Spinner spinner;
     Toolbar toolbar;
+
+    Double price;
 
     public ChiTietFragment(){}
 
@@ -33,13 +38,14 @@ public class ChiTietFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_chitiet,container,false);
 
-        tensp = view.findViewById(R.id.txttensanpham);
-        giasp = view.findViewById(R.id.txtgiasanpham);
-        mota = view.findViewById(R.id.txtmotachitiet);
-        btnthem = view.findViewById(R.id.btnthemvaogiohang);
+        tvName = view.findViewById(R.id.txttensanpham);
+        tvPrice = view.findViewById(R.id.txtgiasanpham);
+        tvDescription = view.findViewById(R.id.txtmotachitiet);
+        imageView = view.findViewById(R.id.imgchitiet);
         spinner = view.findViewById(R.id.spinner);
-        imghinhanh = view.findViewById(R.id.imgchitiet);
-        toolbar = view.findViewById(R.id.toolbar);
+        // toolbar = view.findViewById(R.id.toolbar)
+        btnAddToCart = view.findViewById(R.id.btnthemvaogiohang);
+        btnAddToCart.setOnClickListener(this);
 
         initData();
 
@@ -47,32 +53,42 @@ public class ChiTietFragment extends Fragment {
     }
 
     private void initData() {
-//        Food food = (Food) getActivity().getIntent().getExtra("chitiet");
-//        tensp.setText(food.getName());
-//        mota.setText(food.getOrigin());
-//        Glide.with(getApplicationContext()).load(food.getImage()).into(imghinhanh);
-//        DecimalFormat decimalFormat = new DecimalFormat("###,###,###");
-//        giasp.setText("Giá: "+decimalFormat.format(Double.parseDouble(food.getPrice()))+"đ");
-//        Integer[] so = new Integer[]{1,2,3,4,5,6,7,8,9,10};
-//        ArrayAdapter<Integer> adapterspin = new ArrayAdapter<>(this,R.layout.support_simple_spinner_dropdown_item,so);
-//        spinner.setAdapter(adapterspin);
-
         Bundle bundle = getArguments();
         if (bundle != null) {
             String Name = bundle.getString("chitietName");
-            String Price = bundle.getString("chitietPrice");
+            price = Double.parseDouble(bundle.getString("chitietPrice"));
             String Info = bundle.getString("chitietInfo");
-            String Img = bundle.getString("chitietImg");
-            tensp.setText(Name);
-            mota.setText(Info);
+            String imgUrl = bundle.getString("imgUrl");
+
+            Glide.with(getContext()).load(imgUrl).into(imageView);
+
+            tvName.setText(Name);
+            tvDescription.setText(Info);
             DecimalFormat decimalFormat = new DecimalFormat("###,###,###");
-            giasp.setText("Giá: "+decimalFormat.format(Double.parseDouble(Price))+"đ");
+            tvPrice.setText("Giá: "+decimalFormat.format(price)+"đ");
             Integer[] soluong = new Integer[]{1,2,3,4,5,6,7,8,9,10};
-            ArrayAdapter<Integer> adapterspin = new ArrayAdapter<Integer>(getContext(),R.layout.support_simple_spinner_dropdown_item,soluong);
-            spinner.setAdapter(adapterspin);
+            ArrayAdapter<Integer> spinnerAdapter = new ArrayAdapter<Integer>(getContext(),R.layout.support_simple_spinner_dropdown_item,soluong);
+            spinner.setAdapter(spinnerAdapter);
         }
 
     }
 
 
+    @Override
+    public void onClick(View view) {
+        Fragment fragment = new GioHangFragment();
+
+        Bundle bundle = new Bundle();
+        bundle.putString("name", tvName.getText().toString());
+        bundle.putDouble("price", price);
+        bundle.putInt("quantity", Integer.parseInt(spinner.getSelectedItem().toString()));
+
+        fragment.setArguments(bundle);
+
+        getActivity().getSupportFragmentManager()
+                .beginTransaction()
+                .replace(R.id.content_fame, fragment, null)
+                .addToBackStack(null)
+                .commit();
+    }
 }

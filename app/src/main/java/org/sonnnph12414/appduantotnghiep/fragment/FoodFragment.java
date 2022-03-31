@@ -65,7 +65,7 @@ public class FoodFragment extends Fragment {
             public void onResponse(Call<List<Food>> call, Response<List<Food>> response) {
                 foodList=response.body();
                 LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getActivity(), RecyclerView.VERTICAL, false);
-                FoodAdapter foodAdapter = new FoodAdapter(foodList,getActivity());
+                FoodAdapter foodAdapter = new FoodAdapter(foodList, getActivity());
                 rcvFood.setLayoutManager(linearLayoutManager);
                 rcvFood.setAdapter(foodAdapter);
 
