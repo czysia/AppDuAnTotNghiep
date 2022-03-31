@@ -52,4 +52,6 @@ dependencies {
     //rxJava
     implementation "io.reactivex.rxjava3:rxjava:3.1.4"
 
+    //eventbus
+    implementation("org.greenrobot:eventbus:3.3.1")
 }

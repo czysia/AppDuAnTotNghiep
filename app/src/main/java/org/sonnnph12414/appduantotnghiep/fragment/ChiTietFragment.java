@@ -14,28 +14,24 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
-
-import com.bumptech.glide.Glide;
 
 import org.sonnnph12414.appduantotnghiep.R;
-import org.sonnnph12414.appduantotnghiep.model.Food;
 
 import java.text.DecimalFormat;
 
-public class ChiTietFragent extends Fragment {
+public class ChiTietFragment extends Fragment {
     TextView tensp,giasp,mota;
     Button btnthem;
     ImageView imghinhanh;
     Spinner spinner;
     Toolbar toolbar;
 
-    public ChiTietFragent(){}
+    public ChiTietFragment(){}
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.activity_chitiet,container,false);
+        View view = inflater.inflate(R.layout.fragment_chitiet,container,false);
 
         tensp = view.findViewById(R.id.txttensanpham);
         giasp = view.findViewById(R.id.txtgiasanpham);

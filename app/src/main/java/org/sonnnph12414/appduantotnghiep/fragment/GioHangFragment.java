@@ -26,7 +26,7 @@ public class GioHangFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.activity_gio_hang,container,false);
+        View view = inflater.inflate(R.layout.fragment_gio_hang,container,false);
 
         giohangtrong = view.findViewById(R.id.txtgiohangtrong);
         toolbar = view.findViewById(R.id.toolbar);
