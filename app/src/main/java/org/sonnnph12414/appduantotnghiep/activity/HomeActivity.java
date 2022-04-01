@@ -98,7 +98,7 @@ public class HomeActivity extends AppCompatActivity {
                                 .commit();
                         break;
                     case R.id.nav_login:
-                        setTitle("Đồ ăn");
+                        setTitle("Đăng nhập");
                         LoginFragment loginFragment = new LoginFragment();
                         manager.beginTransaction()
                                 .replace(R.id.content_fame, loginFragment)
