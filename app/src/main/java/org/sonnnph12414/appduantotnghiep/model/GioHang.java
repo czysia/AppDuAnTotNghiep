@@ -26,7 +26,7 @@ public class GioHang {
         this.tensp = tensp;
     }
 
-    public long getGiasp() {
+    public long getGiasp(long gia) {
         return giasp;
     }
 
@@ -42,8 +42,8 @@ public class GioHang {
         this.hinhsp = hinhsp;
     }
 
-    public int getSoluong() {
-        return soluong;
+    public int getSoluong(int soluong) {
+        return this.soluong;
     }
 
     public void setSoluong(int soluong) {

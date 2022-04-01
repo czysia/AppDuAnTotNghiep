@@ -1,6 +1,7 @@
 package org.sonnnph12414.appduantotnghiep.fragment;
 
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,8 +20,13 @@ import androidx.fragment.app.Fragment;
 import com.bumptech.glide.Glide;
 
 import org.sonnnph12414.appduantotnghiep.R;
+import org.sonnnph12414.appduantotnghiep.api.APIClient;
+import org.sonnnph12414.appduantotnghiep.model.Foodbuy;
+import org.sonnnph12414.appduantotnghiep.model.GioHang;
 
 import java.text.DecimalFormat;
+import java.util.ArrayList;
+import java.util.List;
 
 public class ChiTietFragment extends Fragment implements View.OnClickListener {
     TextView tvName, tvPrice, tvDescription;
@@ -28,8 +34,8 @@ public class ChiTietFragment extends Fragment implements View.OnClickListener {
     ImageView imageView;
     Spinner spinner;
     Toolbar toolbar;
-
     Double price;
+    Foodbuy foodbuy;
 
     public ChiTietFragment(){}
 
@@ -59,8 +65,8 @@ public class ChiTietFragment extends Fragment implements View.OnClickListener {
             price = Double.parseDouble(bundle.getString("chitietPrice"));
             String Info = bundle.getString("chitietInfo");
             String imgUrl = bundle.getString("imgUrl");
-
             Glide.with(getContext()).load(imgUrl).into(imageView);
+
 
             tvName.setText(Name);
             tvDescription.setText(Info);
@@ -76,6 +82,7 @@ public class ChiTietFragment extends Fragment implements View.OnClickListener {
 
     @Override
     public void onClick(View view) {
+        // da chuyen du lieu sang gio hang
         Fragment fragment = new GioHangFragment();
 
         Bundle bundle = new Bundle();
@@ -90,5 +97,36 @@ public class ChiTietFragment extends Fragment implements View.OnClickListener {
                 .replace(R.id.content_fame, fragment, null)
                 .addToBackStack(null)
                 .commit();
+        themgiohang();
+    }
+
+    private void themgiohang() {
+//        List<GioHang> manggioHangs = new ArrayList<GioHang>();
+//
+//        Bundle bundle = getArguments();
+////        if (APIClient.manggiohang.size()>0){
+////        }else {
+//            foodbuy = new Foodbuy(bundle.getString("chitietName"),bundle.getString("chitietPrice"),
+//                    bundle.getString("chitietInfo"),bundle.getString("imgUrl"));
+//            int soluong = Integer.parseInt(spinner.getSelectedItem().toString());
+//            long gia = foodbuy.getFoodPrice()*soluong;
+//            GioHang gioHang = new GioHang();
+//            gioHang.setTensp(foodbuy.getFoodName());
+//            gioHang.setGiasp(foodbuy.getFoodPrice());
+//            gioHang.getSoluong(soluong);
+//            gioHang.getGiasp(gia);
+//            manggioHangs.add(gioHang);
+////        }
+//
+//        Fragment fragment = new GioHangFragment();
+//        Bundle bundle2 = new Bundle();
+//        bundle2.putParcelableArrayList("manggiohang", (ArrayList<? extends Parcelable>) manggioHangs);
+//        fragment.setArguments(bundle);
+//
+//        getActivity().getSupportFragmentManager()
+//                .beginTransaction()
+//                .replace(R.id.content_fame, fragment, null)
+//                .addToBackStack(null)
+//                .commit();
     }
 }

@@ -22,7 +22,6 @@ public class ForGetPassActivity extends AppCompatActivity {
         setContentView(R.layout.activity_for_get_pass);
         edt_Email = findViewById(R.id.edt_Email);
         btn_QuenMK = findViewById(R.id.btn_quenMK);
-        tv_quenMK = findViewById(R.id.tv_backToDN);
     }
 
     public void QuenMK(View view) {

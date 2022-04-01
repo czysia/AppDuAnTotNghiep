@@ -17,7 +17,6 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 
-import org.greenrobot.eventbus.EventBus;
 import org.sonnnph12414.appduantotnghiep.R;
 import org.sonnnph12414.appduantotnghiep.activity.ChiTietActivity;
 import org.sonnnph12414.appduantotnghiep.activity.GioHangActivity;

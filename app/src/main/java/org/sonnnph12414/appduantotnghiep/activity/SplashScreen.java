@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.os.Handler;
 
 import org.sonnnph12414.appduantotnghiep.R;
+import org.sonnnph12414.appduantotnghiep.fragment.HomeFragment;
 
 public class SplashScreen extends AppCompatActivity {
     public static int SPLASH_TIME = 3000; //This is 3 seconds
@@ -18,7 +19,7 @@ public class SplashScreen extends AppCompatActivity {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                Intent splashScreen = new Intent(getApplicationContext(), LoginActivity.class);
+                Intent splashScreen = new Intent(getApplicationContext(), HomeActivity.class);
                 startActivity(splashScreen);
                 finish();
             }

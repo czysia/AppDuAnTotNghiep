@@ -6,6 +6,10 @@ public class Foodbuy {
     public Foodbuy(String s, String valueOf, String of, String value) {
     }
 
+    public Foodbuy() {
+
+    }
+
     public String getFoodName() {
         return foodName;
     }
