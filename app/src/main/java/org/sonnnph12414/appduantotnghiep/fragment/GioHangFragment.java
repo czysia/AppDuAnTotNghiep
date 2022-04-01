@@ -36,12 +36,23 @@ public class GioHangFragment extends Fragment {
         //toolbar = view.findViewById(R.id.toolbar);
         //recyclerView = view.findViewById(R.id.recyclerviewgiohang);
         tvSum = view.findViewById(R.id.txttongtien);
-        //btnmuahang = view.findViewById(R.id.btnmuahang);
+        btnmuahang = view.findViewById(R.id.btnmuahang);
 
         //return super.onCreateView(inflater, container, savedInstanceState);
 
         initData();
+        btnmuahang.setOnClickListener(v ->{
+            Fragment fragment = new ThanhToanFragment();
 
+            Bundle bundle = new Bundle();
+            fragment.setArguments(bundle);
+
+            getActivity().getSupportFragmentManager()
+                    .beginTransaction()
+                    .replace(R.id.content_fame, fragment, null)
+                    .addToBackStack(null)
+                    .commit();
+        });
         return view;
     }
 
