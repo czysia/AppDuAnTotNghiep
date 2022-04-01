@@ -1,6 +1,7 @@
 package org.sonnnph12414.appduantotnghiep.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentManager;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -26,7 +27,7 @@ public class SigninActivity extends AppCompatActivity {
     String tvResult = "";
 
 
-//    CompositeDisposable compositeDisposable = new CompositeDisposable();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,9 +36,7 @@ public class SigninActivity extends AppCompatActivity {
         edt_Username = findViewById(R.id.edt_User_Signin);
         edt_Password = findViewById(R.id.edt_Pass_Signin);
         edt_RePass = findViewById(R.id.edt_RePassword);
-        LoadingPB = findViewById(R.id.idLoadingPB);
         btn_Signin = findViewById(R.id.btn_Signin);
-        tv_Login = findViewById(R.id.tv_Login);
 
     }
 
@@ -67,11 +66,5 @@ public class SigninActivity extends AppCompatActivity {
                 Toast.makeText(getApplicationContext(), "Mật khẩu nhập lại chưa khớp", Toast.LENGTH_SHORT).show();
             }
         }
-    }
-
-//
-    public void TroLaiDN(View view) {
-        Intent TroLaiDN = new Intent(SigninActivity.this, LoginFragment.class);
-        startActivity(TroLaiDN);
     }
 }

@@ -50,14 +50,4 @@
         app:backgroundTint="#FF0000"
         android:onClick="QuenMK"/>
 
-    <TextView
-        android:id="@+id/tv_backToDN"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="25dp"
-        android:text="Đăng Nhập"
-        android:textColor="#FF0000"
-        android:textSize="25sp"
-        android:textStyle="bold"
-        android:onClick="BackToDN"/>
 </LinearLayout>
