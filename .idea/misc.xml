@@ -30,6 +30,10 @@
         <entry key="..\:/android co ban/Re/AppDuAnTotNghiep/app/src/main/res/layout/fragment_thanh_toan.xml" value="0.20416666666666666" />
         <entry key="..\:/android co ban/Re/AppDuAnTotNghiep/app/src/main/res/layout/item_food.xml" value="0.33" />
         <entry key="..\:/android co ban/Re/AppDuAnTotNghiep/app/src/main/res/layout/item_giohang.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/activity_home.xml" value="0.13802083333333334" />
+        <entry key="app/src/main/res/layout/fragment_home.xml" value="0.13802083333333334" />
+        <entry key="app/src/main/res/layout/layout_header_nav.xml" value="0.13802083333333334" />
+        <entry key="app/src/main/res/menu/activity_main_drawer.xml" value="0.13802083333333334" />
       </map>
     </option>
   </component>

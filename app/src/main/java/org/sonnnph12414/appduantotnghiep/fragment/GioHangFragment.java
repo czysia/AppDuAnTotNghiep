@@ -75,7 +75,7 @@ public class GioHangFragment extends Fragment {
             @Override
             public void onResponse(Call<Foodbuy> call, Response<Foodbuy> response) {
                 Foodbuy foodbuy1 =response.body();
-                Toast.makeText(getContext(),foodbuy1.getMessage(),Toast.LENGTH_SHORT).show();
+                Toast.makeText(getContext(),"foodbuy1.getMessage()",Toast.LENGTH_SHORT).show();
             }
 
             @Override

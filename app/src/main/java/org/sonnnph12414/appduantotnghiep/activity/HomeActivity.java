@@ -70,9 +70,9 @@ public class HomeActivity extends AppCompatActivity {
         toggle.syncState();
 
         FragmentManager manager = getSupportFragmentManager();
-        HomeFragment homeFragment = new HomeFragment();
+        LoginFragment loginFragment = new LoginFragment();
         manager.beginTransaction()
-                .replace(R.id.content_fame, homeFragment)
+                .replace(R.id.content_fame, loginFragment)
                 .commit();
 
         NavigationView navigationView = findViewById(R.id.navigationView);
