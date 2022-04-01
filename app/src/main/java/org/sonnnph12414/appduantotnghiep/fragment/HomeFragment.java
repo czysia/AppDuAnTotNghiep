@@ -44,6 +44,7 @@ public class HomeFragment extends Fragment {
     DrawerLayout drawerLayout;
     List<Categories> categoriesList;
     View view;
+    ImageView imgShop;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -86,8 +87,25 @@ public class HomeFragment extends Fragment {
         listViewManHinhChinh = view.findViewById(R.id.listviewmanhinhchinh);
         navigationView = view.findViewById(R.id.navigationview);
         drawerLayout = view.findViewById(R.id.drawerlayout);
+        imgShop = view.findViewById(R.id.imgShop);
         //khoi tao list
         if (APIClient.manggiohang == null){APIClient.manggiohang = new ArrayList<>();}
+
+                imgShop.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Fragment fragment = new GioHangFragment();
+
+                Bundle bundle = new Bundle();
+                fragment.setArguments(bundle);
+
+                getActivity().getSupportFragmentManager()
+                        .beginTransaction()
+                        .replace(R.id.content_fame, fragment, null)
+                        .addToBackStack(null)
+                        .commit();
+            }
+        });
     }
     private void viewCategories() {
         Call<List<Categories>> call = APIClient.create().getAllCategories();

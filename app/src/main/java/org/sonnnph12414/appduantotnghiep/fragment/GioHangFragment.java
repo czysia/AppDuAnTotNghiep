@@ -51,7 +51,18 @@ public class GioHangFragment extends Fragment {
         //return super.onCreateView(inflater, container, savedInstanceState);
 
         initData();
+        btnmuahang.setOnClickListener(v ->{
+            Fragment fragment = new ThanhToanFragment();
 
+            Bundle bundle = new Bundle();
+            fragment.setArguments(bundle);
+
+            getActivity().getSupportFragmentManager()
+                    .beginTransaction()
+                    .replace(R.id.content_fame, fragment, null)
+                    .addToBackStack(null)
+                    .commit();
+        });
         return view;
     }
 
