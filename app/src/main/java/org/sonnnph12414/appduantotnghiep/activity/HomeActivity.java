@@ -6,10 +6,13 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentActivity;
 import androidx.fragment.app.FragmentManager;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
@@ -29,8 +32,10 @@ import org.sonnnph12414.appduantotnghiep.R;
 import org.sonnnph12414.appduantotnghiep.adapter.CategoriesAdapter;
 import org.sonnnph12414.appduantotnghiep.api.APIClient;
 import org.sonnnph12414.appduantotnghiep.fragment.FoodFragment;
+import org.sonnnph12414.appduantotnghiep.fragment.GioHangFragment;
 import org.sonnnph12414.appduantotnghiep.fragment.HomeFragment;
 import org.sonnnph12414.appduantotnghiep.fragment.LoginFragment;
+import org.sonnnph12414.appduantotnghiep.fragment.ThanhToanFragment;
 import org.sonnnph12414.appduantotnghiep.model.Categories;
 
 import java.util.ArrayList;
@@ -41,6 +46,7 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 import org.sonnnph12414.appduantotnghiep.R;
+import org.sonnnph12414.appduantotnghiep.model.GioHang;
 
 public class HomeActivity extends AppCompatActivity {
     public DrawerLayout drawerLayout;
@@ -111,6 +117,16 @@ public class HomeActivity extends AppCompatActivity {
                 return false;
             }
         });
+//        imgShop.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+////            GioHangFragment gioHangFragment = new GioHangFragment();
+////            manager.beginTransaction()
+////                    .replace(R.id.content_fame, gioHangFragment)
+////                    .commit();
+//                Toast.makeText(getApplicationContext(), "abc", Toast.LENGTH_SHORT).show();
+//            }
+//        });
 
 
     }

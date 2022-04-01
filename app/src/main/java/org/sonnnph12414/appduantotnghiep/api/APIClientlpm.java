@@ -5,6 +5,7 @@ import org.sonnnph12414.appduantotnghiep.model.Categories;
 import org.sonnnph12414.appduantotnghiep.model.Food;
 import org.sonnnph12414.appduantotnghiep.model.Foodbuy;
 import org.sonnnph12414.appduantotnghiep.model.ResponseUpdate;
+import org.sonnnph12414.appduantotnghiep.model.ThanhToan;
 import org.sonnnph12414.appduantotnghiep.model.User;
 
 import java.util.List;
@@ -20,6 +21,9 @@ public interface APIClientlpm {
 
     @GET("api/products/getall")
     Call<List<Food>> getAllFood();
+
+    @GET("api/bills/get")
+    Call<ThanhToan> getAllThanhtoan( @Field("token") String token);
 
     @GET("api/categories/getall")
     Call<List<Categories>> getAllCategories();
