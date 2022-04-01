@@ -7,7 +7,7 @@ import android.os.Bundle;
 import android.os.Handler;
 
 import org.sonnnph12414.appduantotnghiep.R;
-import org.sonnnph12414.appduantotnghiep.fragment.HomeFragment;
+
 
 public class SplashScreen extends AppCompatActivity {
     public static int SPLASH_TIME = 3000; //This is 3 seconds
