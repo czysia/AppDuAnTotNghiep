@@ -80,7 +80,7 @@ public class HomeFragment extends Fragment {
 
 
     private void anhXa() {
-        toolbar = view.findViewById(R.id.toobarmanhinhchinh);
+
         viewFlipper = view.findViewById(R.id.viewlipper);
         recyclerViewManHinhChinh = view.findViewById(R.id.recycleview);
         listViewManHinhChinh = view.findViewById(R.id.listviewmanhinhchinh);
