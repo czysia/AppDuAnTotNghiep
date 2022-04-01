@@ -3,6 +3,7 @@ package org.sonnnph12414.appduantotnghiep.api;
 
 import org.sonnnph12414.appduantotnghiep.model.Categories;
 import org.sonnnph12414.appduantotnghiep.model.Food;
+import org.sonnnph12414.appduantotnghiep.model.Foodbuy;
 import org.sonnnph12414.appduantotnghiep.model.ResponseUpdate;
 import org.sonnnph12414.appduantotnghiep.model.User;
 
@@ -30,5 +31,14 @@ public interface APIClientlpm {
             @Field("email") String email,
             @Field("password") String password,
             @Field("repassword") String repassword
+    );
+
+//https://flying-blossom-cerise.glitch.me/api/cart/:id
+    @FormUrlEncoded
+    @POST("/api/cart/:id")
+    Call<Foodbuy> updategio(
+            @Field("id") String id,
+            @Field("Price") String Name,
+            @Field("Sum") String Price
     );
 }
