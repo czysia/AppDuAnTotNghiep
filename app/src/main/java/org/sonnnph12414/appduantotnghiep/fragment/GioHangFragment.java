@@ -66,7 +66,7 @@ public class GioHangFragment extends Fragment {
         format.setCurrency(Currency.getInstance("VND"));
 
         tvSum.setText(format.format(sum));
-
+        //POST retrofit
         Foodbuy foodbuy = new Foodbuy();
         APIClient.getClient("api/cart/:id");
         APIClientlpm apiClientlpm = retrofit.create(APIClientlpm.class);
