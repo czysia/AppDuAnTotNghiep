@@ -12,6 +12,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import org.sonnnph12414.appduantotnghiep.R;
+import org.sonnnph12414.appduantotnghiep.fragment.LoginFragment;
 import org.sonnnph12414.appduantotnghiep.model.UpdateUser;
 import org.sonnnph12414.appduantotnghiep.model.User;
 
@@ -37,6 +38,7 @@ public class SigninActivity extends AppCompatActivity {
         LoadingPB = findViewById(R.id.idLoadingPB);
         btn_Signin = findViewById(R.id.btn_Signin);
         tv_Login = findViewById(R.id.tv_Login);
+
     }
 
 
@@ -69,7 +71,7 @@ public class SigninActivity extends AppCompatActivity {
 
 //
     public void TroLaiDN(View view) {
-        Intent TroLaiDN = new Intent(SigninActivity.this, LoginActivity.class);
+        Intent TroLaiDN = new Intent(SigninActivity.this, LoginFragment.class);
         startActivity(TroLaiDN);
     }
 }

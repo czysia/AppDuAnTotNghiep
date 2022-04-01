@@ -30,6 +30,7 @@ import org.sonnnph12414.appduantotnghiep.adapter.CategoriesAdapter;
 import org.sonnnph12414.appduantotnghiep.api.APIClient;
 import org.sonnnph12414.appduantotnghiep.fragment.FoodFragment;
 import org.sonnnph12414.appduantotnghiep.fragment.HomeFragment;
+import org.sonnnph12414.appduantotnghiep.fragment.LoginFragment;
 import org.sonnnph12414.appduantotnghiep.model.Categories;
 
 import java.util.ArrayList;
@@ -96,8 +97,13 @@ public class HomeActivity extends AppCompatActivity {
                                 .replace(R.id.content_fame, foodFragment)
                                 .commit();
                         break;
-                    case R.id.nav_info:
-
+                    case R.id.nav_login:
+                        setTitle("Đồ ăn");
+                        LoginFragment loginFragment = new LoginFragment();
+                        manager.beginTransaction()
+                                .replace(R.id.content_fame, loginFragment)
+                                .commit();
+                        break;
                     case R.id.nav_sign_out:
 
                 }

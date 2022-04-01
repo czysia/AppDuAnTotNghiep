@@ -7,6 +7,7 @@
     <string name="menu_home">Trang Chủ</string>
     <string name="menu_food">Đồ Ăn</string>
     <string name="menu_info">Thông tin</string>
+    <string name="menu_login">Đăng nhập</string>
     <string name="menu_signOut">Đăng Xuất</string>
 
     <string name="nav_open">Open navigation drawer</string>
