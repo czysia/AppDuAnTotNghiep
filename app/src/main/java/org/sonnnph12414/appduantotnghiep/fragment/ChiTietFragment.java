@@ -36,6 +36,7 @@ public class ChiTietFragment extends Fragment implements View.OnClickListener {
     Toolbar toolbar;
     Double price;
     Foodbuy foodbuy;
+    String name, imgUrl;
 
     public ChiTietFragment(){}
 
@@ -61,14 +62,14 @@ public class ChiTietFragment extends Fragment implements View.OnClickListener {
     private void initData() {
         Bundle bundle = getArguments();
         if (bundle != null) {
-            String Name = bundle.getString("chitietName");
+            name = bundle.getString("chitietName");
             price = Double.parseDouble(bundle.getString("chitietPrice"));
             String Info = bundle.getString("chitietInfo");
-            String imgUrl = bundle.getString("imgUrl");
+            imgUrl = bundle.getString("imgUrl");
             Glide.with(getContext()).load(imgUrl).into(imageView);
 
 
-            tvName.setText(Name);
+            tvName.setText(name);
             tvDescription.setText(Info);
             DecimalFormat decimalFormat = new DecimalFormat("###,###,###");
             tvPrice.setText("Giá: "+decimalFormat.format(price)+"đ");
@@ -101,6 +102,15 @@ public class ChiTietFragment extends Fragment implements View.OnClickListener {
     }
 
     private void themgiohang() {
+        int quantity = Integer.parseInt(spinner.getSelectedItem().toString());
+        GioHang item = new GioHang();
+        item.setTensp(name);
+        item.setGiasp(price);
+        item.setSoluong(quantity);
+        item.setHinhsp(imgUrl);
+
+        APIClient.manggiohang.add(item);
+
 //        List<GioHang> manggioHangs = new ArrayList<GioHang>();
 //
 //        Bundle bundle = getArguments();

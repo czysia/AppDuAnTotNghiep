@@ -3,7 +3,7 @@ package org.sonnnph12414.appduantotnghiep.model;
 public class GioHang {
     int idsp;
     String tensp;
-    long giasp;
+    double giasp;
     String hinhsp;
     int soluong;
 
@@ -26,11 +26,11 @@ public class GioHang {
         this.tensp = tensp;
     }
 
-    public long getGiasp(long gia) {
+    public double getGiasp() {
         return giasp;
     }
 
-    public void setGiasp(long giasp) {
+    public void setGiasp(double giasp) {
         this.giasp = giasp;
     }
 
@@ -42,7 +42,7 @@ public class GioHang {
         this.hinhsp = hinhsp;
     }
 
-    public int getSoluong(int soluong) {
+    public int getSoluong() {
         return this.soluong;
     }
 
