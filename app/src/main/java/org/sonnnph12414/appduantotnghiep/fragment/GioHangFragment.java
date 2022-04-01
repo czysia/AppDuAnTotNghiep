@@ -43,7 +43,7 @@ public class GioHangFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_gio_hang,container,false);
 
         giohangtrong = view.findViewById(R.id.txtgiohangtrong);
-        toolbar = view.findViewById(R.id.toolbar);
+        // toolbar = view.findViewById(R.id.toolbar);
         recyclerView = view.findViewById(R.id.recyclerviewgiohang);
         tvSum = view.findViewById(R.id.txttongtien);
         btnmuahang = view.findViewById(R.id.btnmuahang);
@@ -56,10 +56,14 @@ public class GioHangFragment extends Fragment {
     }
 
     private void initData() {
-        Bundle bundle = getArguments();
-        int quantity = bundle.getInt("quantity");
-        double price = bundle.getDouble("price");
-        double sum = price * quantity;
+        double sum = 0;
+
+        for (int i = 0; i < APIClient.manggiohang.size(); i++) {
+            int quantity = APIClient.manggiohang.get(i).getSoluong();
+            double price = APIClient.manggiohang.get(i).getGiasp();
+            sum += quantity * price;
+            // Log.d("AAA", "Gia: " + price + "; So luong: " + quantity);
+        }
 
         NumberFormat format = NumberFormat.getCurrencyInstance();
         format.setMaximumFractionDigits(0);
@@ -67,7 +71,7 @@ public class GioHangFragment extends Fragment {
 
         tvSum.setText(format.format(sum));
         //POST retrofit
-        Foodbuy foodbuy = new Foodbuy();
+        /*Foodbuy foodbuy = new Foodbuy();
         APIClient.getClient("api/cart/:id");
         APIClientlpm apiClientlpm = retrofit.create(APIClientlpm.class);
         Call<Foodbuy> call=apiClientlpm.updategio(foodbuy.getFoodName(),String.valueOf(price),String.valueOf(sum));
@@ -75,14 +79,14 @@ public class GioHangFragment extends Fragment {
             @Override
             public void onResponse(Call<Foodbuy> call, Response<Foodbuy> response) {
                 Foodbuy foodbuy1 =response.body();
-                Toast.makeText(getContext(),"foodbuy1.getMessage()",Toast.LENGTH_SHORT).show();
+                // Toast.makeText(getContext(),"foodbuy1.getMessage()",Toast.LENGTH_SHORT).show();
             }
 
             @Override
             public void onFailure(Call<Foodbuy> call, Throwable t) {
                 Toast.makeText(getContext(),t.getMessage(),Toast.LENGTH_SHORT).show();
             }
-        });
+        });*/
 
     }
 
