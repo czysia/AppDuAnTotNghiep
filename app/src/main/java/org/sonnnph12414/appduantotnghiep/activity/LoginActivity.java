@@ -23,7 +23,7 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        getSupportFragmentManager().beginTransaction().replace(R.id.container, new FoodFragment())
+        getSupportFragmentManager().beginTransaction().replace(R.id.content_fame, new HomeFragment())
                 .commit();
     }
 }

@@ -1,5 +1,6 @@
 package org.sonnnph12414.appduantotnghiep.fragment;
 
+import android.app.FragmentManager;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -55,12 +56,19 @@ public class LoginFragment extends Fragment {
         btn_Login = view.findViewById(R.id.btn_Login);
         tv_ForGetPass = view.findViewById(R.id.tv_forGetPass);
         tv_Signin = view.findViewById(R.id.tv_Signin);
+        Fragment fragment = new HomeFragment();
+        Bundle bundle = new Bundle();
         btn_Login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if (validater(edt_Username.getText().toString(), edt_Password.getText().toString())) {
                     saveData();
-                    Toast.makeText(getContext(), edt_Username.getText().toString(),Toast.LENGTH_SHORT).show();
+                    fragment.setArguments(bundle);
+                    getActivity().getSupportFragmentManager()
+                            .beginTransaction()
+                            .replace(R.id.content_fame, fragment, null)
+                            .addToBackStack(null)
+                            .commit();
                 }
             }
         });
