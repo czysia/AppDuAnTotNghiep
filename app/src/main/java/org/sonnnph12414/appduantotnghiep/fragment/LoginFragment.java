@@ -18,8 +18,6 @@ import android.widget.Toast;
 
 import org.sonnnph12414.appduantotnghiep.R;
 import org.sonnnph12414.appduantotnghiep.activity.ForGetPassActivity;
-import org.sonnnph12414.appduantotnghiep.activity.HomeActivity;
-import org.sonnnph12414.appduantotnghiep.activity.LoginActivity;
 import org.sonnnph12414.appduantotnghiep.activity.SigninActivity;
 
 /**
@@ -95,7 +93,7 @@ public class LoginFragment extends Fragment {
             public void onClick(View v) {
                 if (validater(edt_Username.getText().toString(), edt_Password.getText().toString())) {
                     saveData();
-                    Intent intent = new Intent(getActivity(), HomeActivity.class);
+                    Intent intent = new Intent(getActivity(), HomeFragment.class);
                     startActivity(intent);
                 }
             }
