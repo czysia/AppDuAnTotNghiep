@@ -15,12 +15,49 @@
             android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
-            <androidx.appcompat.widget.Toolbar
-                android:id="@+id/toobarmanhinhchinh"
-                app:title="Trang chính"
+            
+            <com.google.android.material.appbar.AppBarLayout
                 android:layout_width="match_parent"
-                android:layout_height="?attr/actionBarSize">
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:theme="@style/ThemeOverlay.AppCompat.Light">
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:text="Trang Chủ"
+                        android:textColor="@android:color/holo_red_light"
+                        android:textSize="20dp" />
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_search"
+                    android:id="@+id/imgSearch"
+                    android:layout_toLeftOf="@id/imgShop"
+                    android:layout_marginRight="20dp"
+                    />
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_shopping"
+                        android:id="@+id/imgShop"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginRight="20dp"
+                        />
+                </RelativeLayout>
             </androidx.appcompat.widget.Toolbar>
+            </com.google.android.material.appbar.AppBarLayout>
+
             <ViewFlipper
                 android:id="@+id/viewlipper"
                 android:layout_width="match_parent"

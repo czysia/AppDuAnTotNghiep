@@ -5,10 +5,16 @@
       <map>
         <entry key="..\:/DATN/DATN2021/App/AppDuAnTotNghiep/app/src/main/res/drawable/bgr_border_only.xml" value="0.33076923076923076" />
         <entry key="..\:/DATN/DATN2021/App/AppDuAnTotNghiep/app/src/main/res/drawable/ic_arrow_back_24.xml" value="0.33076923076923076" />
+        <entry key="..\:/DATN/DATN2021/App/AppDuAnTotNghiep/app/src/main/res/drawable/ic_food.xml" value="0.3296296296296296" />
         <entry key="..\:/DATN/DATN2021/App/AppDuAnTotNghiep/app/src/main/res/drawable/ic_home_circle.xml" value="0.33076923076923076" />
+        <entry key="..\:/DATN/DATN2021/App/AppDuAnTotNghiep/app/src/main/res/layout-v21/fragment_home.xml" value="0.333786231884058" />
+        <entry key="..\:/DATN/DATN2021/App/AppDuAnTotNghiep/app/src/main/res/layout/activity_home.xml" value="0.22" />
         <entry key="..\:/DATN/DATN2021/App/AppDuAnTotNghiep/app/src/main/res/layout/activity_main.xml" value="0.17395833333333333" />
         <entry key="..\:/DATN/DATN2021/App/AppDuAnTotNghiep/app/src/main/res/layout/fragment_food.xml" value="0.31979166666666664" />
+        <entry key="..\:/DATN/DATN2021/App/AppDuAnTotNghiep/app/src/main/res/layout/fragment_home.xml" value="0.3066123188405797" />
         <entry key="..\:/DATN/DATN2021/App/AppDuAnTotNghiep/app/src/main/res/layout/item_food.xml" value="0.31979166666666664" />
+        <entry key="..\:/DATN/DATN2021/App/AppDuAnTotNghiep/app/src/main/res/layout/layout_header_nav.xml" value="0.3066123188405797" />
+        <entry key="..\:/DATN/DATN2021/App/AppDuAnTotNghiep/app/src/main/res/menu/activity_main_drawer.xml" value="0.31979166666666664" />
         <entry key="..\:/android co ban/Re/AppDuAnTotNghiep/app/src/main/res/drawable/bgr_border_only.xml" value="0.138" />
         <entry key="..\:/android co ban/Re/AppDuAnTotNghiep/app/src/main/res/drawable/ic_arrow_back_24.xml" value="0.138" />
         <entry key="..\:/android co ban/Re/AppDuAnTotNghiep/app/src/main/res/drawable/ic_baseline_home_24.xml" value="0.138" />
@@ -24,21 +30,6 @@
         <entry key="..\:/android co ban/Re/AppDuAnTotNghiep/app/src/main/res/layout/fragment_thanh_toan.xml" value="0.20416666666666666" />
         <entry key="..\:/android co ban/Re/AppDuAnTotNghiep/app/src/main/res/layout/item_food.xml" value="0.33" />
         <entry key="..\:/android co ban/Re/AppDuAnTotNghiep/app/src/main/res/layout/item_giohang.xml" value="0.25" />
-        <entry key="app/src/main/res/layout/activity_chitiet.xml" value="0.15942028985507245" />
-        <entry key="app/src/main/res/layout/activity_food.xml" value="0.17239583333333333" />
-        <entry key="app/src/main/res/layout/activity_home.xml" value="0.17239583333333333" />
-        <entry key="app/src/main/res/layout/activity_login.xml" value="0.33" />
-        <entry key="app/src/main/res/layout/activity_signin.xml" value="0.33" />
-        <entry key="app/src/main/res/layout/fragment_food.xml" value="0.17239583333333333" />
-        <entry key="app/src/main/res/layout/fragment_home.xml" value="0.17239583333333333" />
-        <entry key="app/src/main/res/layout/fragment_login.xml" value="0.3229166666666667" />
-        <entry key="app/src/main/res/layout/fragment_thanh_toan.xml" value="0.17239583333333333" />
-        <entry key="app/src/main/res/layout/fragment_thanh_toan2.xml" value="0.17239583333333333" />
-        <entry key="app/src/main/res/layout/item_categories.xml" value="0.3229166666666667" />
-        <entry key="app/src/main/res/layout/item_food.xml" value="0.3229166666666667" />
-        <entry key="app/src/main/res/layout/item_giohang.xml" value="0.3229166666666667" />
-        <entry key="app/src/main/res/layout/layout_header_nav.xml" value="0.3229166666666667" />
-        <entry key="app/src/main/res/menu/activity_main_drawer.xml" value="0.25" />
       </map>
     </option>
   </component>

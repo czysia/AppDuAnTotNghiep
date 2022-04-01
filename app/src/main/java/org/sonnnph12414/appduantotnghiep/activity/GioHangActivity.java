@@ -9,6 +9,8 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import org.sonnnph12414.appduantotnghiep.R;
+import org.sonnnph12414.appduantotnghiep.fragment.FoodFragment;
+import org.sonnnph12414.appduantotnghiep.fragment.GioHangFragment;
 
 public class GioHangActivity extends AppCompatActivity {
 TextView giohangtrong,tongtien;
@@ -18,7 +20,9 @@ Button btnmuahang;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_gio_hang);
+        setContentView(R.layout.activity_giohang);
+        getSupportFragmentManager().beginTransaction().replace(R.id.container, new GioHangFragment())
+                .commit();
         initView();
     }
 
