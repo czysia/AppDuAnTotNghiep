@@ -48,9 +48,25 @@ public class Food implements Serializable {
     @SerializedName("category")
     @Expose
     String category;
+    @SerializedName("_id")
+    private String Id;
+    @SerializedName("user_id")
+    private String userId;
+
+
+
 
     public Food() {
     }
+
+    public String getUserId() {
+        return userId;
+    }
+
+    public void setUserId(String userId) {
+        this.userId = userId;
+    }
+
 
     public Food(ArrayList<String> image, String id, String name, String import_price, String price, String ingredients, String weight, String date, String preserve, String source, String origin, String quantily, String category) {
         this.image = image;

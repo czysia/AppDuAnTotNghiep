@@ -26,11 +26,11 @@ public class ThanhToan implements Serializable {
     @SerializedName("verifier")
     private String verifier;
     @SerializedName("transporter")
-    private Object transporter;
+    private String transporter;
     @SerializedName("start_at")
-    private Object startAt;
+    private String startAt;
     @SerializedName("finish_at")
-    private Object finishAt;
+    private String finishAt;
     @SerializedName("feedback")
     private String feedback;
     @SerializedName("__v")
@@ -117,27 +117,27 @@ public class ThanhToan implements Serializable {
         return this.verifier;
     }
 
-    public void setTransporter(Object transporter) {
+    public void setTransporter(String transporter) {
         this.transporter = transporter;
     }
 
-    public Object getTransporter() {
+    public String getTransporter() {
         return this.transporter;
     }
 
-    public void setStartAt(Object startAt) {
+    public void setStartAt(String startAt) {
         this.startAt = startAt;
     }
 
-    public Object getStartAt() {
+    public String getStartAt() {
         return this.startAt;
     }
 
-    public void setFinishAt(Object finishAt) {
+    public void setFinishAt(String finishAt) {
         this.finishAt = finishAt;
     }
 
-    public Object getFinishAt() {
+    public String getFinishAt() {
         return this.finishAt;
     }
 
