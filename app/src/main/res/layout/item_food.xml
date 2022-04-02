@@ -26,7 +26,8 @@
             android:layout_height="wrap_content"
             android:paddingHorizontal="16dp"
             android:paddingVertical="8dp"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:layout_weight="1">
             <TextView
                 android:id="@+id/tvFoodName"
                 android:layout_width="match_parent"
@@ -54,13 +55,13 @@
                 android:text="Thùng 12 hộp x 85g"/>
         </LinearLayout>
         <ImageButton
-            android:layout_width="60dp"
-            android:layout_height="60dp"
-            android:background="@drawable/bgr_border_only"
+            android:id="@+id/img_add_food"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
             android:padding="8dp"
-            android:scaleType="fitCenter"
             android:layout_gravity="center_vertical"
-            android:src="@drawable/oreo"
+            android:src="@drawable/ic_add_food"
+            android:background="@color/white"
             />
     </LinearLayout>
 

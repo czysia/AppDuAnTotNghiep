@@ -14,6 +14,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import org.greenrobot.eventbus.EventBus;
@@ -34,6 +35,7 @@ public class FoodFragment extends Fragment {
 
     List<Food> foodList;
     RecyclerView rcvFood;
+    ImageView img_back;
 
     public FoodFragment() {
         // Required empty public constructor
@@ -46,8 +48,24 @@ public class FoodFragment extends Fragment {
         View view =inflater.inflate(R.layout.fragment_food, container, false);
 
         rcvFood =view.findViewById(R.id.rcvFood);
+        img_back =view.findViewById(R.id.img_back);
 
         foodList= new ArrayList<>();
+
+        img_back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Fragment fragment = new HomeFragment();
+
+                Bundle bundle = new Bundle();
+                fragment.setArguments(bundle);
+                getActivity().getSupportFragmentManager()
+                        .beginTransaction()
+                        .replace(R.id.content_fame, fragment, null)
+                        .addToBackStack(null)
+                        .commit();
+            }
+        });
 
         viewFood();
         return view;

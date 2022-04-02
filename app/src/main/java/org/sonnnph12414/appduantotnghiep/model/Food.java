@@ -48,6 +48,8 @@ public class Food implements Serializable {
     @SerializedName("category")
     @Expose
     String category;
+//    @SerializedName("_id")
+//    private String Id;
     @SerializedName("user_id")
     private String userId;
 

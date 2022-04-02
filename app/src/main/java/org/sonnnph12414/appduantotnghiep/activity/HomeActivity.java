@@ -76,7 +76,7 @@ public class HomeActivity extends AppCompatActivity {
         toggle.syncState();
 
         FragmentManager manager = getSupportFragmentManager();
-        LoginFragment loginFragment = new LoginFragment();
+        HomeFragment loginFragment = new HomeFragment();
         manager.beginTransaction()
                 .replace(R.id.content_fame, loginFragment)
                 .commit();

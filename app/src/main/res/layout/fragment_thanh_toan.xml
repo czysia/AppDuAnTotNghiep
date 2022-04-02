@@ -1,23 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    >
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical">
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:paddingHorizontal="16dp">
-
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
-            android:src="@drawable/ic_arrow_back_24" />
+            android:src="@drawable/ic_arrow_back_24"
+            android:contentDescription="TODO" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -42,95 +41,61 @@
         android:layout_marginVertical="8dp"
         android:layout_marginHorizontal="10dp"
         android:background="#B71818"/>
-    <LinearLayout
+
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/edPhonelayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:hintEnabled="true"
+            app:startIconDrawable="@drawable/ic_location"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="20dp"
+            >
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/edPhone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Số điện thoại"
+                />
+        </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/edNamelayout"
         android:layout_width="match_parent"
-        android:layout_height="40dp"
+        android:layout_height="wrap_content"
+        app:hintEnabled="true"
+        app:startIconDrawable="@drawable/ic_name"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
         android:layout_marginTop="20dp"
-        android:background="@drawable/bgr_ed">
-        <ImageView
-            android:layout_width="25dp"
-            android:layout_height="25dp"
-            android:layout_marginTop="10dp"
-            android:src="@drawable/ic_location"/>
-
-        <EditText
+        >
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/edName"
             android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:hint="Nhập dịa chỉ giao hàng"
-            android:textColorHint="@color/white"
-            android:layout_marginLeft="10dp"
-            android:background="@drawable/bgr_border_only"
+            android:layout_height="wrap_content"
+            android:hint="Tên người nhận"
             />
-    </LinearLayout>
-    <LinearLayout
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/edAddresslayout"
         android:layout_width="match_parent"
-        android:layout_height="40dp"
+        android:layout_height="wrap_content"
+        app:hintEnabled="true"
+        app:startIconDrawable="@drawable/ic_phone"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
-        android:layout_marginTop="15dp"
-        android:background="@drawable/bgr_ed">
-        <ImageView
-            android:layout_width="25dp"
-            android:layout_height="25dp"
-            android:layout_marginTop="10dp"
-            android:src="@drawable/ic_phone"/>
-
-        <EditText
+        android:layout_marginTop="20dp"
+        >
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/edAddress"
             android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:hint="Nhập số điện thoại"
-            android:textColorHint="@color/white"
-            android:layout_marginLeft="10dp"
-            android:background="@drawable/bgr_border_only"
+            android:layout_height="wrap_content"
+            android:hint="Địa chỉ"
             />
-    </LinearLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:layout_marginTop="15dp"
-        android:background="@drawable/bgr_ed">
-        <ImageView
-            android:layout_width="25dp"
-            android:layout_height="25dp"
-            android:layout_marginTop="10dp"
-            android:src="@drawable/ic_mail"/>
-
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:hint="Nhập dịa chỉ email"
-            android:textColorHint="@color/white"
-            android:layout_marginLeft="10dp"
-            android:background="@drawable/bgr_border_only"
-            />
-    </LinearLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:layout_marginTop="15dp"
-        android:background="@drawable/bgr_ed">
-        <ImageView
-            android:layout_width="25dp"
-            android:layout_height="25dp"
-            android:layout_marginTop="10dp"
-            android:src="@drawable/ic_user"/>
-
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:hint="Nhập tên người nhận"
-            android:textColorHint="@color/white"
-            android:layout_marginLeft="10dp"
-            android:background="@drawable/bgr_border_only"
-            />
-    </LinearLayout>
-
+    </com.google.android.material.textfield.TextInputLayout>
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -146,15 +111,16 @@
         android:textColor="#B71818"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"/>
+
     <EditText
         android:layout_width="match_parent"
         android:layout_height="100dp"
-        android:hint="Ghi chú"
-        android:background="@drawable/bgr_ed_ghi_chu"
-        android:textColorHint="#B71818"
-        android:layout_marginTop="10dp"
         android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"/>
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="10dp"
+        android:background="@drawable/bgr_ed_ghi_chu"
+        android:hint="Ghi chú"
+        android:textColorHint="#AD1457" />
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
