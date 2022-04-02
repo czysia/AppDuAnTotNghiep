@@ -2,13 +2,11 @@ package org.sonnnph12414.appduantotnghiep.model;
 
 public class Foodbuy {
     String foodName,foodInfo,foodPrice,foodImg;
-
-    public Foodbuy(String s, String valueOf, String of, String value) {
-    }
+    String message;
 
     public Foodbuy() {
-
     }
+
 
     public String getFoodName() {
         return foodName;
@@ -40,5 +38,9 @@ public class Foodbuy {
 
     public void setFoodImg(String foodImg) {
         this.foodImg = foodImg;
+    }
+
+    public String getMessage() {
+        return message;
     }
 }
