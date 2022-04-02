@@ -43,25 +43,35 @@ public class ThanhToanFragment extends Fragment {
         button = view.findViewById(R.id.dathang);
         viewThanhToan();
         button.setOnClickListener(v -> {
-            Call<Categories> call = APIClient.create().datHang("eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyM2Y2ZGY4MDUxMjE0Mjg5NDIzMjUxZCIsImVtYWlsIjoic29ubnZwaDIzMzczQGZwdC5lZHUudm4iLCJpYXQiOjE2NDg4ODc0OTV9.SXssuN4r-nXs0nALMHrfB98RZ7fQ2Ei9gD3biHiwylg");
-            call.enqueue(new Callback<Categories>() {
-                @Override
-                public void onResponse(Call<Categories> call, Response<Categories> response) {
-                    if (response.body() != null) {
-                        Intent intent = new Intent(getActivity(), SuccessActivity.class);
-                        startActivity(intent);
-                    }
+//            Call<Categories> call = APIClient.create().datHang("eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyM2Y2ZGY4MDUxMjE0Mjg5NDIzMjUxZCIsImVtYWlsIjoic29ubnZwaDIzMzczQGZwdC5lZHUudm4iLCJpYXQiOjE2NDg4ODc0OTV9.SXssuN4r-nXs0nALMHrfB98RZ7fQ2Ei9gD3biHiwylg");
+//            call.enqueue(new Callback<Categories>() {
+//                @Override
+//                public void onResponse(Call<Categories> call, Response<Categories> response) {
+//                    if (response.body() != null) {
+//                        Intent intent = new Intent(getActivity(), SuccessActivity.class);
+//                        startActivity(intent);
+//                    }
+//
+//
+//
+//                }
+//
+//                @Override
+//                public void onFailure(Call<Categories> call, Throwable t) {
+//                    Toast.makeText(getActivity(), t.getMessage(), Toast.LENGTH_SHORT).show();
+//
+//                }
+//            });
+            Fragment fragment = new XacNhanFragment();
 
+            Bundle bundle = new Bundle();
+            fragment.setArguments(bundle);
 
-
-                }
-
-                @Override
-                public void onFailure(Call<Categories> call, Throwable t) {
-                    Toast.makeText(getActivity(), t.getMessage(), Toast.LENGTH_SHORT).show();
-
-                }
-            });
+            getActivity().getSupportFragmentManager()
+                    .beginTransaction()
+                    .replace(R.id.content_fame, fragment, null)
+                    .addToBackStack(null)
+                    .commit();
 
         });
         return view;
