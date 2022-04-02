@@ -24,7 +24,7 @@ public class Food implements Serializable {
     @SerializedName("price")
     @Expose
     String price;
-    @SerializedName("ingredients")
+    @SerializedName("packaging")
     @Expose
     String ingredients;
     @SerializedName("weight")
@@ -48,8 +48,6 @@ public class Food implements Serializable {
     @SerializedName("category")
     @Expose
     String category;
-    @SerializedName("_id")
-    private String Id;
     @SerializedName("user_id")
     private String userId;
 
