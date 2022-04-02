@@ -6,132 +6,132 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:weightSum="10">
-        <RelativeLayout
-            android:background="@drawable/border_backround_layout"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:elevation="8dp"
+            android:layout_height="match_parent"
             android:orientation="vertical"
-            android:layout_weight= "9">
-
-            <ImageView
-                android:id="@+id/loginLogo"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:layout_centerHorizontal="true"
-                android:layout_marginTop="50dp"
-                android:layout_marginBottom="30dp"
-                android:padding="10dp"
-                android:src="@drawable/cart" />
-
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/inputEmail"
+            android:weightSum="10">
+            <RelativeLayout
+                android:background="@drawable/border_backround_layout"
                 android:layout_width="match_parent"
-                android:layout_marginLeft="20dp"
-                android:layout_marginRight="20dp"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_centerHorizontal="true"
-                android:layout_marginTop="20dp"
-                android:layout_below="@+id/loginLogo">
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/edtEmail"
-                    android:hint="Nhập Email"
-                    android:paddingLeft="10dp"
-                    android:lines="1"
-                    android:drawablePadding="10dp"
-                    android:inputType="textEmailAddress"
+                android:layout_height="0dp"
+                android:elevation="8dp"
+                android:orientation="vertical"
+                android:layout_weight= "9">
+
+                <ImageView
+                    android:id="@+id/loginLogo"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="50dp"
+                    android:layout_marginBottom="30dp"
+                    android:padding="10dp"
+                    android:src="@drawable/cart" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/inputEmail"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"/>
-            </com.google.android.material.textfield.TextInputLayout>
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="20dp"
+                    android:layout_below="@+id/loginLogo">
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/edtEmail"
+                        android:hint="Nhập Email"
+                        android:paddingLeft="10dp"
+                        android:lines="1"
+                        android:drawablePadding="10dp"
+                        android:inputType="textEmailAddress"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"/>
+                </com.google.android.material.textfield.TextInputLayout>
 
 
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/inputPass"
-                android:layout_width="match_parent"
-                android:layout_marginLeft="20dp"
-                android:layout_marginRight="20dp"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_centerHorizontal="true"
-                app:counterEnabled="true"
-                android:layout_marginTop="20dp"
-                android:layout_below="@+id/inputEmail"
-                app:passwordToggleEnabled="true">
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/edtPassword"
-                    android:hint="Nhập Password"
-                    android:lines="1"
-                    android:drawablePadding="10dp"
-                    android:paddingLeft="10dp"
-                    android:singleLine="true"
-                    android:inputType="textPassword"
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/inputPass"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"/>
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_centerHorizontal="true"
+                    app:counterEnabled="true"
+                    android:layout_marginTop="20dp"
+                    android:layout_below="@+id/inputEmail"
+                    app:passwordToggleEnabled="true">
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/edtPassword"
+                        android:hint="Nhập Password"
+                        android:lines="1"
+                        android:drawablePadding="10dp"
+                        android:paddingLeft="10dp"
+                        android:singleLine="true"
+                        android:inputType="textPassword"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"/>
 
-            </com.google.android.material.textfield.TextInputLayout>
-
-
-            <ProgressBar
-                android:id="@+id/pbLogin"
-                android:layout_width="80dp"
-                android:layout_height="80dp"
-                android:layout_marginTop="20dp"
-                android:layout_centerInParent="true"
-                android:visibility="invisible" />
-
-            <TextView
-                android:id="@+id/txtForgetPass"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/pbLogin"
-                android:layout_centerHorizontal="true"
-                android:layout_marginTop="25dp"
-                android:text="Quên Mật Khẩu?"
-                android:textColor="#BD2808"
-                android:textSize="15sp"
-                android:textStyle="normal" />
+                </com.google.android.material.textfield.TextInputLayout>
 
 
-            <Button
-                android:id="@+id/btnSignIn"
+                <ProgressBar
+                    android:id="@+id/pbLogin"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_centerInParent="true"
+                    android:visibility="invisible" />
+
+                <TextView
+                    android:id="@+id/txtForgetPass"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/pbLogin"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="25dp"
+                    android:text="Quên Mật Khẩu?"
+                    android:textColor="#BD2808"
+                    android:textSize="15sp"
+                    android:textStyle="normal" />
+
+
+                <Button
+                    android:id="@+id/btnSignIn"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/pbLogin"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="60dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginBottom="20dp"
+                    android:background="@drawable/my_button"
+                    android:text="Đăng Nhập"
+                    android:textColor="@color/white"
+                    android:textSize="18sp"
+                    android:textStyle="normal" />
+            </RelativeLayout>
+
+
+            <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/pbLogin"
-                android:layout_marginLeft="20dp"
-                android:layout_marginTop="60dp"
-                android:layout_marginRight="20dp"
-                android:layout_marginBottom="20dp"
-                android:background="@drawable/my_button"
-                android:text="Đăng Nhập"
-                android:textColor="@color/white"
-                android:textSize="18sp"
-                android:textStyle="normal" />
-        </RelativeLayout>
+                android:layout_height="0dp"
+                android:orientation="vertical"
+                android:layout_weight= "1">
 
-
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:orientation="vertical"
-            android:layout_weight= "1">
-
-            <TextView
-                android:id="@+id/txtSignIn"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerHorizontal="true"
-                android:layout_marginTop="25dp"
-                android:text="TẠO TÀI KHOẢN"
-                android:textColor="#BD2808"
-                android:textSize="16sp"
-                android:textStyle="bold" />
-        </RelativeLayout>
-    </LinearLayout>
+                <TextView
+                    android:id="@+id/txtSignIn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="25dp"
+                    android:text="TẠO TÀI KHOẢN"
+                    android:textColor="#BD2808"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+            </RelativeLayout>
+        </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

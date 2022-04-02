@@ -26,6 +26,8 @@
             android:exported="false" />
         <activity android:name=".DangKyActivity" />
         <activity android:name=".MainActivity" />
+
+
         <activity
             android:name=".ManHinhChaoActivity"
             android:exported="true"
