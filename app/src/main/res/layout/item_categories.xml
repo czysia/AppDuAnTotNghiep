@@ -3,12 +3,12 @@
     android:layout_width="140dp"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    android:layout_margin="10dp">
+    android:layout_marginTop="10dp">
 
     <ImageButton
         android:id="@+id/imgCategories"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
         android:background="@drawable/bgr_border_only"
         android:scaleType="fitCenter"
         android:layout_gravity="center"
@@ -19,7 +19,6 @@
         android:id="@+id/tvCategoriesName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingBottom="2dp"
         android:textStyle="bold"
         android:textColor="#B71818"
         android:textSize="20dp"
