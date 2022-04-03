@@ -58,7 +58,7 @@ public class FoodAdapter extends RecyclerView.Adapter<FoodAdapter.ViewHolder>{
         holder.tvFoodPrice.setText(food.getPrice());
         holder.tvFoodInfo.setText(food.getIngredients());
         //click vào ảnh
-        holder.imgFood.setOnClickListener(new View.OnClickListener() {
+        holder.img_add_food.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 //                 chua chuyen du lieu + mo fragment moi
@@ -101,13 +101,14 @@ public class FoodAdapter extends RecyclerView.Adapter<FoodAdapter.ViewHolder>{
 
     public class ViewHolder extends RecyclerView.ViewHolder  {
         TextView tvFoodName,tvFoodPrice,tvFoodInfo;
-        ImageView imgFood;
+        ImageView imgFood,img_add_food;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             tvFoodName = itemView.findViewById(R.id.tvFoodName);
             tvFoodPrice = itemView.findViewById(R.id.tvFoodPrice);
             tvFoodInfo = itemView.findViewById(R.id.tvFoodInfo);
             imgFood = itemView.findViewById(R.id.imgFood);
+            img_add_food = itemView.findViewById(R.id.img_add_food);
 
         }
     }

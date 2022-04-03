@@ -8,6 +8,7 @@ import org.sonnnph12414.appduantotnghiep.model.ResponseUpdate;
 import org.sonnnph12414.appduantotnghiep.model.ThanhToan;
 import org.sonnnph12414.appduantotnghiep.model.User;
 
+import java.util.BitSet;
 import java.util.List;
 
 import retrofit2.Call;
@@ -16,6 +17,7 @@ import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
 import retrofit2.http.POST;
+import retrofit2.http.Query;
 
 public interface APIClientlpm {
 
@@ -23,7 +25,9 @@ public interface APIClientlpm {
     Call<List<Food>> getAllFood();
 
     @GET("api/bills/get")
-    Call<ThanhToan> getAllThanhtoan( @Field("token") String token);
+    Call<Categories> getAllThanhtoan(@Query("token") String token);
+    @POST("api/bills/add")
+    Call<Categories> datHang(@Query("token") String token);
 
     @GET("api/categories/getall")
     Call<List<Categories>> getAllCategories();
@@ -37,7 +41,7 @@ public interface APIClientlpm {
             @Field("repassword") String repassword
     );
 
-//https://flying-blossom-cerise.glitch.me/api/cart/:id
+    //https://flying-blossom-cerise.glitch.me/api/cart/:id
     @FormUrlEncoded
     @POST("/api/cart/:id")
     Call<Foodbuy> updategio(
