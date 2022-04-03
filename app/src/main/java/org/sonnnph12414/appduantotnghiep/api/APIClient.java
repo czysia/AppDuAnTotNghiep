@@ -1,5 +1,8 @@
 package org.sonnnph12414.appduantotnghiep.api;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+
 import org.sonnnph12414.appduantotnghiep.model.GioHang;
 
 import java.util.ArrayList;
@@ -24,9 +27,29 @@ public class APIClient {
 
     public static Retrofit getClient(String url) {
         if (retrofit == null) {
+            Gson gson = new GsonBuilder()
+                    .setLenient()
+                    .create();
+
+
             retrofit = new Retrofit.Builder()
                     .baseUrl(url)
                     .addConverterFactory(GsonConverterFactory.create())
+                    .build();
+        }
+        return retrofit;
+    }
+
+    public static Retrofit LoginAPI(){
+        if (retrofit == null) {
+            Gson gson = new GsonBuilder()
+                    .setLenient()
+                    .create();
+
+
+            retrofit = new Retrofit.Builder()
+                    .baseUrl(BASE_URL)
+                    .addConverterFactory(GsonConverterFactory.create(gson))
                     .build();
         }
         return retrofit;

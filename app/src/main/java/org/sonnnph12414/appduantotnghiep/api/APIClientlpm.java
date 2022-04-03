@@ -11,11 +11,13 @@ import org.sonnnph12414.appduantotnghiep.model.User;
 import java.util.BitSet;
 import java.util.List;
 
+import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.http.Body;
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
+import retrofit2.http.Headers;
 import retrofit2.http.POST;
 import retrofit2.http.Query;
 
@@ -41,6 +43,17 @@ public interface APIClientlpm {
             @Field("repassword") String repassword
     );
 
+    @FormUrlEncoded
+    @POST("api/users/login")
+        @Headers({
+                "Accept: application/json",
+                "Content-Type: application/x-www-form-urlencoded",
+        })
+    Call<ResponseBody> getToken(
+            @Field("email") String email,
+            @Field("password") String password
+    );
+
     //https://flying-blossom-cerise.glitch.me/api/cart/:id
     @FormUrlEncoded
     @POST("/api/cart/:id")
@@ -49,4 +62,5 @@ public interface APIClientlpm {
             @Field("Price") String Name,
             @Field("Sum") String Price
     );
+
 }
