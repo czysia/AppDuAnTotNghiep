@@ -17,11 +17,23 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.gson.Gson;
+
 import org.sonnnph12414.appduantotnghiep.R;
 import org.sonnnph12414.appduantotnghiep.activity.ForGetPassActivity;
 import org.sonnnph12414.appduantotnghiep.activity.HomeActivity;
 import org.sonnnph12414.appduantotnghiep.activity.LoginActivity;
 import org.sonnnph12414.appduantotnghiep.activity.SigninActivity;
+import org.sonnnph12414.appduantotnghiep.api.APIClient;
+import org.sonnnph12414.appduantotnghiep.api.APIClientlpm;
+import org.sonnnph12414.appduantotnghiep.model.TokenResponse;
+
+import java.io.IOException;
+
+import okhttp3.ResponseBody;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 
 public class LoginFragment extends Fragment {
@@ -30,7 +42,7 @@ public class LoginFragment extends Fragment {
     Button btn_Login;
     TextView tv_ForGetPass, tv_Signin;
     View view;
-    public static final String SHARED_PREFS = "SHAREDPREFS";
+//    public static final String SHARED_PREFS = "SHAREDPREFS";
 
     public LoginFragment() {
         // Required empty public constructor
@@ -47,15 +59,6 @@ public class LoginFragment extends Fragment {
         // Inflate the layout for this fragment
         view = inflater.inflate(R.layout.fragment_login, container, false);
         anhXa();
-        return view;
-    }
-
-    private void anhXa(){
-        edt_Username = view.findViewById(R.id.edt_Username);
-        edt_Password = view.findViewById(R.id.edt_Password);
-        btn_Login = view.findViewById(R.id.btn_Login);
-        tv_ForGetPass = view.findViewById(R.id.tv_forGetPass);
-        tv_Signin = view.findViewById(R.id.tv_Signin);
         Fragment fragment = new HomeFragment();
         Bundle bundle = new Bundle();
         btn_Login.setOnClickListener(new View.OnClickListener() {
@@ -72,6 +75,16 @@ public class LoginFragment extends Fragment {
                 }
             }
         });
+        return view;
+    }
+
+    private void anhXa(){
+        edt_Username = view.findViewById(R.id.edt_Username);
+        edt_Password = view.findViewById(R.id.edt_Password);
+        btn_Login = view.findViewById(R.id.btn_Login);
+        tv_ForGetPass = view.findViewById(R.id.tv_forGetPass);
+        tv_Signin = view.findViewById(R.id.tv_Signin);
+
         tv_ForGetPass.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -119,16 +132,50 @@ public class LoginFragment extends Fragment {
         return true;
     }
     //save data
-    public void saveData() {
-        SharedPreferences sharedPreferences = this.getActivity().getSharedPreferences(SHARED_PREFS, Context.MODE_PRIVATE);
+    private void saveData() {
+//        SharedPreferences sharedPreferences = this.getActivity().getSharedPreferences(SHARED_PREFS, Context.MODE_PRIVATE);
+//
+//        SharedPreferences.Editor editor = sharedPreferences.edit();
+//        editor.putString("USERNAME", edt_Username.getText().toString());
+//        editor.apply();
+//
+////        editor.commit();
+//        String userName = sharedPreferences.getString("USERNAME", "not found");
+//        Log.e("user đăng nhập là ", ":" + userName);
+//        Toast.makeText(getActivity(), "user đăng nhập  là " + userName, Toast.LENGTH_SHORT).show();
+        try {
+            final String username = edt_Username.getText().toString();
+            final String password = edt_Password.getText().toString();
 
-        SharedPreferences.Editor editor = sharedPreferences.edit();
-        editor.putString("USERNAME", edt_Username.getText().toString());
-        editor.apply();
+            APIClientlpm apiClientlpm = APIClient.LoginAPI().create(APIClientlpm.class);
+            Call<ResponseBody> srvLogin = apiClientlpm.getToken(username, password);
+            srvLogin.enqueue(new Callback<ResponseBody>() {
+                @Override
+                public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
+                    if (response.isSuccessful()){
+                        try {
+                            String reponseJSON = response.body().string();
+                            Gson objGson = new Gson();
+                            TokenResponse tokenResponse = objGson.fromJson(reponseJSON, TokenResponse.class);
+                            Toast.makeText(getActivity(), tokenResponse.getToken(), Toast.LENGTH_SHORT).show();
+                            Toast.makeText(getActivity(), "Token Got Successfully, Persur your process", Toast.LENGTH_SHORT).show();
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                            Toast.makeText(getActivity(), e.toString(), Toast.LENGTH_SHORT).show();
+                        }
+                    } else {
+                        Toast.makeText(getActivity(), "Credentials is valid, please try again", Toast.LENGTH_SHORT).show();
+                    }
+                }
 
-//        editor.commit();
-        String userName = sharedPreferences.getString("USERNAME", "not found");
-        Log.e("user đăng nhập là ", ":" + userName);
-        Toast.makeText(getActivity(), "user đăng nhập  là " + userName, Toast.LENGTH_SHORT).show();
+                @Override
+                public void onFailure(Call<ResponseBody> call, Throwable t) {
+                    Toast.makeText(getActivity(), "System Error Ocurred"+t.getMessage(), Toast.LENGTH_SHORT).show();
+                }
+            });
+        } catch (Exception e) {
+            e.printStackTrace();
+            Toast.makeText(getActivity(), "System Error Ocurred, Please chech your internet connection is enable", Toast.LENGTH_SHORT).show();
+        }
     }
 }

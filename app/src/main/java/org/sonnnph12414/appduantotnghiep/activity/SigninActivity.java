@@ -22,8 +22,6 @@ public class SigninActivity extends AppCompatActivity {
 
     EditText edt_Username, edt_Password, edt_RePass;
     Button btn_Signin;
-    TextView tv_Login;
-    ProgressBar LoadingPB;
     String tvResult = "";
 
 

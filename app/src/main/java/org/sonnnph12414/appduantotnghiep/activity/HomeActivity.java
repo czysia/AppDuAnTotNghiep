@@ -54,7 +54,7 @@ public class HomeActivity extends AppCompatActivity {
     private int currentFragment=FRAGMENT_HOME;
     private  static final int FRAGMENT_HOME =0;
     private  static final int FRAGMENT_FOOD =1;
-    private  static final int FRAGMENT_INFO =2;
+    private  static final int FRAGMENT_LOGIN =2;
     private  static final int FRAGMENT_SIGNOUT =3;
 
 
@@ -76,7 +76,7 @@ public class HomeActivity extends AppCompatActivity {
         toggle.syncState();
 
         FragmentManager manager = getSupportFragmentManager();
-        HomeFragment loginFragment = new HomeFragment();
+        LoginFragment loginFragment = new LoginFragment();
         manager.beginTransaction()
                 .replace(R.id.content_fame, loginFragment)
                 .commit();
