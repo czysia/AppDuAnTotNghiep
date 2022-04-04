@@ -1,11 +1,14 @@
 package org.sonnnph12414.appduantotnghiep.fragment;
 
+import static org.sonnnph12414.appduantotnghiep.api.APIClient.retrofit;
+
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -17,12 +20,18 @@ import androidx.recyclerview.widget.RecyclerView;
 import org.sonnnph12414.appduantotnghiep.R;
 import org.sonnnph12414.appduantotnghiep.adapter.GioHangAdapter;
 import org.sonnnph12414.appduantotnghiep.api.APIClient;
+import org.sonnnph12414.appduantotnghiep.api.APIClientlpm;
+import org.sonnnph12414.appduantotnghiep.model.Foodbuy;
 import org.sonnnph12414.appduantotnghiep.model.GioHang;
 
 import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.Currency;
 import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class GioHangFragment extends Fragment {
     TextView giohangtrong, tvSum;
@@ -66,8 +75,32 @@ public class GioHangFragment extends Fragment {
             recyclerView.setLayoutManager(linearLayoutManager);
             recyclerView.setAdapter(gioHangAdapter);
         }
-
+        initPostGiohang();
         return view;
+    }
+
+    private void initPostGiohang() {
+        btnmuahang.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Foodbuy foodbuy = new Foodbuy();
+        APIClient.getClient("api/cart/:id");
+        APIClientlpm apiClientlpm = retrofit.create(APIClientlpm.class);
+        Call<Foodbuy> call=apiClientlpm.updategio("01",foodbuy.getFoodName(),foodbuy.getFoodPrice());
+        call.enqueue(new Callback<Foodbuy>() {
+            @Override
+            public void onResponse(Call<Foodbuy> call, Response<Foodbuy> response) {
+                Foodbuy foodbuy1 =response.body();
+                 Toast.makeText(getContext(),"foodbuy1.getMessage()",Toast.LENGTH_SHORT).show();
+            }
+
+            @Override
+            public void onFailure(Call<Foodbuy> call, Throwable t) {
+                Toast.makeText(getContext(),t.getMessage(),Toast.LENGTH_SHORT).show();
+            }
+        });
+            }
+        });
     }
 
     private void initData() {

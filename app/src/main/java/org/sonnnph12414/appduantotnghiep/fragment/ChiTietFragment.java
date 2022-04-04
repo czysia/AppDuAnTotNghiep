@@ -49,7 +49,7 @@ public class ChiTietFragment extends Fragment implements View.OnClickListener {
         tvPrice = view.findViewById(R.id.txtgiasanpham);
         tvDescription = view.findViewById(R.id.txtmotachitiet);
         imageView = view.findViewById(R.id.imgchitiet);
-        spinner = view.findViewById(R.id.spinner);
+//       spinner = view.findViewById(R.id.spinner);
         // toolbar = view.findViewById(R.id.toolbar)
         btnAddToCart = view.findViewById(R.id.btnthemvaogiohang);
         btnAddToCart.setOnClickListener(this);
@@ -73,9 +73,7 @@ public class ChiTietFragment extends Fragment implements View.OnClickListener {
             tvDescription.setText(Info);
             DecimalFormat decimalFormat = new DecimalFormat("###,###,###");
             tvPrice.setText("Giá: "+decimalFormat.format(price)+"đ");
-            Integer[] soluong = new Integer[]{1,2,3,4,5,6,7,8,9,10};
-            ArrayAdapter<Integer> spinnerAdapter = new ArrayAdapter<Integer>(getContext(),R.layout.support_simple_spinner_dropdown_item,soluong);
-            spinner.setAdapter(spinnerAdapter);
+
         }
 
     }
@@ -89,7 +87,7 @@ public class ChiTietFragment extends Fragment implements View.OnClickListener {
         Bundle bundle = new Bundle();
         bundle.putString("name", tvName.getText().toString());
         bundle.putDouble("price", price);
-        bundle.putInt("quantity", Integer.parseInt(spinner.getSelectedItem().toString()));
+        bundle.putInt("quantity", 1);
 
         fragment.setArguments(bundle);
 
@@ -102,7 +100,7 @@ public class ChiTietFragment extends Fragment implements View.OnClickListener {
     }
 
     private void themgiohang() {
-        int quantity = Integer.parseInt(spinner.getSelectedItem().toString());
+        int quantity = 1;
         GioHang item = new GioHang();
         item.setTensp(name);
         item.setGiasp(price);
