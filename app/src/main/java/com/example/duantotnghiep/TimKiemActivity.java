@@ -16,16 +16,18 @@ import java.util.ArrayList;
 
 import javax.xml.validation.SchemaFactory;
 
+import io.reactivex.rxjava3.disposables.CompositeDisposable;
+
 //import kotlinx.coroutines.scheduling.SchedulerTimeSource;
 
 public class TimKiemActivity extends AppCompatActivity {
-//    Toolbar toolbar;
-//    EditText edtSearch;
+    Toolbar toolbar;
+    EditText edtSearch;
 //    DienThoaiAdapter adapterDt;
 //    List<SanPhamMoi> sanPhamMoiList;
 //    ApiBanHang apiBanHang;
-//    RecyclerView recyclerview;
-//    CompositeDisposable compositeDisposable = new CompositeDisposable();
+    RecyclerView recyclerview;
+    CompositeDisposable compositeDisposable = new CompositeDisposable();
 
 
     @Override
