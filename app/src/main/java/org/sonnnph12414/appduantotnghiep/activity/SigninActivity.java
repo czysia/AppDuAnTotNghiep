@@ -90,18 +90,19 @@ public class SigninActivity extends AppCompatActivity {
             return false;
         } else if (strRepass.equals("")) {
 //            Toast.makeText(this, "Hãy nhập mật khẩu !", Toast.LENGTH_SHORT).show();
-            edt_Password.setError("Hãy nhập lại mật khẩu !");
-            edt_Password.requestFocus();
+            edt_RePass.setError("Hãy nhập lại mật khẩu !");
+            edt_RePass.requestFocus();
             return false;
 
         } else if (strRepass.length() < 6 || strRepass.length() > 10) {
 //            Toast.makeText(this, "Mật khẩu phải từ 6 - 10 kí tự !", Toast.LENGTH_SHORT).show();
-            edt_Password.setError("Mật khẩu phải từ 6 - 10 kí tự !");
-            edt_Password.requestFocus();
+            edt_RePass.setError("Mật khẩu phải từ 6 - 10 kí tự !");
+            edt_RePass.requestFocus();
             return false;
         } else if (strPassword!=strRepass) {
 //            Toast.makeText(this, "Mật khẩu phải từ 6 - 10 kí tự !", Toast.LENGTH_SHORT).show();
             edt_Password.setError("Mật khẩu chưa khớp, kiểm tra lại!");
+            edt_RePass.setError("Mật khẩu chưa khớp, kiểm tra lại!");
             edt_Password.requestFocus();
             return false;
         }
