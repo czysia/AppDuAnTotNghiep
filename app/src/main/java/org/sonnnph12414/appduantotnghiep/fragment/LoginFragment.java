@@ -59,19 +59,12 @@ public class LoginFragment extends Fragment {
         // Inflate the layout for this fragment
         view = inflater.inflate(R.layout.fragment_login, container, false);
         anhXa();
-        Fragment fragment = new HomeFragment();
-        Bundle bundle = new Bundle();
+
         btn_Login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if (validater(edt_Username.getText().toString(), edt_Password.getText().toString())) {
                     saveData();
-                    fragment.setArguments(bundle);
-                    getActivity().getSupportFragmentManager()
-                            .beginTransaction()
-                            .replace(R.id.content_fame, fragment, null)
-                            .addToBackStack(null)
-                            .commit();
                 }
             }
         });
@@ -157,25 +150,34 @@ public class LoginFragment extends Fragment {
                             String reponseJSON = response.body().string();
                             Gson objGson = new Gson();
                             TokenResponse tokenResponse = objGson.fromJson(reponseJSON, TokenResponse.class);
-                            Toast.makeText(getActivity(), tokenResponse.getToken(), Toast.LENGTH_SHORT).show();
-                            Toast.makeText(getActivity(), "Token Got Successfully, Persur your process", Toast.LENGTH_SHORT).show();
+//                            Toast.makeText(getActivity(), tokenResponse.getToken(), Toast.LENGTH_SHORT).show();
+                            Toast.makeText(getActivity(), "Đăng nhập thành công!", Toast.LENGTH_SHORT).show();
+
+                            Fragment fragment = new HomeFragment();
+                            Bundle bundle = new Bundle();
+                            fragment.setArguments(bundle);
+                            getActivity().getSupportFragmentManager()
+                                    .beginTransaction()
+                                    .replace(R.id.content_fame, fragment, null)
+                                    .addToBackStack(null)
+                                    .commit();
                         } catch (IOException e) {
                             e.printStackTrace();
                             Toast.makeText(getActivity(), e.toString(), Toast.LENGTH_SHORT).show();
                         }
                     } else {
-                        Toast.makeText(getActivity(), "Credentials is valid, please try again", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getActivity(), "Tên đăng nhập hoặc mật khẩu không đúng, Vui lòng thử lại!", Toast.LENGTH_SHORT).show();
                     }
                 }
 
                 @Override
                 public void onFailure(Call<ResponseBody> call, Throwable t) {
-                    Toast.makeText(getActivity(), "System Error Ocurred"+t.getMessage(), Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getActivity(), "Lỗi hệ thống: "+t.getMessage(), Toast.LENGTH_SHORT).show();
                 }
             });
         } catch (Exception e) {
             e.printStackTrace();
-            Toast.makeText(getActivity(), "System Error Ocurred, Please chech your internet connection is enable", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getActivity(), "Lỗi hệ thống, Hãy chắc chắc bạn đã kết nối Internet!", Toast.LENGTH_SHORT).show();
         }
     }
 }
