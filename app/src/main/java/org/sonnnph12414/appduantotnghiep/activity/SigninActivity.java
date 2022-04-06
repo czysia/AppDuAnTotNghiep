@@ -17,6 +17,8 @@ import org.sonnnph12414.appduantotnghiep.model.RequestUpdate;
 import org.sonnnph12414.appduantotnghiep.model.ResponseUpdate;
 import org.sonnnph12414.appduantotnghiep.model.User;
 
+import java.util.regex.Pattern;
+
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -29,7 +31,6 @@ public class SigninActivity extends AppCompatActivity {
     EditText edt_Email, edt_Password, edt_RePass;
     Button btn_Signin;
     TextView tv_BackLogin;
-
 
 
     @Override
@@ -50,111 +51,85 @@ public class SigninActivity extends AppCompatActivity {
             }
         });
 
-        btn_Signin.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (validater(edt_Email.getText().toString(), edt_Password.getText().toString(), edt_RePass.getText().toString())) {
-                    DKTaiKhoan();
-                }
-            }
-        });
     }
 
-    private boolean validater(String s, String toString, String String) {
+    public static final Pattern EMAIL_ADDRESS
+            = Pattern.compile(
+            "[a-zA-Z0-9\\+\\.\\_\\%\\-\\+]{1,256}" +
+                    "\\@" +
+                    "[a-zA-Z0-9][a-zA-Z0-9\\-]{0,64}" +
+                    "(" +
+                    "\\." +
+                    "[a-zA-Z][a-zA-Z\\-]{1,25}" +
+                    ")+"
+    );
 
+    public void DKTaiKhoan(View view) {
         String strEmail = edt_Email.getText().toString().trim();
         String strPassword = edt_Password.getText().toString().trim();
         String strRepass = edt_RePass.getText().toString().trim();
-
-        if (strEmail.equals("")) {
-//            Toast.makeText(this, "Hãy nhập tài khoản !", Toast.LENGTH_SHORT).show();
-            edt_Email.setError("Hãy nhập tài khoản !");
+        if (strEmail.isEmpty()) {
+//            Toast.makeText(getApplicationContext(), " Hãy nhập Email/Username", Toast.LENGTH_SHORT).show();
+            edt_Email.setError("Hãy nhập Email/Username!");
             edt_Email.requestFocus();
-            return false;
-        } else if (strEmail.length() < 6 || strEmail.length() > 30) {
-//            Toast.makeText(this, "Tài khoản phải từ 6 - 30 kí tự !", Toast.LENGTH_SHORT).show();
-            edt_Email.setError("Tài khoản phải từ 6 - 30 kí tự !");
+        } else if (!EMAIL_ADDRESS.matcher(strEmail).matches()) {
+//            Toast.makeText(getApplicationContext(), "Hãy nhập đúng định dạng email", Toast.LENGTH_SHORT).show();
+            edt_Email.setError("Hãy nhập đúng định dạng mail!");
             edt_Email.requestFocus();
-            return false;
-
-        } else if (strPassword.equals("")) {
-//            Toast.makeText(this, "Hãy nhập mật khẩu !", Toast.LENGTH_SHORT).show();
+        } else if (strPassword.isEmpty()) {
+//            Toast.makeText(getApplicationContext(), "Hãy nhập mật khẩu", Toast.LENGTH_SHORT).show();
             edt_Password.setError("Hãy nhập mật khẩu !");
             edt_Password.requestFocus();
-            return false;
-
-        } else if (strPassword.length() < 6 || strPassword.length() > 10) {
-//            Toast.makeText(this, "Mật khẩu phải từ 6 - 10 kí tự !", Toast.LENGTH_SHORT).show();
-            edt_Password.setError("Mật khẩu phải từ 6 - 10 kí tự !");
+        } else if (strPassword.length() < 6) {
+//            Toast.makeText(getApplicationContext(), "Mật khẩu không được dưới 6 ký tự", Toast.LENGTH_SHORT).show();
+            edt_Password.setError("Mật khẩu không dưới 6 ký tự!");
             edt_Password.requestFocus();
-            return false;
-        } else if (strRepass.equals("")) {
-//            Toast.makeText(this, "Hãy nhập mật khẩu !", Toast.LENGTH_SHORT).show();
+        } else if (strRepass.isEmpty()) {
+//            Toast.makeText(getApplicationContext(), "Hãy nhập mật khẩu", Toast.LENGTH_SHORT).show();
             edt_RePass.setError("Hãy nhập lại mật khẩu !");
             edt_RePass.requestFocus();
-            return false;
-
-        } else if (strRepass.length() < 6 || strRepass.length() > 10) {
-//            Toast.makeText(this, "Mật khẩu phải từ 6 - 10 kí tự !", Toast.LENGTH_SHORT).show();
-            edt_RePass.setError("Mật khẩu phải từ 6 - 10 kí tự !");
+        } else if (strRepass.length() < 6) {
+//            Toast.makeText(getApplicationContext(), "Mật khẩu không được dưới 6 ký tự", Toast.LENGTH_SHORT).show();
+            edt_RePass.setError("Mật khẩu nhập lại không dưới 6 ký tự!");
             edt_RePass.requestFocus();
-            return false;
-        } else if (strPassword!=strRepass) {
-//            Toast.makeText(this, "Mật khẩu phải từ 6 - 10 kí tự !", Toast.LENGTH_SHORT).show();
-            edt_Password.setError("Mật khẩu chưa khớp, kiểm tra lại!");
-            edt_RePass.setError("Mật khẩu chưa khớp, kiểm tra lại!");
-            edt_Password.requestFocus();
-            return false;
-        }
-        return true;
-    }
-
-    private void DKTaiKhoan() {
-        try {
-            User user = new User();
-            user.setEmail(edt_Email.getText().toString().trim());
-            user.setPassword(edt_Password.getText().toString().trim());
-            user.setRepassword(edt_RePass.getText().toString().trim());
-            Retrofit retrofit = new Retrofit.Builder()
-                    .baseUrl(ConstUpdate.BASE_URL)
-                    .addConverterFactory(GsonConverterFactory.create())
-                    .build();
-            //2. Dua du lieu can update vao request
-            RequestUpdate requestUpdate = new RequestUpdate();
-            requestUpdate.setUser(user);
-            //3.goi ham interface
-            APIClientlpm apiClientl = retrofit.create(APIClientlpm.class);
-            Call<ResponseUpdate> call = apiClientl.dangky(user.getId(), user.getEmail(), user.getPassword(), user.getRepassword());
-            //4.thuc thi
-            call.enqueue(new Callback<ResponseUpdate>() {
-                @Override
-                public void onResponse(Call<ResponseUpdate> call, Response<ResponseUpdate> response) {
-                    if (response.isSuccessful()) {
-                        try {
-                            //get data
-                            ResponseUpdate responseUpdate = response.body();
-                            Toast.makeText(getApplicationContext(), responseUpdate.getMessage(), Toast.LENGTH_SHORT).show();
-                            Toast.makeText(getApplicationContext(), "Đăng ký thành công", Toast.LENGTH_SHORT).show();
-                            Intent backLogin = new Intent(getApplicationContext(), HomeActivity.class);
-                            startActivity(backLogin);
-                        } catch (Exception e) {
-                            e.printStackTrace();
-                            Toast.makeText(getApplicationContext(), e.toString(), Toast.LENGTH_SHORT).show();
-                        }
-                    } else {
-                        Toast.makeText(getApplicationContext(), "Email hoặc mật khẩu không đúng, Vui lòng thử lại!", Toast.LENGTH_SHORT).show();
+        } else if (strPassword.equals(strRepass)) {
+            try {
+                User user = new User();
+                user.setEmail(edt_Email.getText().toString().trim());
+                user.setPassword(edt_Password.getText().toString().trim());
+                user.setRepassword(edt_RePass.getText().toString().trim());
+                Retrofit retrofit = new Retrofit.Builder()
+                        .baseUrl(ConstUpdate.BASE_URL)
+                        .addConverterFactory(GsonConverterFactory.create())
+                        .build();
+                //2. Dua du lieu can update vao request
+                RequestUpdate requestUpdate = new RequestUpdate();
+                requestUpdate.setUser(user);
+                //3.goi ham interface
+                APIClientlpm apiClientl = retrofit.create(APIClientlpm.class);
+                Call<ResponseUpdate> call = apiClientl.dangky(user.getId(), user.getEmail(), user.getPassword(), user.getRepassword());
+                //4.thuc thi
+                call.enqueue(new Callback<ResponseUpdate>() {
+                    @Override
+                    public void onResponse(Call<ResponseUpdate> call, Response<ResponseUpdate> response) {
+                        //get data
+                        ResponseUpdate responseUpdate = response.body();
+                        Toast.makeText(getApplicationContext(), responseUpdate.getMessage(), Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getApplicationContext(), "Đăng ký thành công", Toast.LENGTH_SHORT).show();
+                        Intent backLogin = new Intent(getApplicationContext(), HomeActivity.class);
+                        startActivity(backLogin);
                     }
-                }
 
-                @Override
-                public void onFailure(Call<ResponseUpdate> call, Throwable t) {
-                    Toast.makeText(getApplicationContext(), "Lỗi hệ thống: "+t.getMessage(), Toast.LENGTH_SHORT).show();
-                }
-            });
-        } catch (Exception e) {
-            e.printStackTrace();
-            Toast.makeText(getApplicationContext(), "Lỗi hệ thống, Hãy chắc chắc bạn đã kết nối Internet!", Toast.LENGTH_SHORT).show();
-
+                    @Override
+                    public void onFailure(Call<ResponseUpdate> call, Throwable t) {
+                        Toast.makeText(getApplicationContext(), t.getMessage(), Toast.LENGTH_SHORT).show();
+                    }
+                });
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        } else {
+            Toast.makeText(getApplicationContext(), "Mật khẩu nhập lại chưa khớp", Toast.LENGTH_SHORT).show();
         }
     }
 }

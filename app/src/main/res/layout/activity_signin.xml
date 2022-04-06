@@ -75,7 +75,8 @@
         android:background="@drawable/rounded_button"
         android:text="Đăng Ký"
         app:backgroundTint="#FF0000"
-        android:textStyle="bold" />
+        android:textStyle="bold"
+        android:onClick="DKTaiKhoan"/>
 
     <TextView
         android:id="@+id/tv_backLogin"
