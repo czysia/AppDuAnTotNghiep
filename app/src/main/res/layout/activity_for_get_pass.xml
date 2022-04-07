@@ -47,7 +47,6 @@
         android:background="@drawable/rounded_button"
         android:text="Quên Mật Khẩu"
         android:textStyle="bold"
-        app:backgroundTint="#FF0000"
-        android:onClick="QuenMK"/>
+        app:backgroundTint="#FF0000" />
 
 </LinearLayout>

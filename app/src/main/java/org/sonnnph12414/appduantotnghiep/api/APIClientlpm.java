@@ -54,6 +54,17 @@ public interface APIClientlpm {
             @Field("password") String password
     );
 
+
+    @FormUrlEncoded
+    @POST("api/users/forgot/password")
+    @Headers({
+            "Accept: application/json",
+            "Content-Type: application/x-www-form-urlencoded",
+    })
+    Call<ResponseBody> QuenMK(
+            @Field("email") String email
+    );
+
     //https://flying-blossom-cerise.glitch.me/api/cart/:id
     @FormUrlEncoded
     @POST("/api/cart/:id")
