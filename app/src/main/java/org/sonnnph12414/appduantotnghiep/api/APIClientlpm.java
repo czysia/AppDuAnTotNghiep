@@ -26,6 +26,7 @@ public interface APIClientlpm {
 
     @GET("api/bills/get")
     Call<Categories> getAllThanhtoan(@Query("token") String token);
+
     @POST("api/bills/add")
     Call<Categories> datHang(@Query("token") String token);
 
