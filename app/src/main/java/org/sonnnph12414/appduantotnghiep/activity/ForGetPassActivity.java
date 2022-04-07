@@ -39,7 +39,7 @@ public class ForGetPassActivity extends AppCompatActivity {
 
     EditText edt_Email;
     Button btn_QuenMK;
-    TextView tv_quenMK;
+    TextView tv_BackDN;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -92,7 +92,7 @@ public class ForGetPassActivity extends AppCompatActivity {
                         Intent BackToDN = new Intent(ForGetPassActivity.this, HomeActivity.class);
                         startActivity(BackToDN);
                     } else {
-                        Toast.makeText(getApplicationContext(), "Email đăng nhập, Vui lòng thử lại!", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getApplicationContext(), "EmaForgetPassword đăng nhập, Vui lòng thử lại!", Toast.LENGTH_SHORT).show();
                     }
                 }
 
@@ -108,7 +108,7 @@ public class ForGetPassActivity extends AppCompatActivity {
     }
 
     public void BackToDN(View view) {
-        Intent BackToDN = new Intent(ForGetPassActivity.this, LoginActivity.class);
+        Intent BackToDN = new Intent(ForGetPassActivity.this, HomeActivity.class);
         startActivity(BackToDN);
     }
 }
