@@ -64,10 +64,11 @@
                 android:layout_height="200dp">
             </ViewFlipper>
             <LinearLayout
-                android:background="#5992d2"
+
                 android:orientation="vertical"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="match_parent"
+                android:layout_margin="10dp">
                 <TextView
                     android:textColor="@android:color/holo_red_light"
                     android:textStyle="bold"

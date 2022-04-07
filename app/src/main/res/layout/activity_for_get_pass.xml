@@ -47,7 +47,16 @@
         android:background="@drawable/rounded_button"
         android:text="Quên Mật Khẩu"
         android:textStyle="bold"
-        app:backgroundTint="#FF0000"
-        android:onClick="QuenMK"/>
+        app:backgroundTint="#FF0000" />
 
+    <TextView
+            android:id="@+id/tv_BackDN"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:text="Đăng nhập"
+            android:textColor="#FF0000"
+            android:textSize="25sp"
+            android:textStyle="bold"
+            android:onClick="BackToDN"/>
 </LinearLayout>

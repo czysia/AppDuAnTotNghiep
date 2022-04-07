@@ -78,11 +78,13 @@
         android:textStyle="bold"
         android:onClick="DKTaiKhoan"/>
 
-
     <TextView
+        android:id="@+id/tv_backLogin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:id="@+id/tvResult"/>
-
+        android:layout_marginTop="25dp"
+        android:text="Đăng nhập"
+        android:textColor="#FF0000"
+        android:textSize="25sp"
+        android:textStyle="bold" />
 </LinearLayout>

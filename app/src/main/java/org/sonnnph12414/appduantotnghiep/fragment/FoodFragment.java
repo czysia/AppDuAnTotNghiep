@@ -1,10 +1,12 @@
 package org.sonnnph12414.appduantotnghiep.fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -12,12 +14,15 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.Toast;
 
+import org.greenrobot.eventbus.EventBus;
 import org.sonnnph12414.appduantotnghiep.R;
 import org.sonnnph12414.appduantotnghiep.adapter.FoodAdapter;
 import org.sonnnph12414.appduantotnghiep.api.APIClient;
 import org.sonnnph12414.appduantotnghiep.model.Food;
+import org.sonnnph12414.appduantotnghiep.model.Foodbuy;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -30,6 +35,7 @@ public class FoodFragment extends Fragment {
 
     List<Food> foodList;
     RecyclerView rcvFood;
+    ImageView img_back;
 
     public FoodFragment() {
         // Required empty public constructor
@@ -42,21 +48,28 @@ public class FoodFragment extends Fragment {
         View view =inflater.inflate(R.layout.fragment_food, container, false);
 
         rcvFood =view.findViewById(R.id.rcvFood);
+        img_back =view.findViewById(R.id.img_back);
 
         foodList= new ArrayList<>();
+
+        img_back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Fragment fragment = new HomeFragment();
+
+                Bundle bundle = new Bundle();
+                fragment.setArguments(bundle);
+                getActivity().getSupportFragmentManager()
+                        .beginTransaction()
+                        .replace(R.id.content_fame, fragment, null)
+                        .addToBackStack(null)
+                        .commit();
+            }
+        });
 
         viewFood();
         return view;
     }
-
-//    @Override
-//    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
-//        rcvFood =view.findViewById(R.id.rcvFood);
-//
-//        foodList= new ArrayList<>();
-//
-//        viewFood();
-//    }
 
     private void viewFood() {
         Call<List<Food>> call = APIClient.create().getAllFood();
@@ -74,7 +87,6 @@ public class FoodFragment extends Fragment {
             @Override
             public void onFailure(Call<List<Food>> call, Throwable t) {
                 Toast.makeText(getActivity(), t.getMessage(), Toast.LENGTH_SHORT).show();
-
             }
         });
     }

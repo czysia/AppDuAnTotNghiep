@@ -118,7 +118,7 @@
             android:layout_width="25dp"
             android:layout_height="25dp"
             android:layout_marginTop="10dp"
-            android:src="@drawable/ic_user"/>
+            android:src="@drawable/ic_name"/>
 
         <EditText
             android:layout_width="match_parent"
