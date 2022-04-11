@@ -1,89 +1,134 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:gravity="center_horizontal"
-    android:orientation="vertical"
-    android:clickable="true"
-    tools:context=".activity.LoginActivity">
 
-    <ImageView
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:layout_marginTop="50dp"
-        android:src="@drawable/cart" />
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:text="Đăng Nhập"
-        android:textColor="#FF1100"
-        android:textSize="30sp"
-        android:textStyle="bold" />
-
-    <LinearLayout
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:gravity="center_vertical"
-        android:orientation="vertical">
+        android:layout_height="match_parent"
+        android:background="@mipmap/background"
+        tools:context=".fragment.LoginFragment">
+
+        <ImageView
+            android:id="@+id/imgLauncher"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/ic_icon_small"
+            app:layout_constraintBottom_toTopOf="@id/tvLogin"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_chainStyle="packed" />
+
+        <TextView
+            android:id="@+id/tvLogin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_50"
+            android:text="@string/dang_nhap"
+            android:textColor="@color/main_color"
+            android:textSize="30sp"
+            app:layout_constraintBottom_toTopOf="@id/edtAccount"
+            app:layout_constraintEnd_toEndOf="@id/imgLauncher"
+            app:layout_constraintStart_toStartOf="@id/imgLauncher"
+            app:layout_constraintTop_toBottomOf="@id/imgLauncher"
+            app:layout_constraintVertical_chainStyle="packed" />
 
         <EditText
-            android:id="@+id/edt_Username"
-            android:layout_width="match_parent"
-            android:layout_height="52dp"
-            android:layout_margin="16dp"
-            android:background="@drawable/rounded_edittext"
-            android:hint="Tên Tài Khoản"
-            android:paddingLeft="10dp"
-            android:textColor="#FFFFFF"
-            android:textColorHint="#FFFFFF" />
+            android:id="@+id/edtAccount"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/dp_50"
+            android:layout_marginStart="@dimen/dp_24"
+            android:layout_marginTop="@dimen/dp_43"
+            android:layout_marginEnd="@dimen/dp_24"
+            android:background="@drawable/bg_circle_textview"
+            android:hint="@string/ten_tai_khoan"
+            android:paddingStart="8dp"
+            android:textColor="@color/white"
+            android:textColorHint="@color/white"
+            app:layout_constraintBottom_toTopOf="@id/edtPassword"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvLogin"
+            app:layout_constraintVertical_chainStyle="packed"
+            tools:ignore="RtlSymmetry" />
 
         <EditText
-            android:id="@+id/edt_Password"
-            android:layout_width="match_parent"
-            android:layout_height="52dp"
-            android:layout_margin="10dp"
-            android:background="@drawable/rounded_edittext"
-            android:hint="Mật Khẩu"
-            android:inputType="textPassword"
-            android:paddingLeft="16dp"
-            android:textColor="#FFFFFF"
-            android:textColorHint="#FFFFFF" />
-    </LinearLayout>
+            android:id="@+id/edtPassword"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/dp_50"
+            android:layout_marginStart="@dimen/dp_24"
+            android:layout_marginTop="@dimen/dp_14"
+            android:layout_marginEnd="@dimen/dp_24"
+            android:background="@drawable/bg_circle_textview"
+            android:hint="@string/mat_khau"
+            android:paddingStart="@dimen/dp_8"
+            android:textColorHint="@color/white"
+            app:layout_constraintBottom_toTopOf="@id/btnLogin"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/edtAccount"
+            app:layout_constraintVertical_chainStyle="packed"
+            tools:ignore="RtlSymmetry" />
 
-    <Button
-        android:id="@+id/btn_Login"
-        android:layout_width="200dp"
-        android:layout_height="52dp"
-        android:layout_marginTop="20dp"
-        android:background="@drawable/rounded_button"
-        android:text="Đăng Nhập"
-        app:backgroundTint="#FF0000"
-        android:textStyle="bold"
-        android:onClick="Login"/>
+        <TextView
+            android:id="@+id/btnLogin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_27"
+            android:background="@drawable/bg_button_login"
+            android:paddingStart="@dimen/dp_15"
+            android:paddingTop="@dimen/dp_4"
+            android:paddingEnd="@dimen/dp_15"
+            android:paddingBottom="@dimen/dp_4"
+            android:text="@string/dang_nhap"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toTopOf="@id/btnForgot"
+            app:layout_constraintEnd_toEndOf="@id/edtPassword"
+            app:layout_constraintStart_toStartOf="@id/edtPassword"
+            app:layout_constraintTop_toBottomOf="@id/edtPassword"
+            app:layout_constraintVertical_chainStyle="packed" />
 
-    <TextView
-        android:id="@+id/tv_forGetPass"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="Quên mật khẩu"
-        android:textColor="#FF0000"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        android:onClick="ForGetPass"/>
-    <TextView
-        android:id="@+id/tv_Signin"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="25dp"
-        android:text="Đăng ký"
-        android:textColor="#FF0000"
-        android:textSize="25sp"
-        android:textStyle="bold"
-        android:onClick="Signin"/>
-</LinearLayout>
+        <TextView
+            android:id="@+id/btnForgot"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_15"
+            android:text="@string/quen_mat_khau"
+            android:textColor="@color/main_color"
+            android:textSize="15sp"
+            app:layout_constraintBottom_toTopOf="@id/btnRegister"
+            app:layout_constraintEnd_toEndOf="@id/btnLogin"
+            app:layout_constraintStart_toStartOf="@id/btnLogin"
+            app:layout_constraintTop_toBottomOf="@id/btnLogin"
+            app:layout_constraintVertical_chainStyle="spread" />
+
+        <TextView
+            android:id="@+id/btnRegister"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_20"
+            android:text="@string/dang_ky"
+            android:textColor="@color/main_color"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@id/btnForgot"
+            app:layout_constraintStart_toStartOf="@id/btnForgot"
+            app:layout_constraintTop_toBottomOf="@id/btnForgot"
+            app:layout_constraintVertical_chainStyle="spread" />
+
+        <com.github.ybq.android.spinkit.SpinKitView
+            android:id="@+id/spin_kit"
+            style="@style/SpinKitView.Circle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:visibility="gone"
+            app:SpinKit_Color="@color/purple_700"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

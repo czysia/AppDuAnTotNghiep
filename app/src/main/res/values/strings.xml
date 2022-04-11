@@ -1,15 +1,39 @@
 <resources>
-    <string name="app_name">AppDuAnTotNghiep</string>
+    <string name="app_name">App_Ban_Hang_Tot_Nghiep</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="dang_nhap">Đăng Nhập</string>
+    <string name="forgot_pass">Quên Mật Khẩu</string>
+    <string name="ten_tai_khoan">Tên Tài Khoản</string>
+    <string name="mat_khau">Mật Khẩu</string>
+    <string name="confirm">Nhập Lại Mật Khẩu</string>
+    <string name="email">Email</string>
+    <string name="quen_mat_khau">Quên Mật Khẩu</string>
+    <string name="dang_ky">Đăng Ký</string>
+    <string name="forgot_pass_word">QUÊN MẬT KHẨU</string>
+    <string name="navigation_open">Open</string>
+    <string name="navigation_close">Close</string>
+    <string name="detail_product">Chi Tiết Sản Phẩm</string>
+    <string name="pay">Thanh Toán</string>
 
+    //menu
+    <string name="main">Trang Chủ</string>
+    <string name="drink">Đồ Uống</string>
+    <string name="food">Đồ Ăn</string>
+    <string name="self">Đồ Dùng Cá Nhân</string>
+    <string name="info">Thông Tin</string>
+    <string name="sing_out">Đăng Xuất</string>
+    <string name="main_home">Trang Chủ</string>
+    <string name="search">Tìm kiếm</string>
+    <string name="pay_type">Hỉnh thức thanh toán</string>
+    <string name="pay_when_receiver">Thanh toán khi nhận hàng</string>
+    <string name="note">Ghi chú</string>
+    <string name="ship_code">Phí chuyển phát</string>
 
-    <string name="menu_home">Trang Chủ</string>
-    <string name="menu_food">Đồ Ăn</string>
-    <string name="menu_info">Thông tin</string>
-    <string name="menu_login">Đăng nhập</string>
-    <string name="menu_signOut">Đăng Xuất</string>
-
-    <string name="nav_open">Open navigation drawer</string>
-    <string name="nav_close">Close navigation drawer</string>
+    //pay
+    <string name="location">Nhập Địa Chỉ Giao Hàng</string>
+    <string name="phone">Nhập Số Điện Thoại</string>
+    <string name="mail">Nhập Địa Chỉ Email</string>
+    <string name="name_user">Nhập Tên Người Nhận</string>
+    <string name="input_key">Nhập từ khóa</string>
 </resources>

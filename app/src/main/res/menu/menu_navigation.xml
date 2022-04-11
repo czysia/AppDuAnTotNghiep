@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <group>
+        <item
+            android:id="@+id/home"
+            android:iconTint="@color/main_color"
+            android:icon="@mipmap/ic_home"
+            android:title="@string/main" />
+        <item
+            android:id="@+id/drinks"
+            android:iconTint="@color/main_color"
+            android:icon="@mipmap/ic_drinks"
+            android:title="@string/drink" />
+        <item
+            android:id="@+id/snacks"
+            android:iconTint="@color/main_color"
+            android:icon="@mipmap/ic_snacks"
+            android:title="@string/food" />
+        <item
+            android:id="@+id/personal"
+            android:iconTint="@color/main_color"
+            android:icon="@mipmap/ic_personalitem"
+            android:title="@string/self" />
+        <item
+            android:id="@+id/information"
+            android:iconTint="@color/main_color"
+            android:icon="@mipmap/ic_information"
+            android:title="@string/info" />
+        <item
+            android:id="@+id/signout"
+            android:iconTint="@color/main_color"
+            android:icon="@mipmap/ic_signout"
+            android:title="@string/sing_out" />
+
+    </group>
+</menu>

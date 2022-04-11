@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        tools:context=".fragment.RegisterFragment">
+
+        <ImageView
+            android:id="@+id/imgLauncher"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            android:src="@mipmap/ic_icon_small"
+            app:layout_constraintBottom_toTopOf="@id/tvLogin"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_chainStyle="spread" />
+
+        <TextView
+            android:id="@+id/tvLogin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_30"
+            android:text="@string/dang_ky"
+            android:textColor="@color/main_color"
+            android:textSize="30sp"
+            app:layout_constraintEnd_toEndOf="@id/imgLauncher"
+            app:layout_constraintStart_toStartOf="@id/imgLauncher"
+            app:layout_constraintTop_toBottomOf="@id/imgLauncher" />
+
+        <EditText
+            android:id="@+id/edtAccount"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/dp_50"
+            android:layout_marginStart="@dimen/dp_24"
+            android:layout_marginTop="@dimen/dp_43"
+            android:layout_marginEnd="@dimen/dp_24"
+            android:background="@drawable/bg_circle_textview"
+            android:hint="@string/ten_tai_khoan"
+            android:paddingStart="8dp"
+            android:textColor="@color/white"
+            android:textColorHint="@color/white"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvLogin"
+            tools:ignore="RtlSymmetry" />
+
+        <EditText
+            android:id="@+id/edtPassword"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/dp_50"
+            android:layout_marginStart="@dimen/dp_24"
+            android:layout_marginTop="@dimen/dp_14"
+            android:layout_marginEnd="@dimen/dp_24"
+            android:background="@drawable/bg_circle_textview"
+            android:hint="@string/mat_khau"
+            android:paddingStart="@dimen/dp_8"
+            android:textColorHint="@color/white"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/edtAccount"
+            app:layout_constraintVertical_chainStyle="spread"
+            tools:ignore="RtlSymmetry" />
+
+        <EditText
+            android:id="@+id/edtConfirm"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/dp_50"
+            android:layout_marginStart="@dimen/dp_24"
+            android:layout_marginTop="@dimen/dp_14"
+            android:layout_marginEnd="@dimen/dp_24"
+            android:background="@drawable/bg_circle_textview"
+            android:hint="@string/confirm"
+            android:paddingStart="@dimen/dp_8"
+            android:textColorHint="@color/white"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/edtPassword"
+            app:layout_constraintVertical_chainStyle="spread"
+            tools:ignore="RtlSymmetry" />
+
+        <TextView
+            android:id="@+id/btnRegister"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_27"
+            android:background="@drawable/bg_button_login"
+            android:paddingStart="@dimen/dp_43"
+            android:paddingTop="@dimen/dp_4"
+            android:paddingEnd="@dimen/dp_43"
+            android:paddingBottom="@dimen/dp_4"
+            android:text="@string/dang_ky"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="@id/edtConfirm"
+            app:layout_constraintStart_toStartOf="@id/edtConfirm"
+            app:layout_constraintTop_toBottomOf="@id/edtConfirm"
+            app:layout_constraintVertical_chainStyle="packed" />
+
+        <TextView
+            android:id="@+id/btnLogin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_20"
+            android:text="@string/dang_nhap"
+            android:textColor="@color/main_color"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="@id/btnRegister"
+            app:layout_constraintStart_toStartOf="@id/btnRegister"
+            app:layout_constraintTop_toBottomOf="@id/btnRegister"
+            app:layout_constraintVertical_chainStyle="packed" />
+
+        <com.github.ybq.android.spinkit.SpinKitView
+            android:id="@+id/spin_kit"
+            style="@style/SpinKitView.Circle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:visibility="gone"
+            app:SpinKit_Color="@color/purple_700"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
