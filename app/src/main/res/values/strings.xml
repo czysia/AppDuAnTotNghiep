@@ -3,6 +3,7 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="dang_nhap">Đăng Nhập</string>
+    <string name="dang_xuat">Đăng Xuất</string>
     <string name="forgot_pass">Quên Mật Khẩu</string>
     <string name="ten_tai_khoan">Tên Tài Khoản</string>
     <string name="mat_khau">Mật Khẩu</string>
@@ -21,11 +22,11 @@
     <string name="drink">Đồ Uống</string>
     <string name="food">Đồ Ăn</string>
     <string name="self">Đồ Dùng Cá Nhân</string>
-    <string name="info">Thông Tin</string>
+    <string name="info">Thông Tin Cá Nhân</string>
     <string name="sing_out">Đăng Xuất</string>
     <string name="main_home">Trang Chủ</string>
     <string name="search">Tìm kiếm</string>
-    <string name="pay_type">Hỉnh thức thanh toán</string>
+    <string name="pay_type">Hỉnh thức thanh toán :</string>
     <string name="pay_when_receiver">Thanh toán khi nhận hàng</string>
     <string name="note">Ghi chú</string>
     <string name="ship_code">Phí chuyển phát</string>
@@ -36,4 +37,22 @@
     <string name="mail">Nhập Địa Chỉ Email</string>
     <string name="name_user">Nhập Tên Người Nhận</string>
     <string name="input_key">Nhập từ khóa</string>
+    <string name="total_money">Tổng Tiền</string>
+    <string name="sell">Mua Hàng</string>
+    <string name="continue_h">Tiếp Tục Mua Hàng</string>
+    <string name="order">Đặt Hàng</string>
+    <string name="total_count_money">Tổng tiền</string>
+    <string name="input_address_email">Nhập Địa Chỉ Email</string>
+    <string name="input_personal">Nhập Tên Người Nhận</string>
+    <string name="input_phone_number">Nhập Số Điện Thoại</string>
+
+    //
+    <string name="about_log_out">Bạn có muốn đăng xuất không?</string>
+    <string name="yes">Có</string>
+    <string name="no">Không</string>
+
+    //delete item cart
+    <string name="delete_item">Bạn có muốn xóa sản phẩm không?</string>
+    <string name="delete_item_title">Xóa sản phẩm</string>
+
 </resources>

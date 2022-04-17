@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="org.sonnnph12414.appduantotnghiep">
+    package="com.example.app_ban_hang_tot_nghiep">
 
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
-    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <application
         android:allowBackup="true"
@@ -12,12 +11,18 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:usesCleartextTraffic="true"
-        android:theme="@style/Theme.AppDuAnTotNghiep">
-
-
+        android:theme="@style/Theme.App_Ban_Hang_Tot_Nghiep">
         <activity
-            android:name=".activity.SplashScreen"
+            android:name=".LoginActivity"
+            android:exported="false" />
+        <activity
+            android:name=".InforDevActivity"
+            android:exported="false" />
+        <activity
+            android:name=".MainActivity"
+            android:exported="false" />
+        <activity
+            android:name=".WelcomeActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -25,36 +30,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".activity.SigninActivity"
-            android:exported="false" />
-        <activity
-            android:name=".activity.ForGetPassActivity"
-            android:exported="false" />
-        <activity
-            android:name=".activity.LoginActivity"
-            android:exported="false" />
-        <activity
-            android:name=".activity.ChiTietActivity"
-            android:exported="false"/>
-        <activity
-            android:name=".activity.FoodActivity"
-            android:exported="true" />
-        <activity
-            android:name=".activity.ThanhToan"
-            android:exported="false" />
-        <activity
-            android:name=".activity.HomeActivity"
-            android:exported="true">
-
-        </activity>
-        <activity
-            android:name=".activity.GioHangActivity"
-            android:exported="false" />
-        <activity
-            android:name=".MainActivity"
-            android:exported="true" />
-
     </application>
 
 </manifest>

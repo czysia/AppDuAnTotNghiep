@@ -9,7 +9,7 @@
             type="Integer" />
 
         <variable
-            name="hintEdittext"
+            name="viewHint"
             type="String" />
     </data>
 
@@ -35,7 +35,8 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:background="@null"
-            android:hint="@{hintEdittext}"
+            android:text="@{viewHint}"
+            android:hint="@{viewHint}"
             app:layout_constraintBottom_toBottomOf="@id/imgIcon"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/imgIcon"

@@ -5,7 +5,13 @@
 
     <data>
 
+        <import type="android.view.View" />
+
         <import type="com.example.app_ban_hang_tot_nghiep.R" />
+
+        <variable
+            name="isLogin"
+            type="Boolean" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -77,6 +83,10 @@
                         android:id="@+id/homeScreen"
                         layout="@layout/listgroupheader" />
 
+                    <include
+                        android:id="@+id/information"
+                        layout="@layout/item_infordev" />
+
                     <ExpandableListView
                         android:id="@+id/expandableListView"
                         android:layout_width="match_parent"
@@ -86,8 +96,14 @@
                         android:groupIndicator="@null" />
 
                     <include
-                        android:id="@+id/information"
-                        layout="@layout/item_infordev" />
+                        android:id="@+id/itemLogout"
+                        layout="@layout/item_dang_xuat"
+                        android:visibility="@{isLogin?View.VISIBLE:View.GONE}" />
+
+                    <include
+                        android:id="@+id/itemLogin"
+                        layout="@layout/item_dang_nhap"
+                        android:visibility="@{isLogin?View.GONE:View.VISIBLE}" />
                 </LinearLayout>
             </com.google.android.material.navigation.NavigationView>
 
