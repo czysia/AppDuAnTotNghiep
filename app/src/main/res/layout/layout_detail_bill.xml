@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/ctlDetail"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="@dimen/dp_8">
+
+        <ImageView
+            android:id="@+id/imgClose"
+            android:layout_width="@dimen/dp_48"
+            android:layout_height="@dimen/dp_48"
+            android:layout_marginTop="@dimen/dp_24"
+            android:padding="@dimen/dp_12"
+            android:src="@drawable/ic_close"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/open_bold"
+            android:gravity="center"
+            android:text="@string/detail_bill"
+            android:textColor="@color/main_color"
+            android:textSize="25sp"
+            app:layout_constraintBottom_toBottomOf="@id/imgClose"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/imgClose"
+            app:layout_constraintTop_toTopOf="@id/imgClose" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/imgClose">
+
+            <TextView
+                android:id="@+id/tvCode"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@string/codeoder"
+                android:textSize="20sp"
+                app:layout_constraintEnd_toEndOf="@id/tvNameBiller"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/tvCodeShow"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dp_12"
+                android:ellipsize="end"
+                android:fontFamily="@font/open_bold"
+                android:lines="1"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                app:layout_constraintBottom_toBottomOf="@id/tvCode"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/tvCode"
+                app:layout_constraintTop_toTopOf="@id/tvCode" />
+
+            <TextView
+                android:id="@+id/tvNameBiller"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/name_other"
+                android:textSize="20sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvCode" />
+
+            <TextView
+                android:id="@+id/tvNameCustomer"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dp_12"
+                android:ellipsize="end"
+                android:fontFamily="@font/open_bold"
+                android:lines="1"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                app:layout_constraintBottom_toBottomOf="@id/tvNameBiller"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/tvNameBiller"
+                app:layout_constraintTop_toTopOf="@id/tvNameBiller" />
+
+            <TextView
+                android:id="@+id/tvTitleStatus"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@string/status"
+                android:textSize="20sp"
+                app:layout_constraintEnd_toEndOf="@id/tvNameBiller"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvNameBiller" />
+
+            <TextView
+                android:id="@+id/tvStatusBill"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dp_12"
+                android:ellipsize="end"
+                android:fontFamily="@font/open_bold"
+                android:lines="1"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                app:layout_constraintBottom_toBottomOf="@id/tvTitleStatus"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/tvTitleStatus"
+                app:layout_constraintTop_toTopOf="@id/tvTitleStatus" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recycleOrder"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_250"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:layout_constraintTop_toBottomOf="@id/tvTitleStatus"
+                tools:listitem="@layout/item_list_cart" />
+
+            <TextView
+                android:id="@+id/tvTitleMoney"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dp_12"
+                android:text="@string/total_money"
+                android:textColor="@color/main_color"
+                android:textStyle="bold"
+                android:textSize="20sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/recycleOrder" />
+
+            <TextView
+                android:id="@+id/tvMoneyCount"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:textColor="@color/teal_200"
+                android:textSize="20sp"
+                app:layout_constraintBottom_toBottomOf="@id/tvTitleMoney"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/tvTitleMoney"
+                app:layout_constraintTop_toTopOf="@id/tvTitleMoney"
+                tools:ignore="NotSibling" />
+
+            <TextView
+                android:id="@+id/btnSuccess"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp_20"
+                android:background="@drawable/bg_button_login"
+                android:fontFamily="@font/open_bold"
+                android:paddingStart="@dimen/dp_30"
+                android:paddingTop="@dimen/dp_12"
+                android:paddingEnd="@dimen/dp_30"
+                android:paddingBottom="@dimen/dp_12"
+                android:text="@string/reciver_success"
+                android:textColor="@color/white"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvTitleMoney" />
+
+            <TextView
+                android:id="@+id/btnCancel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp_20"
+                android:background="@drawable/bg_button_login"
+                android:fontFamily="@font/open_bold"
+                android:paddingStart="@dimen/dp_30"
+                android:paddingTop="@dimen/dp_12"
+                android:paddingEnd="@dimen/dp_30"
+                android:paddingBottom="@dimen/dp_12"
+                android:text="@string/cancel_bill"
+                android:textColor="@color/white"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/btnSuccess" />
+
+            <com.github.ybq.android.spinkit.SpinKitView
+                android:id="@+id/spin_kit"
+                style="@style/SpinKitView.Circle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:visibility="gone"
+                app:SpinKit_Color="@color/purple_700"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
