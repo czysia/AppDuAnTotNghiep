@@ -5,6 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+
         <variable
             name="total"
             type="String" />
@@ -13,23 +14,25 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="@color/white"
         android:clickable="true"
-        android:focusable="true"
-        android:background="@color/white">
+        android:focusable="true">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/viewController"
             android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
+            android:layout_height="wrap_content"
             android:background="@color/white"
+            android:paddingTop="@dimen/dp_24"
             app:layout_constraintTop_toTopOf="parent"
             tools:context=".fragment.CatorogyCommonFragment">
 
             <ImageView
                 android:id="@+id/imgBack"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="@dimen/dp_48"
+                android:layout_height="@dimen/dp_48"
                 android:layout_marginStart="@dimen/dp_10"
+                android:padding="@dimen/dp_8"
                 android:src="@mipmap/ic_back"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -39,9 +42,10 @@
                 android:id="@+id/tvTitle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Giỏ Hàng"
+                android:fontFamily="@font/open_bold"
+                android:text="@string/cart_info"
                 android:textColor="@color/main_color"
-                android:textSize="18sp"
+                android:textSize="25sp"
                 android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="@id/imgBack"
                 app:layout_constraintEnd_toStartOf="@id/imgBackHome"
@@ -50,15 +54,23 @@
 
             <ImageView
                 android:id="@+id/imgBackHome"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="@dimen/dp_48"
+                android:layout_height="@dimen/dp_48"
                 android:layout_marginEnd="@dimen/dp_10"
+                android:padding="@dimen/dp_8"
                 android:src="@mipmap/ic_home"
                 app:layout_constraintBottom_toBottomOf="@id/imgBack"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="@id/imgBack" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <View
+            android:id="@+id/viewDivide"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_1"
+            android:background="#6C6B6C"
+            app:layout_constraintTop_toBottomOf="@id/viewController" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recycleCart"
@@ -84,19 +96,22 @@
                 android:id="@+id/tvTotal"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/robotomedium"
                 android:text="@string/total_money"
                 android:textColor="@color/main_color"
-                android:textSize="30sp"
+                android:textSize="25sp"
                 android:textStyle="bold"
-                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintStart_toStartOf="@id/tvContinue"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
                 android:id="@+id/tvTotalShow"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:textSize="30sp"
+                android:gravity="center"
                 android:text="@{total}"
+                android:textColor="@color/teal_200"
+                android:textSize="30sp"
                 app:layout_constraintBottom_toBottomOf="@id/tvTotal"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@id/tvTotal"
@@ -108,8 +123,9 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/dp_20"
                 android:background="@drawable/bg_button_login"
+                android:fontFamily="@font/robotoregular"
                 android:gravity="center"
-                android:padding="@dimen/dp_12"
+                android:padding="@dimen/dp_8"
                 android:text="@string/continue_h"
                 android:textColor="@color/white"
                 android:textSize="18sp"
@@ -123,10 +139,11 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/dp_12"
-                android:layout_marginBottom="@dimen/dp_20"
+                android:layout_marginBottom="@dimen/dp_40"
                 android:background="@drawable/bg_button_login"
+                android:fontFamily="@font/robotoregular"
                 android:gravity="center"
-                android:padding="@dimen/dp_12"
+                android:padding="@dimen/dp_8"
                 android:text="@string/sell"
                 android:textColor="@color/white"
                 android:textSize="18sp"

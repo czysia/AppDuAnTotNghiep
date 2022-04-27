@@ -2,7 +2,6 @@ package com.example.app_ban_hang_tot_nghiep;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.GravityCompat;
@@ -19,23 +18,22 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.ExpandableListView;
 import android.widget.Toast;
 
 import com.example.app_ban_hang_tot_nghiep.adapter.ExpandableListAdapter;
-import com.example.app_ban_hang_tot_nghiep.adapter.HomeAdapter;
 import com.example.app_ban_hang_tot_nghiep.adapter.SliderAdapterExample;
 import com.example.app_ban_hang_tot_nghiep.databinding.ActivityMainBinding;
 import com.example.app_ban_hang_tot_nghiep.fragment.CartFragment;
 import com.example.app_ban_hang_tot_nghiep.fragment.CatorogyCommonFragment;
-import com.example.app_ban_hang_tot_nghiep.fragment.DetailProductFragment;
+import com.example.app_ban_hang_tot_nghiep.fragment.ChangePassFragment;
 import com.example.app_ban_hang_tot_nghiep.fragment.HomeFragment;
+import com.example.app_ban_hang_tot_nghiep.fragment.MyBillFragment;
 import com.example.app_ban_hang_tot_nghiep.fragment.SearchFragment;
 import com.example.app_ban_hang_tot_nghiep.model.Category;
 import com.example.app_ban_hang_tot_nghiep.model.MenuModel;
-import com.example.app_ban_hang_tot_nghiep.model.Product;
 import com.example.app_ban_hang_tot_nghiep.model.SliderItem;
-import com.example.app_ban_hang_tot_nghiep.view.decor.GridSpacingItemDecoration;
 import com.example.app_ban_hang_tot_nghiep.viewmodel.MainViewModel;
 import com.google.android.material.navigation.NavigationView;
 import com.smarteist.autoimageslider.IndicatorView.animation.type.IndicatorAnimationType;
@@ -63,6 +61,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         mBinding = DataBindingUtil.setContentView(this, R.layout.activity_main);
+        this.getWindow().clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+        this.getWindow().addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
+        this.getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR
+                | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN);
+        this.getWindow().setStatusBarColor(Color.TRANSPARENT);
         setUpViewModel();
         mBinding.navigationView.setNavigationItemSelectedListener(this);
         addHome();
@@ -89,7 +92,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             FragmentManager fragmentManager = getSupportFragmentManager();
             fragmentManager.beginTransaction().replace(R.id.content_frame, new HomeFragment()).commit();
         } else if (id == R.id.information) {
-            Intent intent = new Intent(this, InforDevActivity.class);
+            Intent intent = new Intent(this, InforUserActivity.class);
             startActivity(intent);
         } else {
             FragmentManager fragmentManager = getSupportFragmentManager();
@@ -106,6 +109,13 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             return;
         }
 
+        Fragment fragmentChange = getSupportFragmentManager().findFragmentByTag("changepass");
+        if (fragmentChange != null) {
+            Log.d("TAG", "onBackPressed:  " + fragmentChange);
+            getSupportFragmentManager().beginTransaction().remove(fragmentChange).commit();
+            return;
+        }
+
         Fragment fragmentManager = getSupportFragmentManager().findFragmentByTag("preview");
         if (fragmentManager != null) {
             getSupportFragmentManager().beginTransaction().remove(fragmentManager).commit();
@@ -116,6 +126,13 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             getSupportFragmentManager().beginTransaction().remove(fragmentSearch).commit();
             return;
         }
+
+        Fragment fragmentBill = getSupportFragmentManager().findFragmentByTag("billwaiting");
+        if (fragmentBill != null) {
+            getSupportFragmentManager().beginTransaction().remove(fragmentBill).commit();
+            return;
+        }
+
         Fragment fragmentCaterory = getSupportFragmentManager().findFragmentByTag("catetory");
         if (fragmentCaterory != null) {
             Log.d("TAG", "onBackPressed:  " + fragmentCaterory);
@@ -181,7 +198,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             @Override
             public void onClick(View view) {
                 mBinding.drawerLayout.closeDrawers();
-                Intent intent = new Intent(view.getContext(), InforDevActivity.class);
+                Intent intent = new Intent(view.getContext(), InforUserActivity.class);
                 startActivity(intent);
             }
         });
@@ -204,6 +221,21 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             public void onClick(View view) {
                 mBinding.drawerLayout.closeDrawers();
                 gotoSearch();
+            }
+        });
+
+        mBinding.myBills.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                mBinding.drawerLayout.closeDrawers();
+                gotoMyBill();
+            }
+        });
+
+        mBinding.itemChange.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                gotoChangePass();
             }
         });
 
@@ -274,8 +306,14 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 //            }
 //            sliderItemList.add(sliderItem);
 //        }
-        sliderItemList.add(new SliderItem("Slider Item", "https://images.pexels.com/photos/929778/pexels-photo-929778.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"));
+        sliderItemList.add(new SliderItem("Một số hình ảnh về cửa hàng", "https://cms.luatvietnam.vn/uploaded/Images/Original/2020/03/27/co-so-kinh-doanh-duoc-mo-cua_2703224203.jpg"));
+        sliderItemList.add(new SliderItem("Một số hình ảnh về cửa hàng", "https://sobanhang.com/wp-content/uploads/2021/05/tap-hoa.jpg"));
+        sliderItemList.add(new SliderItem("Một số hình ảnh về cửa hàng", "https://cdn-www.vinid.net/2020/08/5388aae8-shutterstock_515335339-1.jpg"));
         adapter.renewItems(sliderItemList);
+    }
+
+    public void refreshData() {
+        mViewModel.getListCategory();
     }
 
     public void gotoSearch() {
@@ -286,6 +324,16 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     public void gotoCart() {
         FragmentManager fragmentManager = getSupportFragmentManager();
         fragmentManager.beginTransaction().add(R.id.parent_content, new CartFragment(), "cart").commit();
+    }
+
+    public void gotoMyBill() {
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        fragmentManager.beginTransaction().add(R.id.parent_content, new MyBillFragment(), "billwaiting").commit();
+    }
+
+    public void gotoChangePass() {
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        fragmentManager.beginTransaction().add(R.id.parent_content, new ChangePassFragment(), "changepass").commit();
     }
 
     @Override

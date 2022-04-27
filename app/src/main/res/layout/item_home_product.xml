@@ -12,7 +12,7 @@
     </data>
 
     <androidx.cardview.widget.CardView
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:paddingStart="@dimen/dp_10"
         android:paddingTop="@dimen/dp_20"
@@ -23,11 +23,12 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:padding="@dimen/dp_4">
 
             <ImageView
                 android:id="@+id/imgProduct"
-                android:layout_width="@dimen/dp_120"
+                android:layout_width="match_parent"
                 android:layout_height="@dimen/dp_120"
                 app:imageUrl="@{urlImage}"
                 app:layout_constraintStart_toStartOf="parent"
@@ -38,6 +39,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:ellipsize="end"
+                android:fontFamily="@font/robotoregular"
                 android:gravity="center"
                 android:maxLines="1"
                 android:textColor="@color/main_color"
@@ -52,8 +54,10 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:ellipsize="end"
+                android:fontFamily="@font/robotoregular"
                 android:gravity="center"
                 android:maxLines="1"
+                android:padding="@dimen/dp_4"
                 android:textColor="@color/main_color"
                 android:textSize="15sp"
                 app:layout_constraintEnd_toEndOf="@id/tvPrices"

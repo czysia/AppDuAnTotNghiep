@@ -12,6 +12,14 @@
         <import type="com.example.app_ban_hang_tot_nghiep.utils.Utils" />
 
         <import type="android.content.Context" />
+
+        <variable
+            name="shipCost"
+            type="String" />
+
+        <variable
+            name="totalCode"
+            type="String" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -22,47 +30,57 @@
         android:focusable="true"
         tools:context=".fragment.PayFragment">
 
-        <View
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/viewCotroller"
             android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            android:background="@color/purple_700"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <ImageView
-            android:id="@+id/imgBack"
-            android:layout_width="@dimen/dp_48"
-            android:layout_height="@dimen/dp_48"
-            android:layout_marginStart="@dimen/dp_10"
-            android:padding="@dimen/dp_10"
-            android:src="@mipmap/ic_back"
-            app:layout_constraintBottom_toBottomOf="@id/viewCotroller"
-            app:layout_constraintStart_toStartOf="@id/viewCotroller"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
-            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/pay"
-            android:textColor="@color/main_color"
-            android:textSize="18sp"
-            android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="@id/imgBack"
-            app:layout_constraintEnd_toStartOf="@id/imgBackHome"
-            app:layout_constraintStart_toEndOf="@id/imgBack"
-            app:layout_constraintTop_toTopOf="@id/imgBack"
-            tools:text="Thanh Toán" />
+            android:paddingTop="@dimen/dp_24"
+            android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+            app:layout_constraintTop_toTopOf="parent">
 
-        <ImageView
-            android:id="@+id/imgBackHome"
-            android:layout_width="@dimen/dp_48"
-            android:layout_height="@dimen/dp_48"
-            android:layout_marginEnd="@dimen/dp_10"
-            android:padding="@dimen/dp_8"
-            android:src="@mipmap/ic_home"
-            app:layout_constraintBottom_toBottomOf="@id/imgBack"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@id/imgBack" />
+            <ImageView
+                android:id="@+id/imgBack"
+                android:layout_width="@dimen/dp_48"
+                android:layout_height="@dimen/dp_48"
+                android:layout_marginStart="@dimen/dp_10"
+                android:padding="@dimen/dp_10"
+                android:src="@mipmap/ic_back"
+                app:layout_constraintBottom_toBottomOf="@id/viewCotroller"
+                app:layout_constraintStart_toStartOf="@id/viewCotroller"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/open_bold"
+                android:text="@string/pay"
+                android:textColor="@color/main_color"
+                android:textSize="25sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="@id/imgBack"
+                app:layout_constraintEnd_toStartOf="@id/imgBackHome"
+                app:layout_constraintStart_toEndOf="@id/imgBack"
+                app:layout_constraintTop_toTopOf="@id/imgBack"
+                tools:text="Thanh Toán" />
+
+            <ImageView
+                android:id="@+id/imgBackHome"
+                android:layout_width="@dimen/dp_48"
+                android:layout_height="@dimen/dp_48"
+                android:layout_marginEnd="@dimen/dp_10"
+                android:padding="@dimen/dp_8"
+                android:src="@mipmap/ic_home"
+                app:layout_constraintBottom_toBottomOf="@id/imgBack"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@id/imgBack" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <View
+            android:id="@+id/viewDivide"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_1"
+            android:background="#6C6B6C"
+            app:layout_constraintTop_toBottomOf="@id/viewCotroller" />
 
         <ScrollView
             android:layout_width="match_parent"
@@ -80,31 +98,35 @@
                     android:layout_height="@dimen/dp_60"
                     android:layout_marginStart="@dimen/dp_20"
                     android:layout_marginTop="@dimen/dp_20"
-                    android:layout_marginEnd="@dimen/dp_20"
-                    android:background="@color/main_color">
+                    android:layout_marginEnd="@dimen/dp_20">
 
-                    <ImageView
-                        android:id="@+id/imgLocation"
+                    <TextView
+                        android:id="@+id/tvName"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:padding="@dimen/dp_4"
-                        android:src="@drawable/ic_location"
-                        app:layout_constraintBottom_toBottomOf="parent"
+                        android:fontFamily="@font/robotoregular"
+                        android:text="@string/address"
+                        android:textColor="@color/black"
+                        android:textSize="16sp"
+                        app:layout_constraintBottom_toBottomOf="@id/edtLocation"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
+                        app:layout_constraintTop_toTopOf="@id/edtLocation" />
 
                     <EditText
                         android:id="@+id/edtLocation"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:background="@null"
-                        android:hint="Nhập Địa chỉ giao hàng"
-                        android:textColor="@color/white"
-                        android:textColorHint="@color/white"
-                        app:layout_constraintBottom_toBottomOf="@id/imgLocation"
+                        android:layout_marginStart="@dimen/dp_24"
+                        android:background="@drawable/bg_edittext_edit_info"
+                        android:ellipsize="end"
+                        android:hint="Nhập địa chỉ giao hàng"
+                        android:maxLines="1"
+                        android:padding="@dimen/dp_12"
+                        android:textSize="16sp"
+                        app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toEndOf="@id/imgLocation"
-                        app:layout_constraintTop_toTopOf="@id/imgLocation" />
+                        app:layout_constraintStart_toEndOf="@id/tvName"
+                        app:layout_constraintTop_toTopOf="parent" />
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
                 <androidx.constraintlayout.widget.ConstraintLayout
@@ -112,31 +134,34 @@
                     android:layout_height="@dimen/dp_60"
                     android:layout_marginStart="@dimen/dp_20"
                     android:layout_marginTop="@dimen/dp_20"
-                    android:layout_marginEnd="@dimen/dp_20"
-                    android:background="@color/main_color">
+                    android:layout_marginEnd="@dimen/dp_20">
 
-                    <ImageView
-                        android:id="@+id/imgPhone"
+                    <TextView
+                        android:id="@+id/tvNumber"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:padding="@dimen/dp_4"
-                        android:src="@drawable/ic_phone"
-                        app:layout_constraintBottom_toBottomOf="parent"
+                        android:fontFamily="@font/robotoregular"
+                        android:text="Số Điện Thoại"
+                        android:textColor="@color/black"
+                        android:textSize="16sp"
+                        app:layout_constraintBottom_toBottomOf="@id/edtPhone"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
+                        app:layout_constraintTop_toTopOf="@id/edtPhone" />
 
                     <EditText
                         android:id="@+id/edtPhone"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:background="@null"
-                        android:hint="@string/input_phone_number"
-                        android:textColor="@color/white"
-                        android:textColorHint="@color/white"
-                        app:layout_constraintBottom_toBottomOf="@id/imgPhone"
+                        android:layout_marginStart="@dimen/dp_24"
+                        android:background="@drawable/bg_edittext_edit_info"
+                        android:hint="Nhập số điện thoại"
+                        android:inputType="phone"
+                        android:padding="@dimen/dp_12"
+                        android:textSize="16sp"
+                        app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toEndOf="@id/imgPhone"
-                        app:layout_constraintTop_toTopOf="@id/imgPhone" />
+                        app:layout_constraintStart_toEndOf="@id/tvNumber"
+                        app:layout_constraintTop_toTopOf="parent" />
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
                 <androidx.constraintlayout.widget.ConstraintLayout
@@ -144,32 +169,36 @@
                     android:layout_height="@dimen/dp_60"
                     android:layout_marginStart="@dimen/dp_20"
                     android:layout_marginTop="@dimen/dp_20"
-                    android:layout_marginEnd="@dimen/dp_20"
-                    android:background="@color/main_color">
+                    android:layout_marginEnd="@dimen/dp_20">
 
-                    <ImageView
-                        android:id="@+id/imgEmail"
+                    <TextView
+                        android:id="@+id/tvEmail"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:padding="@dimen/dp_4"
-                        android:src="@drawable/ic_email"
-                        app:layout_constraintBottom_toBottomOf="parent"
+                        android:fontFamily="@font/robotoregular"
+                        android:text="@string/email"
+                        android:textColor="@color/black"
+                        android:textSize="16sp"
+                        app:layout_constraintBottom_toBottomOf="@id/edtEmail"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
+                        app:layout_constraintTop_toTopOf="@id/edtEmail" />
 
                     <EditText
                         android:id="@+id/edtEmail"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:background="@null"
-                        android:hint="@string/input_address_email"
-                        android:textColor="@color/white"
-                        android:textColorHint="@color/white"
-                        app:layout_constraintBottom_toBottomOf="@id/imgEmail"
+                        android:layout_marginStart="@dimen/dp_24"
+                        android:background="@drawable/bg_edittext_edit_info"
+                        android:ellipsize="end"
+                        android:hint="Nhập Địa chỉ email"
+                        android:maxLines="1"
+                        android:padding="@dimen/dp_12"
+                        android:textSize="16sp"
+                        app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintHorizontal_bias="0.0"
-                        app:layout_constraintStart_toEndOf="@id/imgEmail"
-                        app:layout_constraintTop_toTopOf="@id/imgEmail" />
+                        app:layout_constraintStart_toEndOf="@id/tvEmail"
+                        app:layout_constraintTop_toTopOf="parent" />
+
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
                 <androidx.constraintlayout.widget.ConstraintLayout
@@ -177,38 +206,44 @@
                     android:layout_height="@dimen/dp_60"
                     android:layout_marginStart="@dimen/dp_20"
                     android:layout_marginTop="@dimen/dp_20"
-                    android:layout_marginEnd="@dimen/dp_20"
-                    android:background="@color/main_color">
+                    android:layout_marginEnd="@dimen/dp_20">
 
-                    <ImageView
-                        android:id="@+id/imgIcon"
+                    <TextView
+                        android:id="@+id/tvUserName"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:padding="@dimen/dp_4"
-                        android:src="@drawable/ic_personal"
-                        app:layout_constraintBottom_toBottomOf="parent"
+                        android:fontFamily="@font/robotoregular"
+                        android:text="Tên"
+                        android:textColor="@color/black"
+                        android:textSize="16sp"
+                        app:layout_constraintBottom_toBottomOf="@id/edtPersonal"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
+                        app:layout_constraintTop_toTopOf="@id/edtPersonal" />
 
                     <EditText
                         android:id="@+id/edtPersonal"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:background="@null"
-                        android:hint="@string/input_personal"
-                        android:textColor="@color/white"
-                        android:textColorHint="@color/white"
-                        app:layout_constraintBottom_toBottomOf="@id/imgIcon"
+                        android:layout_marginStart="@dimen/dp_24"
+                        android:background="@drawable/bg_edittext_edit_info"
+                        android:ellipsize="end"
+                        android:hint="Nhập tên"
+                        android:maxLines="1"
+                        android:padding="@dimen/dp_12"
+                        android:textSize="16sp"
+                        app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toEndOf="@id/imgIcon"
-                        app:layout_constraintTop_toTopOf="@id/imgIcon" />
+                        app:layout_constraintStart_toEndOf="@id/tvUserName"
+                        app:layout_constraintTop_toTopOf="parent" />
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/dp_20"
+                    android:layout_marginTop="@dimen/dp_17"
                     android:layout_marginEnd="@dimen/dp_20"
+                    android:fontFamily="@font/robotomedium"
                     android:maxLines="1"
                     android:text="@string/pay_type"
                     android:textColor="@color/main_color"
@@ -262,10 +297,12 @@
                         app:layout_constraintTop_toBottomOf="@id/edtNotion" />
 
                     <TextView
+                        android:id="@+id/shipcodePrices"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="@dimen/dp_10"
-                        android:text="20000"
+                        android:text="@{shipCost}"
+                        android:textColor="@color/teal_200"
                         android:textSize="20sp"
                         app:layout_constraintBottom_toBottomOf="@id/tvShipcode"
                         app:layout_constraintStart_toEndOf="@id/tvShipcode"
@@ -277,23 +314,27 @@
                         android:layout_height="wrap_content"
                         android:text="@string/total_count_money"
                         android:textColor="@color/main_color"
-                        android:textSize="30sp"
+                        android:textSize="25sp"
                         android:textStyle="bold"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@id/tvShipcode" />
+
 
                     <TextView
                         android:id="@+id/tvTotalMoney"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:gravity="center"
-                        android:textSize="30sp"
+                        android:text="@{totalCode}"
+                        android:textColor="@color/teal_200"
+                        android:textSize="25sp"
                         app:layout_constraintBottom_toBottomOf="@id/totalCount"
                         app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.0"
                         app:layout_constraintStart_toEndOf="@id/totalCount"
                         app:layout_constraintTop_toTopOf="@id/totalCount"
+                        app:layout_constraintVertical_bias="0.0"
                         tools:text="1233384848448" />
-
 
                     <TextView
                         android:id="@+id/tvDHOrder"
@@ -301,6 +342,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/dp_12"
                         android:background="@drawable/bg_button_login"
+                        android:fontFamily="@font/robotomedium"
                         android:gravity="center"
                         android:padding="@dimen/dp_8"
                         android:text="@string/order"

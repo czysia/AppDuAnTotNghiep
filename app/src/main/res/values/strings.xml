@@ -4,6 +4,7 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="dang_nhap">Đăng Nhập</string>
     <string name="dang_xuat">Đăng Xuất</string>
+    <string name="change_pass">Đổi Mật Khẩu</string>
     <string name="forgot_pass">Quên Mật Khẩu</string>
     <string name="ten_tai_khoan">Tên Tài Khoản</string>
     <string name="mat_khau">Mật Khẩu</string>
@@ -15,6 +16,7 @@
     <string name="navigation_open">Open</string>
     <string name="navigation_close">Close</string>
     <string name="detail_product">Chi Tiết Sản Phẩm</string>
+    <string name="my_bill">Đơn Đặt Hàng</string>
     <string name="pay">Thanh Toán</string>
 
     //menu
@@ -23,10 +25,11 @@
     <string name="food">Đồ Ăn</string>
     <string name="self">Đồ Dùng Cá Nhân</string>
     <string name="info">Thông Tin Cá Nhân</string>
+    <string name="my_bills">Đơn Hàng Của Tôi</string>
     <string name="sing_out">Đăng Xuất</string>
     <string name="main_home">Trang Chủ</string>
     <string name="search">Tìm kiếm</string>
-    <string name="pay_type">Hỉnh thức thanh toán :</string>
+    <string name="pay_type">Hình thức thanh toán :</string>
     <string name="pay_when_receiver">Thanh toán khi nhận hàng</string>
     <string name="note">Ghi chú</string>
     <string name="ship_code">Phí chuyển phát</string>
@@ -38,10 +41,10 @@
     <string name="name_user">Nhập Tên Người Nhận</string>
     <string name="input_key">Nhập từ khóa</string>
     <string name="total_money">Tổng Tiền</string>
-    <string name="sell">Mua Hàng</string>
+    <string name="sell">Thanh Toán  </string>
     <string name="continue_h">Tiếp Tục Mua Hàng</string>
     <string name="order">Đặt Hàng</string>
-    <string name="total_count_money">Tổng tiền</string>
+    <string name="total_count_money">Tổng tiền: </string>
     <string name="input_address_email">Nhập Địa Chỉ Email</string>
     <string name="input_personal">Nhập Tên Người Nhận</string>
     <string name="input_phone_number">Nhập Số Điện Thoại</string>
@@ -54,5 +57,35 @@
     //delete item cart
     <string name="delete_item">Bạn có muốn xóa sản phẩm không?</string>
     <string name="delete_item_title">Xóa sản phẩm</string>
+    <string name="count_money_total">Tổng Tiền: </string>
+    <string name="count">Số Lượng</string>
+    <string name="cart_info">Giỏ Hàng</string>
+    <string name="date">Date: </string>
+
+    //delete item bill
+    <string name="delete_bill">Bạn có muốn xóa đơn hàng không?</string>
+    <string name="delete_bill_title">Xóa đơn hàng</string>
+    <string name="update_info">Update thông tin</string>
+
+    //User
+    <string name="infor_user">Thông tin người dùng</string>
+    <string name="add_to_cart">Thêm Vào giỏ hàng</string>
+    <string name="address_revice">Nhập Địa chỉ giao hàng</string>
+    <string name="detail_bill">Chi Tiết Đơn Hàng</string>
+    <string name="description">Mô tả</string>
+    <string name="price_product">Giá</string>
+    <string name="old_pass">Mật Khẩu Cũ</string>
+    <string name="new_pass">Mật Khẩu Mới</string>
+    <string name="change">Thay Đổi Mật Khẩu</string>
+    <string name="address">Địa chỉ</string>
+    <string name="codebill">Mã đơn hàng: </string>
+    <string name="reciver_success">Đã nhận được hàng</string>
+    <string name="name">Tên</string>
+    <string name="sdt">SĐT</string>
+    <string name="name_other">Tên khách hàng</string>
+    <string name="codeoder">Mã đơn hàng</string>
+    <string name="cancel_bill">Hủy Đơn Hàng</string>
+    <string name="customer">Khách Hàng</string>
+    <string name="status">Trạng thái</string>
 
 </resources>

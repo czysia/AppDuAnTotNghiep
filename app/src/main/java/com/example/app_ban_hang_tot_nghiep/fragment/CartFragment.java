@@ -41,6 +41,7 @@ public class CartFragment extends Fragment implements CartAdapter.onItemClick {
     private CartAdapter mAdapter;
     public List<ItemCartMoreInfo> mListData = new ArrayList<>();
     public Cart mCart;
+    public int totalMoney = 0;
     static CartFragment sCartFragment;
     SharedPreferences sharedPreferences;
     String token;
@@ -86,18 +87,15 @@ public class CartFragment extends Fragment implements CartAdapter.onItemClick {
         mBinding.spinKit.setVisibility(View.VISIBLE);
         sharedPreferences = requireContext().getSharedPreferences(MY_PREFS_NAME, Context.MODE_PRIVATE);
         token = sharedPreferences.getString("tokenID", "xxx");
-        Log.d("TAG567", "onCreateView: " + token);
         mCartViewModel.getListCartData(token);
         mCartViewModel.listCart.observe(getViewLifecycleOwner(), cart -> {
             mCart = cart;
             List<ItemCartMoreInfo> listItem = new ArrayList<>();
-            Log.d("TAG444", "onCreateView: " + mViewModel.listSearch.size());
             mBinding.spinKit.setVisibility(View.GONE);
             if (mViewModel.listSearch.size() > 0) {
 
                 for (int i = 0; i < cart.getProducts().size(); i++) {
                     for (int j = 0; j < mViewModel.listSearch.size(); j++) {
-                        Log.d("TAG555", "onCreateView: " + cart.getProducts().get(i).getProductName() + "parent" + mViewModel.listSearch.get(j).getId().toString());
                         if (cart.getProducts().get(i).getProductId().equals(mViewModel.listSearch.get(j).getId())) {
                             ItemCartMoreInfo itemCart = new ItemCartMoreInfo();
                             itemCart.setAmount(cart.getProducts().get(i).getAmount());
@@ -109,7 +107,7 @@ public class CartFragment extends Fragment implements CartAdapter.onItemClick {
                         }
                     }
                 }
-                Log.d("TAG", "onCreateView: " + cart.getTotal());
+                totalMoney = cart.getTotal();
                 mBinding.setTotal(new Utils().convertMoney(cart.getTotal()));
                 mListData.clear();
                 mListData.addAll(listItem);
@@ -128,7 +126,6 @@ public class CartFragment extends Fragment implements CartAdapter.onItemClick {
         });
         onClick();
 
-        Log.d("TAG765", "onCreateView: " + mViewModel.listSearch.size());
         // Inflate the layout for this fragment
         return mBinding.getRoot();
     }
@@ -167,6 +164,10 @@ public class CartFragment extends Fragment implements CartAdapter.onItemClick {
         mBinding.tvBuy.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                if (totalMoney <= 0) {
+                    Toast.makeText(requireContext(), "Không có sản phẩm nào trong giỏ hàng", Toast.LENGTH_SHORT).show();
+                    return;
+                }
                 goToPay();
             }
         });

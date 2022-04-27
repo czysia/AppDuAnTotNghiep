@@ -14,8 +14,9 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/viewController"
             android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            android:background="@color/white"
+            android:layout_height="wrap_content"
+            android:paddingTop="@dimen/dp_24"
+            android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
             app:layout_constraintTop_toTopOf="parent"
             tools:context=".fragment.SearchFragment">
 
@@ -23,8 +24,8 @@
                 android:id="@+id/imgBack"
                 android:layout_width="@dimen/dp_48"
                 android:layout_height="@dimen/dp_48"
-                android:padding="@dimen/dp_8"
                 android:layout_marginStart="@dimen/dp_10"
+                android:padding="@dimen/dp_8"
                 android:src="@mipmap/ic_back"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -36,7 +37,8 @@
                 android:layout_height="wrap_content"
                 android:text="@string/search"
                 android:textColor="@color/main_color"
-                android:textSize="18sp"
+                android:textSize="25sp"
+                android:fontFamily="@font/open_bold"
                 android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="@id/imgBack"
                 app:layout_constraintEnd_toStartOf="@id/imgBackHome"
@@ -48,8 +50,8 @@
                 android:id="@+id/imgBackHome"
                 android:layout_width="@dimen/dp_48"
                 android:layout_height="@dimen/dp_48"
-                android:padding="@dimen/dp_8"
                 android:layout_marginEnd="@dimen/dp_10"
+                android:padding="@dimen/dp_8"
                 android:src="@mipmap/ic_home"
                 app:layout_constraintBottom_toBottomOf="@id/imgBack"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -57,11 +59,19 @@
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
+        <View
+            android:id="@+id/viewDivide"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_1"
+            android:background="#6C6B6C"
+            app:layout_constraintTop_toBottomOf="@id/viewController" />
+
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/ctlSearch"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/dp_20"
+            android:layout_marginTop="@dimen/dp_12"
             android:layout_marginEnd="@dimen/dp_20"
             android:background="@color/main_color"
             app:layout_constraintTop_toBottomOf="@id/viewController">
@@ -78,8 +88,8 @@
             <EditText
                 android:id="@+id/edtSearch"
                 android:layout_width="0dp"
-                android:hint="@string/input_key"
                 android:layout_height="wrap_content"
+                android:hint="@string/input_key"
                 app:layout_constraintBottom_toBottomOf="@id/imgSearch"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@id/imgSearch"
@@ -94,8 +104,8 @@
             android:layout_marginTop="@dimen/dp_12"
             android:orientation="vertical"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/ctlSearch"
             tools:listitem="@layout/item_list_product_category" />

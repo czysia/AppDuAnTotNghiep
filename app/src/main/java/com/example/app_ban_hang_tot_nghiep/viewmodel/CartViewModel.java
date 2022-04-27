@@ -23,7 +23,7 @@ public class CartViewModel extends ViewModel {
         mApiService.getCart(token).enqueue(new Callback<Cart>() {
             @Override
             public void onResponse(Call<Cart> call, Response<Cart> response) {
-                if (response.isSuccessful()) {
+                if (response.isSuccessful() && response.code() == 200) {
                     listCart.postValue(response.body());
                 }
             }

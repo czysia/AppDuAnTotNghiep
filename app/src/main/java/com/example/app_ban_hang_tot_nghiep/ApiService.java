@@ -7,9 +7,12 @@ import com.example.app_ban_hang_tot_nghiep.model.Product;
 import com.example.app_ban_hang_tot_nghiep.model.ResponeBill;
 import com.example.app_ban_hang_tot_nghiep.model.Token;
 import com.example.app_ban_hang_tot_nghiep.model.UserInfo;
+import com.example.app_ban_hang_tot_nghiep.model.UserRespone;
 
 import java.util.List;
 
+import okhttp3.MultipartBody;
+import okhttp3.RequestBody;
 import retrofit2.Call;
 import retrofit2.http.Body;
 import retrofit2.http.Field;
@@ -32,6 +35,10 @@ public interface ApiService {
     @FormUrlEncoded
     @POST("api/users/forgot/password")
     Call<String> forgotPass(@Field("email") String email);
+
+    @FormUrlEncoded
+    @POST("api/users/change/password")
+    Call<String> changePass(@Field("token") String token, @Field("oldPassword") String oldPass, @Field("newPassword") String newPass);
 
     @FormUrlEncoded
     @POST("api/users/create")
@@ -61,6 +68,25 @@ public interface ApiService {
     @POST("api/bills/add/{address}/{phone}/{email}/{name}")
     Call<ResponeBill> addBills(@Path("address") String address, @Path("phone") String phone, @Path("email") String email, @Path("name") String name, @Field("token") String token);
 
-    @GET("api/bills/get")
-    Call<Cart> getBill(@Field("token") String token);
+    @GET("api/bills/get/{token}")
+    Call<List<ResponeBill>> getBill(@Path("token") String token);
+
+    @FormUrlEncoded
+    @POST("api/bills/cancel")
+    Call<String> deleteBill(@Field("bill_id") String billID, @Field("token") String token);
+
+    @FormUrlEncoded
+    @POST("api/bills/complete/{bill_id}")
+    Call<ResponeBill> completeBill(@Path("bill_id") String bill_id, @Field("token") String token);
+
+    @GET("api/users/{token}")
+    Call<UserRespone> getUser(@Path("token") String token);
+
+    @Multipart
+    @POST("api/users/update/info")
+    Call<UserRespone> updateInforUser(@Part MultipartBody.Part stringAvatar,
+                                      @Part("address") RequestBody address,
+                                      @Part("name") RequestBody name,
+                                      @Part("phone") RequestBody phone,
+                                      @Part("token") RequestBody token);
 }

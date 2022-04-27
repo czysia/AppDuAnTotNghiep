@@ -44,45 +44,70 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/dp_20"
             android:ellipsize="end"
+            android:fontFamily="@font/robotomedium"
             android:maxLines="1"
             android:text="@{title}"
             android:textColor="@color/main_color"
             android:textSize="16sp"
             android:textStyle="bold"
-            app:layout_constraintVertical_chainStyle="spread"
-            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintBottom_toTopOf="@id/tvPrices"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/imgProduct"
-            app:layout_constraintTop_toTopOf="@id/imgProduct" />
+            app:layout_constraintTop_toTopOf="@id/imgProduct"
+            app:layout_constraintVertical_chainStyle="spread" />
+
+        <TextView
+            android:id="@+id/tvTotalMoneyCount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/total_money"
+            app:layout_constraintBottom_toTopOf="@id/tvInFo"
+            app:layout_constraintStart_toStartOf="@id/tvName"
+            app:layout_constraintTop_toBottomOf="@id/tvName"
+            app:layout_constraintVertical_chainStyle="packed" />
 
         <TextView
             android:id="@+id/tvPrices"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:ellipsize="end"
+            android:fontFamily="@font/robotoregular"
+            android:gravity="center"
             android:maxLines="1"
             android:text="@{prices}"
             android:textColor="@color/main_color"
             android:textSize="16sp"
-            app:layout_constraintVertical_chainStyle="packed"
-            app:layout_constraintBottom_toTopOf="@id/tvInFo"
+            app:layout_constraintBottom_toBottomOf="@id/tvTotalMoneyCount"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="@id/tvName"
-            app:layout_constraintTop_toBottomOf="@id/tvName" />
+            app:layout_constraintStart_toEndOf="@id/tvTotalMoneyCount"
+            app:layout_constraintTop_toTopOf="@id/tvTotalMoneyCount"
+            app:layout_constraintVertical_chainStyle="packed" />
+
+        <TextView
+            android:id="@+id/tvCountProduct"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/count"
+            app:layout_constraintBottom_toBottomOf="@id/imgProduct"
+            app:layout_constraintStart_toStartOf="@id/tvTotalMoneyCount"
+            app:layout_constraintTop_toBottomOf="@id/tvTotalMoneyCount" />
+
 
         <TextView
             android:id="@+id/tvInFo"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:ellipsize="end"
+            android:fontFamily="@font/robotoregular"
+            android:gravity="center"
             android:maxLines="1"
             android:text="@{des}"
             android:textColor="@color/main_color"
             android:textSize="16sp"
-            app:layout_constraintBottom_toBottomOf="@id/imgProduct"
+            app:layout_constraintBottom_toBottomOf="@id/tvCountProduct"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="@id/tvName"
-            app:layout_constraintTop_toBottomOf="@id/tvPrices" />
+            app:layout_constraintStart_toEndOf="@id/tvCountProduct"
+            app:layout_constraintTop_toTopOf="@id/tvCountProduct" />
 
         <View
             android:layout_width="match_parent"

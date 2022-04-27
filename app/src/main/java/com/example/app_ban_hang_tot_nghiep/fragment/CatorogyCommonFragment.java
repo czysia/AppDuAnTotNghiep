@@ -101,11 +101,11 @@ public class CatorogyCommonFragment extends Fragment implements CatogoryAdapter.
     public void ItemClick(Product items) {
         ArrayList arrayList = new ArrayList<String>();
         arrayList.addAll(items.getImage());
-        gotaDetail(items.getId(), items.getName(), items.getPrice(), items.getPackaging(), arrayList);
+        gotaDetail(items.getId(), items.getName(), items.getPrice(), items.getDetail(), items.getQuantily(), arrayList);
     }
 
-    public void gotaDetail(String idProduce, String name, int prices, String des, ArrayList<String> listImage) {
+    public void gotaDetail(String idProduce, String name, int prices, String des, int quality, ArrayList<String> listImage) {
         FragmentManager fragmentManager = getParentFragmentManager();
-        fragmentManager.beginTransaction().add(R.id.parent_content, new DetailProductFragment().newInstance(idProduce, name, prices, des, listImage), "preview").commit();
+        fragmentManager.beginTransaction().add(R.id.parent_content, new DetailProductFragment().newInstance(idProduce, name, prices, des, quality, listImage), "preview").commit();
     }
 }

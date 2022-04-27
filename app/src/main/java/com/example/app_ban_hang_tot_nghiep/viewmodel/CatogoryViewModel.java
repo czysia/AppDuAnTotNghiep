@@ -25,7 +25,7 @@ public class CatogoryViewModel extends ViewModel {
         mApiService.getListProductWithCate(idCate).enqueue(new Callback<List<Product>>() {
             @Override
             public void onResponse(Call<List<Product>> call, Response<List<Product>> response) {
-                if (response.isSuccessful()) {
+                if (response.isSuccessful() && response.code() == 200) {
                     Log.d("TAG", "onResponse: cate " + response.body().size());
                     listData.postValue(response.body());
                 }

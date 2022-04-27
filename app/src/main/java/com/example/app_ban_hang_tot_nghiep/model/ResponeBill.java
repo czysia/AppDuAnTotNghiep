@@ -1,15 +1,16 @@
 package com.example.app_ban_hang_tot_nghiep.model;
 
+import java.io.Serializable;
 import java.util.List;
 
-public class ResponeBill{
+public class ResponeBill implements Serializable {
 	private String date;
 	private boolean transporting;
 	private String finishAt;
 	private String userAddress;
-	private boolean paymentStatus;
+	private boolean payment_status;
 	private String startAt;
-	private boolean billStatus;
+	private boolean bill_status;
 	private List<ProductsItem> products;
 	private String feedback;
 	private int total;
@@ -18,7 +19,7 @@ public class ResponeBill{
 	private String verifier;
 	private Object transporter;
 	private int V;
-	private String id;
+	private String _id;
 	private String username;
 
 	public String getDate(){
@@ -38,7 +39,7 @@ public class ResponeBill{
 	}
 
 	public boolean isPaymentStatus(){
-		return paymentStatus;
+		return payment_status;
 	}
 
 	public String getStartAt(){
@@ -46,7 +47,7 @@ public class ResponeBill{
 	}
 
 	public boolean isBillStatus(){
-		return billStatus;
+		return bill_status;
 	}
 
 	public List<ProductsItem> getProducts(){
@@ -82,7 +83,7 @@ public class ResponeBill{
 	}
 
 	public String getId(){
-		return id;
+		return _id;
 	}
 
 	public String getUsername(){

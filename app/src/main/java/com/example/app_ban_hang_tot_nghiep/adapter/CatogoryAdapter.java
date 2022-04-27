@@ -16,9 +16,7 @@ import com.example.app_ban_hang_tot_nghiep.utils.Utils;
 import java.util.List;
 
 public class CatogoryAdapter extends RecyclerView.Adapter<CatogoryAdapter.ViewHolder> {
-    //Dữ liệu hiện thị là danh sách sinh viên
     private List<Product> mProductList;
-    // Lưu Context để dễ dàng truy cập
     private Context mContext;
 
     private CatogoryAdapter.onItemCategoryClick onClick;

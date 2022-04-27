@@ -3,8 +3,8 @@ package com.example.app_ban_hang_tot_nghiep.model;
 public class ProductsItem{
 	private int amount;
 	private int price;
-	private String productId;
-	private String productName;
+	private String product_id;
+	private String product_name;
 
 	public int getAmount(){
 		return amount;
@@ -15,10 +15,10 @@ public class ProductsItem{
 	}
 
 	public String getProductId(){
-		return productId;
+		return product_id;
 	}
 
 	public String getProductName(){
-		return productName;
+		return product_name;
 	}
 }

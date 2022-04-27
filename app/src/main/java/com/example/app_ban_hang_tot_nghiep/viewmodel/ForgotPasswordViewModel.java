@@ -21,10 +21,12 @@ public class ForgotPasswordViewModel extends ViewModel {
         mApiService.forgotPass(email).enqueue(new Callback<String>() {
             @Override
             public void onResponse(Call<String> call, Response<String> response) {
-                if (response.isSuccessful()) {
+                if (response.isSuccessful() && response.code() == 200) {
                     isNewPass.postValue(response.body());
                     isRegisterSuccess.postValue(true);
+                    return;
                 }
+                isRegisterSuccess.postValue(false);
             }
 
             @Override

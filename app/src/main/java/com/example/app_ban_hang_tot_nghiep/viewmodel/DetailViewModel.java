@@ -25,14 +25,18 @@ public class DetailViewModel extends ViewModel {
         mApiService.addProductToCart(id, token, amount).enqueue(new Callback<Cart>() {
             @Override
             public void onResponse(Call<Cart> call, Response<Cart> response) {
-                if (response.isSuccessful()) {
+                Log.d("TAG", "resultCoe: " + response.code());
+                if (response.isSuccessful() && response.code() == 200) {
                     listData.postValue(true);
+                    return;
                 }
+                listData.postValue(false);
             }
 
             @Override
             public void onFailure(Call<Cart> call, Throwable t) {
                 Log.d("TAG234", "onFailure: " + t.getMessage());
+                listData.postValue(false);
             }
         });
     }

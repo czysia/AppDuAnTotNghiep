@@ -12,6 +12,7 @@ import com.example.app_ban_hang_tot_nghiep.databinding.ItemListCartBinding;
 import com.example.app_ban_hang_tot_nghiep.model.ItemCartMoreInfo;
 import com.example.app_ban_hang_tot_nghiep.model.ItemProductCartItem;
 import com.example.app_ban_hang_tot_nghiep.model.Product;
+import com.example.app_ban_hang_tot_nghiep.utils.Utils;
 
 import java.util.List;
 
@@ -76,7 +77,7 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.ViewHolder> {
         }
 
         public void onBind(ItemCartMoreInfo items) {
-            mBinding.setPrices(items.getPrice() + "");
+            mBinding.setPrices(new Utils().convertMoney(items.getPrice()));
             mBinding.setUrlImage(items.getImage());
             mBinding.setTitle(items.getProductName());
             mBinding.setDes(items.getAmount() + "");

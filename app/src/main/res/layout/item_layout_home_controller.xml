@@ -33,6 +33,7 @@
             android:text="@string/main_home"
             android:textColor="@color/main_color"
             android:textSize="25sp"
+            android:fontFamily="@font/open_bold"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="@id/imgCart"
             app:layout_constraintEnd_toStartOf="@id/imgSearch"

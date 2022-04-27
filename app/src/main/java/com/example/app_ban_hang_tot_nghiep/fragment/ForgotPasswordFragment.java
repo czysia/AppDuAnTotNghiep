@@ -64,11 +64,13 @@ public class ForgotPasswordFragment extends Fragment {
     public void setUpViewModel() {
         mViewModel = ViewModelProviders.of(this).get(ForgotPasswordViewModel.class);
         mViewModel.isNewPass.observe(getViewLifecycleOwner(), data -> {
-            mBinding.edtEmail.setText(data);
+//            mBinding.edtEmail.setText(data);
         });
         mViewModel.isRegisterSuccess.observe(getViewLifecycleOwner(), data -> {
             if (!data) {
-                Toast.makeText(requireContext(), "Forgot password faild", Toast.LENGTH_SHORT).show();
+                Toast.makeText(requireContext(), "Thay đổi mật khẩu không thành công bạn vui lòng kiểm tra email để biết mật khẩu mới", Toast.LENGTH_SHORT).show();
+            } else {
+                Toast.makeText(requireContext(), "Thay đổi mật khẩu thành công", Toast.LENGTH_SHORT).show();
             }
         });
     }
