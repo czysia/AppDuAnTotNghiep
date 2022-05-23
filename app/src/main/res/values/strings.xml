@@ -18,6 +18,8 @@
     <string name="detail_product">Chi Tiết Sản Phẩm</string>
     <string name="my_bill">Đơn Đặt Hàng</string>
     <string name="pay">Thanh Toán</string>
+    <string name="show_more">More</string>
+    <string name="show_less">Less</string>
 
     //menu
     <string name="main">Trang Chủ</string>
@@ -87,5 +89,12 @@
     <string name="cancel_bill">Hủy Đơn Hàng</string>
     <string name="customer">Khách Hàng</string>
     <string name="status">Trạng thái</string>
+    <string name="favorite_product">Sản phẩm yêu thích</string>
+    <string name="list_menu_product">Các sản phẩm của cửa hàng</string>
+    <string name="tieu_chuan">Tiêu chuẩn</string>
+    <string name="xuat_xu">Xuất xứ</string>
+    <string name="distribute">Phân loại</string>
+    <string name="notifi_empty">Bạn chưa có đơn hàng nào hãy đặt đơn hàng và quay lại!!!</string>
+    <string name="notifi_empty_cart">Bạn chưa có sản phẩm nào hãy mua hàng và quay lại!!!</string>
 
 </resources>

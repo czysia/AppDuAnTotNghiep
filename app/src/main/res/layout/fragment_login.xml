@@ -14,7 +14,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@mipmap/ic_icon_small"
-            android:layout_marginTop="@dimen/dp_60"
+            android:layout_marginTop="@dimen/dp_40"
             app:layout_constraintBottom_toTopOf="@id/tvLogin"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

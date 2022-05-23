@@ -7,7 +7,7 @@ public class Cart {
     private String userId;
     private int V;
     private String _id;
-    private List<ItemProductCartItem> products;
+    private List<ItemProductCart> products;
 
     public int getTotal() {
         return total;
@@ -25,7 +25,7 @@ public class Cart {
         return _id;
     }
 
-    public List<ItemProductCartItem> getProducts() {
+    public List<ItemProductCart> getProducts() {
         return products;
     }
 }

@@ -70,9 +70,9 @@ public class SliderAdapterExample extends
 
     @Override
     public int getCount() {
-        //slider view count could be dynamic size
         return mSliderItems.size();
     }
+
 
     class SliderAdapterVH extends SliderViewAdapter.ViewHolder {
 

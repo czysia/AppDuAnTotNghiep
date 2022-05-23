@@ -1,10 +1,13 @@
 package com.example.app_ban_hang_tot_nghiep;
 
 import com.example.app_ban_hang_tot_nghiep.model.Cart;
-import com.example.app_ban_hang_tot_nghiep.model.CartData;
 import com.example.app_ban_hang_tot_nghiep.model.Category;
+import com.example.app_ban_hang_tot_nghiep.model.ChangeCartParams;
+import com.example.app_ban_hang_tot_nghiep.model.DetailProduct;
+import com.example.app_ban_hang_tot_nghiep.model.ItemProductCart;
 import com.example.app_ban_hang_tot_nghiep.model.Product;
 import com.example.app_ban_hang_tot_nghiep.model.ResponeBill;
+import com.example.app_ban_hang_tot_nghiep.model.ResponseAddFavourite;
 import com.example.app_ban_hang_tot_nghiep.model.Token;
 import com.example.app_ban_hang_tot_nghiep.model.UserInfo;
 import com.example.app_ban_hang_tot_nghiep.model.UserRespone;
@@ -18,13 +21,10 @@ import retrofit2.http.Body;
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
-import retrofit2.http.Header;
-import retrofit2.http.Headers;
 import retrofit2.http.Multipart;
 import retrofit2.http.POST;
 import retrofit2.http.Part;
 import retrofit2.http.Path;
-import retrofit2.http.Query;
 
 public interface ApiService {
 
@@ -46,6 +46,9 @@ public interface ApiService {
 
     @GET("api/products/getall")
     Call<List<Product>> getListProducts();
+
+    @GET("api/products/detail/{idProduct}")
+    Call<List<DetailProduct>> getListDetailProduct(@Path("idProduct") String id);
 
     @GET("api/categories/getall")
     Call<List<Category>> getListCategory();
@@ -89,4 +92,16 @@ public interface ApiService {
                                       @Part("name") RequestBody name,
                                       @Part("phone") RequestBody phone,
                                       @Part("token") RequestBody token);
+
+    @GET("api/users/favorite/{token}")
+    Call<List<DetailProduct>> getFavorite(@Path("token") String tokenUser);
+
+    @FormUrlEncoded
+    @POST("api/users/favorite/add/{token}")
+    Call<ResponseAddFavourite> addFavourite(@Path("token") String token, @Field("variant_id") String variantId);
+
+    @POST("api/cart/update")
+    Call<Cart> updateCart(@Body ChangeCartParams body);
+
+
 }

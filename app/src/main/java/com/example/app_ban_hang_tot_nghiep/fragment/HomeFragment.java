@@ -1,5 +1,7 @@
 package com.example.app_ban_hang_tot_nghiep.fragment;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.LayoutInflater;
@@ -13,8 +15,10 @@ import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import com.example.app_ban_hang_tot_nghiep.MainActivity;
 import com.example.app_ban_hang_tot_nghiep.R;
+import com.example.app_ban_hang_tot_nghiep.adapter.FavouriteHomeAdapter;
 import com.example.app_ban_hang_tot_nghiep.adapter.HomeAdapter;
 import com.example.app_ban_hang_tot_nghiep.databinding.FragmentHomeBinding;
+import com.example.app_ban_hang_tot_nghiep.model.DetailProduct;
 import com.example.app_ban_hang_tot_nghiep.model.Product;
 import com.example.app_ban_hang_tot_nghiep.viewmodel.MainViewModel;
 
@@ -23,12 +27,25 @@ import java.util.List;
 
 import me.farahani.spaceitemdecoration.SpaceItemDecoration;
 
-public class HomeFragment extends Fragment implements HomeAdapter.onItemClick, SwipeRefreshLayout.OnRefreshListener {
+public class HomeFragment extends Fragment implements HomeAdapter.onItemClick, SwipeRefreshLayout.OnRefreshListener, FavouriteHomeAdapter.onItemFavouriteClick {
 
     public MainViewModel mViewModel;
     public FragmentHomeBinding mBinding;
     public HomeAdapter mHomeAdapter;
+
+    @Override
+    public void onFavouriteClick(DetailProduct items) {
+        ArrayList<String> listUrl = new ArrayList<>();
+        listUrl.addAll(items.getImage());
+        gotaDetail(items.getProductId(), items.getName(), 0, items.getDetail(), 0, listUrl);
+    }
+
+    public FavouriteHomeAdapter mFavouriteHomeAdapter;
     public List<Product> mProductList = new ArrayList<>();
+    public List<DetailProduct> mListFavourite = new ArrayList<>();
+    SharedPreferences sharedPreferences;
+    public static final String MY_PREFS_NAME = "MyPrefsFile";
+    String token;
 
     // TODO: Rename and change types and number of parameters
     public static HomeFragment newInstance(String param1, String param2) {
@@ -46,12 +63,23 @@ public class HomeFragment extends Fragment implements HomeAdapter.onItemClick, S
                              Bundle savedInstanceState) {
         mBinding = FragmentHomeBinding.inflate(inflater, container, false);
         mViewModel = ViewModelProviders.of(requireActivity()).get(MainViewModel.class);
+        sharedPreferences = requireContext().getSharedPreferences(MY_PREFS_NAME, Context.MODE_PRIVATE);
+        token = sharedPreferences.getString("tokenID", "xxx");
         mViewModel.getListHomeData();
+        mViewModel.getListFavourite(token);
         mViewModel.listHomeData.observe(getViewLifecycleOwner(), data -> {
             mBinding.spinKit.setVisibility(View.GONE);
             mProductList.clear();
             mProductList.addAll(data);
             mBinding.recycleHome.getAdapter().notifyDataSetChanged();
+        });
+        mViewModel.listFavourite.observe(getViewLifecycleOwner(), data -> {
+            mListFavourite.clear();
+            mListFavourite.addAll(data);
+            if (data.size() > 0) {
+                mBinding.tvFavorite.setVisibility(View.VISIBLE);
+            }
+            mBinding.recycleFavourite.getAdapter().notifyDataSetChanged();
         });
         mBinding.refreshData.setOnRefreshListener(this);
         setUpAdapter();
@@ -66,13 +94,15 @@ public class HomeFragment extends Fragment implements HomeAdapter.onItemClick, S
         mHomeAdapter = new HomeAdapter(mProductList, getContext(), this);
         mBinding.recycleHome.setAdapter(mHomeAdapter);
         mBinding.recycleHome.addItemDecoration(new SpaceItemDecoration(spacing, includeEdge));
+        mFavouriteHomeAdapter = new FavouriteHomeAdapter(mListFavourite, getContext(), this);
+        mBinding.recycleFavourite.setAdapter(mFavouriteHomeAdapter);
     }
 
     @Override
     public void ItemClick(Product items) {
         ArrayList<String> listUrl = new ArrayList<>();
         listUrl.addAll(items.getImage());
-        gotaDetail(items.getId(), items.getName(), items.getPrice(), items.getDetail(), items.getQuantily(), listUrl);
+        gotaDetail(items.getId(), items.getName(), 0, items.getDetail(), 0, listUrl);
     }
 
     @Override
@@ -82,6 +112,7 @@ public class HomeFragment extends Fragment implements HomeAdapter.onItemClick, S
             public void run() {
                 try {
                     mViewModel.getListHomeData();
+                    mViewModel.getListFavourite(token);
                     ((MainActivity) requireActivity()).refreshData();
                     mBinding.refreshData.setRefreshing(false);
                 } catch (Exception ex) {

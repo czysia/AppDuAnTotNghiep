@@ -6,7 +6,6 @@ import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
 
-import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProviders;
 
@@ -17,11 +16,10 @@ import android.view.ViewGroup;
 import android.widget.Toast;
 
 import com.example.app_ban_hang_tot_nghiep.LoginActivity;
-import com.example.app_ban_hang_tot_nghiep.R;
-import com.example.app_ban_hang_tot_nghiep.adapter.CartAdapter;
+import com.example.app_ban_hang_tot_nghiep.adapter.ListCategoryAdapter;
 import com.example.app_ban_hang_tot_nghiep.adapter.SliderAdapterExample;
-import com.example.app_ban_hang_tot_nghiep.adapter.ViewPagerAdapter;
 import com.example.app_ban_hang_tot_nghiep.databinding.FragmentDetailProductBinding;
+import com.example.app_ban_hang_tot_nghiep.model.DetailProduct;
 import com.example.app_ban_hang_tot_nghiep.model.SliderItem;
 import com.example.app_ban_hang_tot_nghiep.utils.Utils;
 import com.example.app_ban_hang_tot_nghiep.viewmodel.DetailViewModel;
@@ -29,17 +27,26 @@ import com.smarteist.autoimageslider.IndicatorView.animation.type.IndicatorAnima
 import com.smarteist.autoimageslider.SliderAnimations;
 import com.smarteist.autoimageslider.SliderView;
 
-import java.text.NumberFormat;
 import java.util.ArrayList;
-import java.util.Currency;
 import java.util.List;
-import java.util.Locale;
 
-public class DetailProductFragment extends Fragment {
+public class DetailProductFragment extends Fragment implements ListCategoryAdapter.onDetailItemClick {
     public FragmentDetailProductBinding mBinding;
     public SharedPreferences mSharedPreferences;
     public DetailViewModel mViewModel;
     private SliderAdapterExample adapter;
+    private DetailProduct dataDetail;
+    private ListCategoryAdapter mCategoryAdapter;
+    private List<DetailProduct> mListDetail = new ArrayList<>();
+
+    @Override
+    public void ItemClick(DetailProduct items, Integer position) {
+        dataDetail = items;
+        setUpData(items);
+        setUpImage(items);
+    }
+
+    public List<DetailProduct> mDetailProducts = new ArrayList<>();
     public static final String MY_PREFS_NAME = "MyPrefsFile";
     private static final String ARG_PARAM1 = "id";
     private static final String ARG_PARAM6 = "name";
@@ -55,6 +62,7 @@ public class DetailProductFragment extends Fragment {
     private String name;
     private Integer prices, quality;
     private String des;
+    private String idCate;
     private List<String> mListImage;
 
 
@@ -81,6 +89,7 @@ public class DetailProductFragment extends Fragment {
         super.onCreate(savedInstanceState);
         if (getArguments() != null) {
             id = getArguments().getString(ARG_PARAM1);
+            Log.d("TAG", "onResponse: " + id);
             prices = getArguments().getInt(ARG_PARAM2);
             des = getArguments().getString(ARG_PARAM3);
             mListImage = getArguments().getStringArrayList(ARG_PARAM5);
@@ -94,14 +103,9 @@ public class DetailProductFragment extends Fragment {
                              Bundle savedInstanceState) {
         mBinding = FragmentDetailProductBinding.inflate(inflater, container, false);
         mSharedPreferences = requireContext().getSharedPreferences(MY_PREFS_NAME, Context.MODE_PRIVATE);
-        mBinding.setName(name);
-        mBinding.setDescription(des);
-        mBinding.setPrices(new Utils().convertMoney(prices));
-        mBinding.setPricesInt(prices);
-        mBinding.setCountItem(1);
-        mBinding.setQuality(quality);
         setUpSlider();
         onClick();
+        setUpCateRecycle();
         setUpViewModel();
         renewItems();
 //        int[] images = {R.drawable.anhtest, R.drawable.anhtest, R.drawable.anhtest, R.drawable.anhtest};
@@ -122,7 +126,7 @@ public class DetailProductFragment extends Fragment {
         mBinding.imgPlus.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (count > quality) {
+                if (count > mBinding.getQuality()) {
                     return;
                 }
                 count = count + 1;
@@ -149,15 +153,35 @@ public class DetailProductFragment extends Fragment {
                     return;
                 }
                 token = mSharedPreferences.getString("tokenID", "xxx");
-                Log.d("TAG234", "onClick: " + id);
+                Log.d("TAG234", "onClick: " + token);
                 mBinding.spinKit.setVisibility(View.VISIBLE);
-                mViewModel.addProductToCart(id, token, count);
+                mViewModel.addProductToCart(idCate, token, count);
+            }
+        });
+
+        mBinding.imgAddFavourite.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                try {
+                    if (mSharedPreferences.getString("tokenID", "xxx").equals("xxx")) {
+                        Intent intent = new Intent(requireContext(), LoginActivity.class);
+                        startActivityForResult(intent, 6677);
+                        return;
+                    }
+                    token = mSharedPreferences.getString("tokenID", "xxx");
+                    Log.d("TAG234", "onClick: " + token);
+                    mBinding.spinKit.setVisibility(View.VISIBLE);
+                    mViewModel.addToFavourite(token, dataDetail.getId());
+                } catch (Exception ex){
+                    Toast.makeText(requireContext(), "Đã có lỗi xảy ra", Toast.LENGTH_SHORT).show();
+                }
             }
         });
     }
 
     public void setUpViewModel() {
         mViewModel = ViewModelProviders.of(this).get(DetailViewModel.class);
+        mViewModel.getDetailProduct(id);
         mViewModel.listData.observe(getViewLifecycleOwner(), aBoolean -> {
             mBinding.spinKit.setVisibility(View.GONE);
             Log.d("TAG", "setUpViewModel: " + aBoolean);
@@ -166,6 +190,26 @@ public class DetailProductFragment extends Fragment {
                 Toast.makeText(getContext(), "Thêm sản phẩm vào giỏ hàng thành công", Toast.LENGTH_SHORT).show();
             } else {
                 Toast.makeText(getContext(), "Thêm sản phẩm vào giỏ hàng thất bại", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        mViewModel.listDetail.observe(getViewLifecycleOwner(), data -> {
+            mBinding.spinKit.setVisibility(View.GONE);
+            mDetailProducts.clear();
+            mDetailProducts.addAll(data);
+            if (data.size() > 0) {
+                setUpData(mDetailProducts.get(0));
+                dataDetail = mDetailProducts.get(0);
+            }
+            mBinding.cateRecycleView.getAdapter().notifyDataSetChanged();
+        });
+
+        mViewModel.addDataSuccess.observe(getViewLifecycleOwner(), isSuccess -> {
+            mBinding.spinKit.setVisibility(View.GONE);
+            if (isSuccess) {
+                Toast.makeText(requireContext(), "Thêm thành công", Toast.LENGTH_SHORT).show();
+            } else {
+                Toast.makeText(requireContext(), "Thêm thất bại", Toast.LENGTH_SHORT).show();
             }
         });
     }
@@ -183,6 +227,11 @@ public class DetailProductFragment extends Fragment {
         mBinding.vpSlide.startAutoCycle();
     }
 
+    void setUpCateRecycle() {
+        mCategoryAdapter = new ListCategoryAdapter(mDetailProducts, getContext(), this);
+        mBinding.cateRecycleView.setAdapter(mCategoryAdapter);
+    }
+
     public void renewItems() {
         List<SliderItem> sliderItemList = new ArrayList<>();
 
@@ -190,5 +239,32 @@ public class DetailProductFragment extends Fragment {
             sliderItemList.add(new SliderItem("", mListImage.get(i)));
         }
         adapter.renewItems(sliderItemList);
+    }
+
+    public void setUpImage(DetailProduct items) {
+        List<SliderItem> sliderItemList = new ArrayList<>();
+
+        for (int i = 0; i < items.getImage().size(); i++) {
+            sliderItemList.add(new SliderItem("", items.getImage().get(i)));
+        }
+        adapter.renewItems(sliderItemList);
+    }
+
+    private void setUpData(DetailProduct items) {
+        idCate = items.getId();
+        mBinding.setName(items.getName());
+        mBinding.setCountItem(1);
+        mBinding.setPrices(new Utils().convertMoney(items.getPrice()));
+        mBinding.setPricesInt(items.getPrice());
+        mBinding.setDescription(items.getDetail());
+        mBinding.setQuality(items.getAmount());
+        mBinding.setCertificate(items.getCertificate());
+        mBinding.setOrigin(items.getOrigin());
+//        mBinding.setName(name);
+//        mBinding.setDescription(des);
+//        mBinding.setPrices(new Utils().convertMoney(prices));
+//        mBinding.setPricesInt(prices);
+//        mBinding.setCountItem(1);
+//        mBinding.setQuality(quality);
     }
 }

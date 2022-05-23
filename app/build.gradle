@@ -68,5 +68,7 @@ dependencies {
 
     implementation 'me.farahani.spaceitemdecoration:spaceitemdecoration:1.0'
 
-    
+    implementation 'com.borjabravo:readmoretextview:2.1.0'
+
+    implementation 'com.jakewharton.timber:timber:5.0.1'
 }

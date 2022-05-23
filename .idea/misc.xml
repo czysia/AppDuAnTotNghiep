@@ -3,61 +3,57 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/DATN/DATN2021/App/AppDuAnTotNghiep/app/src/main/res/drawable/bgr_border_only.xml" value="0.33076923076923076" />
-        <entry key="..\:/DATN/DATN2021/App/AppDuAnTotNghiep/app/src/main/res/drawable/ic_arrow_back_24.xml" value="0.33076923076923076" />
-        <entry key="..\:/DATN/DATN2021/App/AppDuAnTotNghiep/app/src/main/res/drawable/ic_food.xml" value="0.3296296296296296" />
-        <entry key="..\:/DATN/DATN2021/App/AppDuAnTotNghiep/app/src/main/res/drawable/ic_home_circle.xml" value="0.33076923076923076" />
-        <entry key="..\:/DATN/DATN2021/App/AppDuAnTotNghiep/app/src/main/res/drawable/ic_location.xml" value="0.3490740740740741" />
-        <entry key="..\:/DATN/DATN2021/App/AppDuAnTotNghiep/app/src/main/res/layout-v21/fragment_home.xml" value="0.333786231884058" />
-        <entry key="..\:/DATN/DATN2021/App/AppDuAnTotNghiep/app/src/main/res/layout/activity_home.xml" value="0.22" />
-        <entry key="..\:/DATN/DATN2021/App/AppDuAnTotNghiep/app/src/main/res/layout/activity_main.xml" value="0.17395833333333333" />
-        <entry key="..\:/DATN/DATN2021/App/AppDuAnTotNghiep/app/src/main/res/layout/activity_thanh_toan.xml" value="0.3278985507246377" />
-        <entry key="..\:/DATN/DATN2021/App/AppDuAnTotNghiep/app/src/main/res/layout/fragment_food.xml" value="0.31979166666666664" />
-        <entry key="..\:/DATN/DATN2021/App/AppDuAnTotNghiep/app/src/main/res/layout/fragment_home.xml" value="0.3066123188405797" />
-        <entry key="..\:/DATN/DATN2021/App/AppDuAnTotNghiep/app/src/main/res/layout/fragment_thanh_toan.xml" value="0.25" />
-        <entry key="..\:/DATN/DATN2021/App/AppDuAnTotNghiep/app/src/main/res/layout/fragment_thanh_toan2.xml" value="0.3278985507246377" />
-        <entry key="..\:/DATN/DATN2021/App/AppDuAnTotNghiep/app/src/main/res/layout/item_categories.xml" value="0.16995947315096252" />
-        <entry key="..\:/DATN/DATN2021/App/AppDuAnTotNghiep/app/src/main/res/layout/item_food.xml" value="0.31979166666666664" />
-        <entry key="..\:/DATN/DATN2021/App/AppDuAnTotNghiep/app/src/main/res/layout/layout_header_nav.xml" value="0.3066123188405797" />
-        <entry key="..\:/DATN/DATN2021/App/AppDuAnTotNghiep/app/src/main/res/menu/activity_main_drawer.xml" value="0.31979166666666664" />
-        <entry key="..\:/android co ban/Re/AppDuAnTotNghiep/app/src/main/res/drawable/bgr_border_only.xml" value="0.138" />
-        <entry key="..\:/android co ban/Re/AppDuAnTotNghiep/app/src/main/res/drawable/ic_arrow_back_24.xml" value="0.138" />
-        <entry key="..\:/android co ban/Re/AppDuAnTotNghiep/app/src/main/res/drawable/ic_baseline_home_24.xml" value="0.138" />
-        <entry key="..\:/android co ban/Re/AppDuAnTotNghiep/app/src/main/res/drawable/ic_home_circle.xml" value="0.1" />
-        <entry key="..\:/android co ban/Re/AppDuAnTotNghiep/app/src/main/res/layout/activity_chi_tiet.xml" value="0.20416666666666666" />
-        <entry key="..\:/android co ban/Re/AppDuAnTotNghiep/app/src/main/res/layout/activity_chitiet.xml" value="0.20416666666666666" />
-        <entry key="..\:/android co ban/Re/AppDuAnTotNghiep/app/src/main/res/layout/activity_food.xml" value="0.20416666666666666" />
-        <entry key="..\:/android co ban/Re/AppDuAnTotNghiep/app/src/main/res/layout/activity_gio_hang.xml" value="0.20416666666666666" />
-        <entry key="..\:/android co ban/Re/AppDuAnTotNghiep/app/src/main/res/layout/activity_gio_hang2.xml" value="0.20416666666666666" />
-        <entry key="..\:/android co ban/Re/AppDuAnTotNghiep/app/src/main/res/layout/activity_home.xml" value="0.20416666666666666" />
-        <entry key="..\:/android co ban/Re/AppDuAnTotNghiep/app/src/main/res/layout/activity_main.xml" value="0.2" />
-        <entry key="..\:/android co ban/Re/AppDuAnTotNghiep/app/src/main/res/layout/fragment_food.xml" value="0.20416666666666666" />
-        <entry key="..\:/android co ban/Re/AppDuAnTotNghiep/app/src/main/res/layout/fragment_thanh_toan.xml" value="0.20416666666666666" />
-        <entry key="..\:/android co ban/Re/AppDuAnTotNghiep/app/src/main/res/layout/item_food.xml" value="0.33" />
-        <entry key="..\:/android co ban/Re/AppDuAnTotNghiep/app/src/main/res/layout/item_giohang.xml" value="0.25" />
-        <entry key="..\:/download/app clone/app/src/main/res/drawable/bg_circle_textview.xml" value="0.1315" />
-        <entry key="..\:/download/app clone/app/src/main/res/layout/activity_infor_dev.xml" value="0.1" />
-        <entry key="..\:/download/app clone/app/src/main/res/layout/activity_login.xml" value="0.20416666666666666" />
-        <entry key="..\:/download/app clone/app/src/main/res/layout/fragment_forgot_password.xml" value="0.22" />
-        <entry key="..\:/download/app clone/app/src/main/res/layout/fragment_login.xml" value="0.20416666666666666" />
-        <entry key="..\:/download/app clone/app/src/main/res/layout/fragment_my_bill.xml" value="0.20416666666666666" />
-        <entry key="..\:/download/app clone/app/src/main/res/layout/fragment_pay.xml" value="0.20416666666666666" />
-        <entry key="..\:/download/app clone/app/src/main/res/layout/fragment_register.xml" value="0.20416666666666666" />
-        <entry key="..\:/download/app clone/app/src/main/res/layout/item_dang_nhap.xml" value="0.20416666666666666" />
-        <entry key="..\:/download/app clone/app/src/main/res/layout/item_my_bills.xml" value="0.1" />
-        <entry key="app/src/main/res/layout/activity_food.xml" value="0.13802083333333334" />
-        <entry key="app/src/main/res/layout/activity_for_get_pass.xml" value="0.13802083333333334" />
-        <entry key="app/src/main/res/layout/activity_home.xml" value="0.13802083333333334" />
-        <entry key="app/src/main/res/layout/activity_login.xml" value="0.17239583333333333" />
-        <entry key="app/src/main/res/layout/activity_signin.xml" value="0.13802083333333334" />
-        <entry key="app/src/main/res/layout/fragment_food.xml" value="0.13802083333333334" />
-        <entry key="app/src/main/res/layout/fragment_home.xml" value="0.13802083333333334" />
-        <entry key="app/src/main/res/layout/fragment_login.xml" value="0.13802083333333334" />
-        <entry key="app/src/main/res/layout/fragment_thanh_toan.xml" value="0.13802083333333334" />
-        <entry key="app/src/main/res/layout/item_categories.xml" value="0.13802083333333334" />
-        <entry key="app/src/main/res/layout/item_giohang.xml" value="0.13802083333333334" />
-        <entry key="app/src/main/res/layout/layout_header_nav.xml" value="0.13802083333333334" />
-        <entry key="app/src/main/res/menu/activity_main_drawer.xml" value="0.13802083333333334" />
+        <entry key="..\:/App_Ban_Hang_Tot_Nghiep/app/src/main/res/drawable/bg_button_login.xml" value="0.2064814814814815" />
+        <entry key="..\:/App_Ban_Hang_Tot_Nghiep/app/src/main/res/drawable/bg_circle_textview.xml" value="0.2064814814814815" />
+        <entry key="..\:/App_Ban_Hang_Tot_Nghiep/app/src/main/res/drawable/bg_edittext_edit_info.xml" value="0.14166666666666666" />
+        <entry key="..\:/App_Ban_Hang_Tot_Nghiep/app/src/main/res/drawable/bg_overlay.xml" value="0.1375" />
+        <entry key="..\:/App_Ban_Hang_Tot_Nghiep/app/src/main/res/drawable/bg_view_corner_20_color_neutral_8.xml" value="0.23703703703703705" />
+        <entry key="..\:/App_Ban_Hang_Tot_Nghiep/app/src/main/res/drawable/bg_view_corner_20_color_neutral_8_selected.xml" value="0.23703703703703705" />
+        <entry key="..\:/App_Ban_Hang_Tot_Nghiep/app/src/main/res/drawable/bg_view_corner_top_16_bg_white.xml" value="0.26614583333333336" />
+        <entry key="..\:/App_Ban_Hang_Tot_Nghiep/app/src/main/res/drawable/ic_account_default.xml" value="0.26614583333333336" />
+        <entry key="..\:/App_Ban_Hang_Tot_Nghiep/app/src/main/res/drawable/ic_check.xml" value="0.26614583333333336" />
+        <entry key="..\:/App_Ban_Hang_Tot_Nghiep/app/src/main/res/drawable/ic_icon.xml" value="0.262037037037037" />
+        <entry key="..\:/App_Ban_Hang_Tot_Nghiep/app/src/main/res/layout/activity_infor_dev.xml" value="0.264" />
+        <entry key="..\:/App_Ban_Hang_Tot_Nghiep/app/src/main/res/layout/activity_login.xml" value="0.25" />
+        <entry key="..\:/App_Ban_Hang_Tot_Nghiep/app/src/main/res/layout/activity_main.xml" value="0.25" />
+        <entry key="..\:/App_Ban_Hang_Tot_Nghiep/app/src/main/res/layout/activity_welcome.xml" value="0.25" />
+        <entry key="..\:/App_Ban_Hang_Tot_Nghiep/app/src/main/res/layout/fragment_cart.xml" value="0.25" />
+        <entry key="..\:/App_Ban_Hang_Tot_Nghiep/app/src/main/res/layout/fragment_catorogy_common.xml" value="0.2" />
+        <entry key="..\:/App_Ban_Hang_Tot_Nghiep/app/src/main/res/layout/fragment_change_pass.xml" value="0.264" />
+        <entry key="..\:/App_Ban_Hang_Tot_Nghiep/app/src/main/res/layout/fragment_detail_product.xml" value="0.25" />
+        <entry key="..\:/App_Ban_Hang_Tot_Nghiep/app/src/main/res/layout/fragment_forgot_password.xml" value="0.25" />
+        <entry key="..\:/App_Ban_Hang_Tot_Nghiep/app/src/main/res/layout/fragment_home.xml" value="0.25" />
+        <entry key="..\:/App_Ban_Hang_Tot_Nghiep/app/src/main/res/layout/fragment_login.xml" value="0.25" />
+        <entry key="..\:/App_Ban_Hang_Tot_Nghiep/app/src/main/res/layout/fragment_my_bill.xml" value="0.25" />
+        <entry key="..\:/App_Ban_Hang_Tot_Nghiep/app/src/main/res/layout/fragment_pay.xml" value="0.25" />
+        <entry key="..\:/App_Ban_Hang_Tot_Nghiep/app/src/main/res/layout/fragment_register.xml" value="0.25" />
+        <entry key="..\:/App_Ban_Hang_Tot_Nghiep/app/src/main/res/layout/fragment_search.xml" value="0.25" />
+        <entry key="..\:/App_Ban_Hang_Tot_Nghiep/app/src/main/res/layout/fragment_start.xml" value="0.25" />
+        <entry key="..\:/App_Ban_Hang_Tot_Nghiep/app/src/main/res/layout/image_slider_layout_item.xml" value="0.12135416666666667" />
+        <entry key="..\:/App_Ban_Hang_Tot_Nghiep/app/src/main/res/layout/item_bill_waitting.xml" value="0.2" />
+        <entry key="..\:/App_Ban_Hang_Tot_Nghiep/app/src/main/res/layout/item_category.xml" value="0.25" />
+        <entry key="..\:/App_Ban_Hang_Tot_Nghiep/app/src/main/res/layout/item_change_information.xml" value="0.25" />
+        <entry key="..\:/App_Ban_Hang_Tot_Nghiep/app/src/main/res/layout/item_dang_nhap.xml" value="0.25" />
+        <entry key="..\:/App_Ban_Hang_Tot_Nghiep/app/src/main/res/layout/item_dang_xuat.xml" value="0.25" />
+        <entry key="..\:/App_Ban_Hang_Tot_Nghiep/app/src/main/res/layout/item_home_product.xml" value="0.25" />
+        <entry key="..\:/App_Ban_Hang_Tot_Nghiep/app/src/main/res/layout/item_infordev.xml" value="0.2" />
+        <entry key="..\:/App_Ban_Hang_Tot_Nghiep/app/src/main/res/layout/item_layout_home_controller.xml" value="0.25" />
+        <entry key="..\:/App_Ban_Hang_Tot_Nghiep/app/src/main/res/layout/item_layout_pay.xml" value="0.25" />
+        <entry key="..\:/App_Ban_Hang_Tot_Nghiep/app/src/main/res/layout/item_list_cart.xml" value="0.25" />
+        <entry key="..\:/App_Ban_Hang_Tot_Nghiep/app/src/main/res/layout/item_list_order_cart.xml" value="0.26197916666666665" />
+        <entry key="..\:/App_Ban_Hang_Tot_Nghiep/app/src/main/res/layout/item_list_product_category.xml" value="0.25" />
+        <entry key="..\:/App_Ban_Hang_Tot_Nghiep/app/src/main/res/layout/item_menu.xml" value="0.152" />
+        <entry key="..\:/App_Ban_Hang_Tot_Nghiep/app/src/main/res/layout/item_my_bills.xml" value="0.25" />
+        <entry key="..\:/App_Ban_Hang_Tot_Nghiep/app/src/main/res/layout/item_view_pager.xml" value="0.25" />
+        <entry key="..\:/App_Ban_Hang_Tot_Nghiep/app/src/main/res/layout/layout_charge_password.xml" value="0.2" />
+        <entry key="..\:/App_Ban_Hang_Tot_Nghiep/app/src/main/res/layout/layout_detail_bill.xml" value="0.25" />
+        <entry key="..\:/App_Ban_Hang_Tot_Nghiep/app/src/main/res/layout/layout_header_navigation.xml" value="0.25" />
+        <entry key="..\:/App_Ban_Hang_Tot_Nghiep/app/src/main/res/layout/layout_item_favorite.xml" value="0.264" />
+        <entry key="..\:/App_Ban_Hang_Tot_Nghiep/app/src/main/res/layout/list_group_child.xml" value="0.12291666666666666" />
+        <entry key="..\:/App_Ban_Hang_Tot_Nghiep/app/src/main/res/layout/list_groups.xml" value="0.25" />
+        <entry key="..\:/App_Ban_Hang_Tot_Nghiep/app/src/main/res/layout/list_item.xml" value="0.25" />
+        <entry key="..\:/App_Ban_Hang_Tot_Nghiep/app/src/main/res/layout/listgroupheader.xml" value="0.176" />
+        <entry key="..\:/App_Ban_Hang_Tot_Nghiep/app/src/main/res/menu/menu_navigation.xml" value="0.25" />
       </map>
     </option>
   </component>

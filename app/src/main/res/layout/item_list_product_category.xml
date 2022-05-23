@@ -33,6 +33,7 @@
             android:layout_width="123dp"
             android:layout_height="123dp"
             android:scaleType="fitCenter"
+            android:background="@drawable/empty"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:riv_border_width="@dimen/dp_1"

@@ -1,8 +1,6 @@
 package com.example.app_ban_hang_tot_nghiep.adapter;
 
 import android.content.Context;
-import android.graphics.Color;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,8 +10,6 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.app_ban_hang_tot_nghiep.R;
 import com.example.app_ban_hang_tot_nghiep.databinding.ItemBillWaittingBinding;
-import com.example.app_ban_hang_tot_nghiep.databinding.ItemListProductCategoryBinding;
-import com.example.app_ban_hang_tot_nghiep.model.Product;
 import com.example.app_ban_hang_tot_nghiep.model.ResponeBill;
 import com.example.app_ban_hang_tot_nghiep.utils.Utils;
 

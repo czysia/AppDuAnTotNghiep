@@ -5,25 +5,19 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentResultListener;
 import androidx.lifecycle.ViewModelProviders;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import android.os.Handler;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
-import com.example.app_ban_hang_tot_nghiep.MainActivity;
-import com.example.app_ban_hang_tot_nghiep.R;
 import com.example.app_ban_hang_tot_nghiep.adapter.BillAdapter;
-import com.example.app_ban_hang_tot_nghiep.adapter.CartAdapter;
 import com.example.app_ban_hang_tot_nghiep.databinding.FragmentMyBillBinding;
-import com.example.app_ban_hang_tot_nghiep.model.Product;
 import com.example.app_ban_hang_tot_nghiep.model.ResponeBill;
 import com.example.app_ban_hang_tot_nghiep.viewmodel.BillWaitingViewModel;
 
@@ -120,6 +114,11 @@ public class MyBillFragment extends Fragment implements BillAdapter.onItemCatego
             mBinding.spinKit.setVisibility(View.GONE);
             listData.clear();
             listData.addAll(data);
+            if (data.size() > 0) {
+                mBinding.group.setVisibility(View.GONE);
+            } else {
+                mBinding.group.setVisibility(View.VISIBLE);
+            }
             mBinding.recycleBill.getAdapter().notifyDataSetChanged();
         });
         mViewModel.deleteSuccess.observe(getViewLifecycleOwner(), data -> {

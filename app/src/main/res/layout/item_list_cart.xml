@@ -92,6 +92,15 @@
             app:layout_constraintStart_toStartOf="@id/tvTotalMoneyCount"
             app:layout_constraintTop_toBottomOf="@id/tvTotalMoneyCount" />
 
+        <ImageView
+            android:id="@+id/imgMinus"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/ic_minus"
+            app:layout_constraintBottom_toBottomOf="@id/tvCountProduct"
+            app:layout_constraintEnd_toStartOf="@id/tvInFo"
+            app:layout_constraintStart_toEndOf="@id/tvCountProduct"
+            app:layout_constraintTop_toTopOf="@id/tvCountProduct" />
 
         <TextView
             android:id="@+id/tvInFo"
@@ -104,10 +113,19 @@
             android:text="@{des}"
             android:textColor="@color/main_color"
             android:textSize="16sp"
-            app:layout_constraintBottom_toBottomOf="@id/tvCountProduct"
+            app:layout_constraintBottom_toBottomOf="@id/imgMinus"
+            app:layout_constraintEnd_toStartOf="@id/imgPlus"
+            app:layout_constraintStart_toEndOf="@id/imgMinus"
+            app:layout_constraintTop_toTopOf="@id/imgMinus" />
+
+        <ImageView
+            android:id="@+id/imgPlus"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/dp_8"
+            android:src="@mipmap/ic_plus"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@id/tvCountProduct"
-            app:layout_constraintTop_toTopOf="@id/tvCountProduct" />
+            app:layout_constraintTop_toTopOf="@id/tvInFo" />
 
         <View
             android:layout_width="match_parent"

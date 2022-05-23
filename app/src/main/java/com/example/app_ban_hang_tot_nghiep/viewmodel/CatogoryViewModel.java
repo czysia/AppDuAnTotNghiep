@@ -7,7 +7,6 @@ import androidx.lifecycle.ViewModel;
 
 import com.example.app_ban_hang_tot_nghiep.ApiService;
 import com.example.app_ban_hang_tot_nghiep.ApiUtils;
-import com.example.app_ban_hang_tot_nghiep.model.Category;
 import com.example.app_ban_hang_tot_nghiep.model.Product;
 
 import java.util.List;

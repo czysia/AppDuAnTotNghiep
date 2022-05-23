@@ -32,6 +32,14 @@
         <variable
             name="pricesInt"
             type="Integer" />
+
+        <variable
+            name="certificate"
+            type="String" />
+
+        <variable
+            name="origin"
+            type="String" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -70,18 +78,18 @@
                 android:textSize="25sp"
                 android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="@id/imgBack"
-                app:layout_constraintEnd_toStartOf="@id/imgBackHome"
+                app:layout_constraintEnd_toStartOf="@id/imgAddFavourite"
                 app:layout_constraintStart_toEndOf="@id/imgBack"
                 app:layout_constraintTop_toTopOf="@id/imgBack"
                 tools:text="Chi tiết sản phẩm" />
 
             <ImageView
-                android:id="@+id/imgBackHome"
+                android:id="@+id/imgAddFavourite"
                 android:layout_width="@dimen/dp_48"
                 android:layout_height="@dimen/dp_48"
                 android:layout_marginEnd="@dimen/dp_10"
                 android:padding="@dimen/dp_8"
-                android:src="@mipmap/ic_home"
+                android:src="@drawable/ic_heart"
                 app:layout_constraintBottom_toBottomOf="@id/imgBack"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="@id/imgBack" />
@@ -94,236 +102,329 @@
             android:background="#6C6B6C"
             app:layout_constraintTop_toBottomOf="@id/viewCotroller" />
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/ctlPresent"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:padding="@dimen/dp_8"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/viewCotroller">
-
-            <com.smarteist.autoimageslider.SliderView
-                android:id="@+id/vpSlide"
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/dp_200"
-                android:layout_marginTop="@dimen/dp_15"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:sliderAnimationDuration="600"
-                app:sliderAutoCycleDirection="back_and_forth"
-                app:sliderAutoCycleEnabled="true"
-                app:sliderIndicatorAnimationDuration="600"
-                app:sliderIndicatorGravity="center_horizontal|bottom"
-                app:sliderIndicatorMargin="@dimen/dp_15"
-                app:sliderIndicatorOrientation="horizontal"
-                app:sliderIndicatorPadding="@dimen/dp_3"
-                app:sliderIndicatorRadius="@dimen/dp_2"
-                app:sliderIndicatorSelectedColor="#5A5A5A"
-                app:sliderIndicatorUnselectedColor="#FFF"
-                app:sliderScrollTimeInSec="1"
-                app:sliderStartAutoCycle="true" />
-
-            <TextView
-                android:id="@+id/tvTitle"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/dp_4"
-                android:layout_marginTop="@dimen/dp_4"
-                android:ellipsize="end"
-                android:fontFamily="@font/robotoregular"
-                android:maxLines="2"
-                android:text="@{name}"
-                android:textColor="@color/main_color"
-                android:textSize="20sp"
-                app:layout_constraintBottom_toTopOf="@id/tvPr"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="@id/vpSlide"
-                app:layout_constraintTop_toBottomOf="@id/vpSlide" />
-
-            <TextView
-                android:id="@+id/tvPr"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/price_product"
-                android:textSize="20sp"
-                app:layout_constraintStart_toStartOf="@id/tvTitle"
-                app:layout_constraintTop_toTopOf="@id/tvPrices" />
-
-            <TextView
-                android:id="@+id/tvPrices"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/robotoregular"
-                android:gravity="center"
-                android:text="@{prices}"
-                android:layout_marginTop="@dimen/dp_8"
-                android:textColor="@color/main_color"
-                android:textSize="20sp"
-                app:layout_constraintTop_toBottomOf="@id/tvTitle"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@id/tvPr" />
-
-            <TextView
-                android:id="@+id/tvQL"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/dp_8"
-                android:text="@string/count"
-                android:textSize="20sp"
-                app:layout_constraintStart_toStartOf="@id/tvPr"
-                app:layout_constraintTop_toTopOf="@id/tvQuality"
-                app:layout_constraintBottom_toBottomOf="@id/tvQuality"/>
-
-            <TextView
-                android:id="@+id/tvQuality"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/robotoregular"
-                android:gravity="center"
-                android:text="@{quality.toString()}"
-                android:textColor="@color/main_color"
-                android:textSize="20sp"
-                android:layout_marginTop="@dimen/dp_8"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@id/tvQL"
-                app:layout_constraintTop_toBottomOf="@id/tvPrices" />
-
-            <TextView
-                android:id="@+id/tvD"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/dp_8"
-                android:text="@string/description"
-                android:textSize="20sp"
-                app:layout_constraintBottom_toBottomOf="@id/tvDes"
-                app:layout_constraintStart_toStartOf="@id/tvQL"
-                app:layout_constraintTop_toTopOf="@id/tvDes" />
-
-            <TextView
-                android:id="@+id/tvDes"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:ellipsize="end"
-                android:fontFamily="@font/robotoregular"
-                android:maxLines="4"
-                android:layout_marginStart="@dimen/dp_10"
-                android:text="@{description}"
-                android:textColor="@color/main_color"
-                android:textSize="20sp"
-                android:layout_marginTop="@dimen/dp_8"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@id/tvD"
-                app:layout_constraintTop_toBottomOf="@id/tvQuality" />
-        </androidx.constraintlayout.widget.ConstraintLayout>
-
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="0dp"
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_marginTop="@dimen/dp_4"
+            android:layout_gravity="fill_vertical"
+            android:fillViewport="true"
+            android:isScrollContainer="true"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/ctlPresent">
+            app:layout_constraintTop_toBottomOf="@id/viewDivide">
 
-            <TextView
-                android:id="@+id/tvSl"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="@dimen/dp_8"
-                android:text="@string/count"
-                android:textColor="@color/teal_200"
-                android:textSize="20sp"
-                app:layout_constraintEnd_toStartOf="@id/imgMinus"
-                app:layout_constraintTop_toTopOf="parent" />
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
 
-            <ImageView
-                android:id="@+id/imgMinus"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@mipmap/ic_minus"
-                app:layout_constraintEnd_toStartOf="@id/tvCount"
-                app:layout_constraintTop_toTopOf="@id/tvSl" />
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/ctlPresent"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/dp_8"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
 
-            <TextView
-                android:id="@+id/tvCount"
-                android:layout_width="50dp"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text="@{countItem.toString()}"
-                android:textSize="20sp"
-                app:layout_constraintBottom_toBottomOf="@id/imgPlus"
-                app:layout_constraintEnd_toStartOf="@id/imgPlus"
-                app:layout_constraintTop_toTopOf="@id/imgPlus" />
+                    <com.smarteist.autoimageslider.SliderView
+                        android:id="@+id/vpSlide"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/dp_200"
+                        android:layout_marginTop="@dimen/dp_15"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:sliderAnimationDuration="600"
+                        app:sliderAutoCycleDirection="back_and_forth"
+                        app:sliderAutoCycleEnabled="true"
+                        app:sliderIndicatorAnimationDuration="600"
+                        app:sliderIndicatorGravity="center_horizontal|bottom"
+                        app:sliderIndicatorMargin="@dimen/dp_15"
+                        app:sliderIndicatorOrientation="horizontal"
+                        app:sliderIndicatorPadding="@dimen/dp_3"
+                        app:sliderIndicatorRadius="@dimen/dp_2"
+                        app:sliderIndicatorSelectedColor="#5A5A5A"
+                        app:sliderIndicatorUnselectedColor="#FFF"
+                        app:sliderScrollTimeInSec="1"
+                        app:sliderStartAutoCycle="true" />
 
-            <ImageView
-                android:id="@+id/imgPlus"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="@dimen/dp_8"
-                android:src="@mipmap/ic_plus"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="@id/tvCount" />
+                    <TextView
+                        android:id="@+id/tvTitle"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/dp_4"
+                        android:layout_marginTop="@dimen/dp_4"
+                        android:ellipsize="end"
+                        android:fontFamily="@font/robotoregular"
+                        android:maxLines="2"
+                        android:text="@{name}"
+                        android:textColor="@color/main_color"
+                        android:textSize="20sp"
+                        app:layout_constraintBottom_toTopOf="@id/cateRecycleView"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="@id/vpSlide"
+                        app:layout_constraintTop_toBottomOf="@id/vpSlide" />
 
-            <TextView
-                android:id="@+id/tvTongTien"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/dp_10"
-                android:layout_marginTop="@dimen/dp_20"
-                android:text="@string/count_money_total"
-                android:textColor="@color/main_color"
-                android:textSize="20sp"
-                android:textStyle="bold"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tvSl" />
+                    <TextView
+                        android:id="@+id/distribute"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/dp_8"
+                        android:text="@string/distribute"
+                        android:textSize="20sp"
+                        app:layout_constraintStart_toStartOf="@id/tvTitle"
+                        app:layout_constraintTop_toBottomOf="@id/tvTitle" />
 
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/robotoregular"
-                android:gravity="center"
-                android:paddingStart="@dimen/dp_12"
-                android:textColor="@color/teal_200"
-                android:textSize="20sp"
-                app:counter="@{countItem}"
-                app:layout_constraintBottom_toBottomOf="@id/tvTongTien"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@id/tvTongTien"
-                app:layout_constraintTop_toTopOf="@id/tvTongTien"
-                app:pricesvalue="@{pricesInt}" />
 
-            <TextView
-                android:id="@+id/btnAddCart"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/dp_20"
-                android:background="@drawable/bg_button_login"
-                android:fontFamily="@font/open_bold"
-                android:paddingStart="@dimen/dp_30"
-                android:paddingTop="@dimen/dp_12"
-                android:paddingEnd="@dimen/dp_30"
-                android:paddingBottom="@dimen/dp_12"
-                android:text="@string/add_to_cart"
-                android:textColor="@color/white"
-                android:textSize="20sp"
-                android:textStyle="bold"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tvTongTien" />
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/cateRecycleView"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                        app:layout_constraintBottom_toBottomOf="@id/distribute"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@id/distribute"
+                        app:layout_constraintTop_toBottomOf="@id/tvTitle"
+                        app:layout_constraintTop_toTopOf="@id/distribute"
+                        tools:listitem="@layout/item_category" />
 
-            <com.github.ybq.android.spinkit.SpinKitView
-                android:id="@+id/spin_kit"
-                style="@style/SpinKitView.Circle"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:visibility="gone"
-                app:SpinKit_Color="@color/purple_700"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-        </androidx.constraintlayout.widget.ConstraintLayout>
+                    <TextView
+                        android:id="@+id/tvPr"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/price_product"
+                        android:textSize="20sp"
+                        app:layout_constraintStart_toStartOf="@id/tvTitle"
+                        app:layout_constraintTop_toTopOf="@id/tvPrices" />
+
+                    <TextView
+                        android:id="@+id/tvPrices"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/dp_8"
+                        android:fontFamily="@font/robotoregular"
+                        android:gravity="center"
+                        android:text="@{prices}"
+                        android:textColor="@color/main_color"
+                        android:textSize="20sp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@id/tvPr"
+                        app:layout_constraintTop_toBottomOf="@id/cateRecycleView" />
+
+                    <TextView
+                        android:id="@+id/tvQL"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/dp_8"
+                        android:text="@string/count"
+                        android:textSize="20sp"
+                        app:layout_constraintBottom_toBottomOf="@id/tvQuality"
+                        app:layout_constraintStart_toStartOf="@id/tvPr"
+                        app:layout_constraintTop_toTopOf="@id/tvQuality" />
+
+                    <TextView
+                        android:id="@+id/tvQuality"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/dp_8"
+                        android:fontFamily="@font/robotoregular"
+                        android:gravity="center"
+                        android:text="@{quality.toString()}"
+                        android:textColor="@color/main_color"
+                        android:textSize="20sp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@id/tvQL"
+                        app:layout_constraintTop_toBottomOf="@id/tvPrices" />
+
+                    <TextView
+                        android:id="@+id/tvTC"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/dp_8"
+                        android:fontFamily="@font/robotoregular"
+                        android:text="@string/tieu_chuan"
+                        android:textSize="20sp"
+                        app:layout_constraintStart_toStartOf="@id/tvQL"
+                        app:layout_constraintTop_toBottomOf="@id/tvQL" />
+
+                    <TextView
+                        android:id="@+id/tvTCCT"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/robotoregular"
+                        android:gravity="center_horizontal"
+                        android:text="@{certificate}"
+                        android:textColor="@color/main_color"
+                        android:textSize="20sp"
+                        app:layout_constraintBottom_toBottomOf="@id/tvTC"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@id/tvTC"
+                        app:layout_constraintTop_toTopOf="@id/tvTC" />
+
+                    <TextView
+                        android:id="@+id/tvSX"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/dp_8"
+                        android:fontFamily="@font/robotoregular"
+                        android:text="@string/xuat_xu"
+                        android:textSize="20sp"
+                        app:layout_constraintStart_toStartOf="@id/tvTC"
+                        app:layout_constraintTop_toBottomOf="@id/tvTC" />
+
+                    <TextView
+                        android:id="@+id/tvSXCT"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/robotoregular"
+                        android:gravity="center_horizontal"
+                        android:text="@{origin}"
+                        android:textColor="@color/main_color"
+                        android:textSize="20sp"
+                        app:layout_constraintBottom_toBottomOf="@id/tvSX"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@id/tvSX"
+                        app:layout_constraintTop_toTopOf="@id/tvSX" />
+
+                    <TextView
+                        android:id="@+id/tvD"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/dp_8"
+                        android:fontFamily="@font/robotoregular"
+                        android:text="@string/description"
+                        android:textSize="20sp"
+                        app:layout_constraintBottom_toBottomOf="@id/tvDes"
+                        app:layout_constraintStart_toStartOf="@id/tvQL"
+                        app:layout_constraintTop_toTopOf="@id/tvDes" />
+
+                    <com.borjabravo.readmoretextview.ReadMoreTextView
+                        android:id="@+id/tvDes"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/dp_10"
+                        android:layout_marginTop="@dimen/dp_8"
+                        android:fontFamily="@font/robotoregular"
+                        android:text="@{description}"
+                        android:textColor="@color/main_color"
+                        android:textSize="20sp"
+                        app:colorClickableText="#2196F3"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@id/tvD"
+                        app:layout_constraintTop_toBottomOf="@id/tvSXCT"
+                        app:trimCollapsedText="@string/show_more"
+                        app:trimExpandedText="@string/show_less"
+                        app:trimLength="100"
+                        app:trimMode="trimModeLength" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dp_4"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/ctlPresent">
+
+                    <TextView
+                        android:id="@+id/tvSl"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="@dimen/dp_8"
+                        android:text="@string/count"
+                        android:textColor="@color/teal_200"
+                        android:textSize="20sp"
+                        app:layout_constraintEnd_toStartOf="@id/imgMinus"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <ImageView
+                        android:id="@+id/imgMinus"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@mipmap/ic_minus"
+                        app:layout_constraintEnd_toStartOf="@id/tvCount"
+                        app:layout_constraintTop_toTopOf="@id/tvSl" />
+
+                    <TextView
+                        android:id="@+id/tvCount"
+                        android:layout_width="50dp"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="@{countItem.toString()}"
+                        android:textSize="20sp"
+                        app:layout_constraintBottom_toBottomOf="@id/imgPlus"
+                        app:layout_constraintEnd_toStartOf="@id/imgPlus"
+                        app:layout_constraintTop_toTopOf="@id/imgMinus" />
+
+                    <ImageView
+                        android:id="@+id/imgPlus"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="@dimen/dp_8"
+                        android:src="@mipmap/ic_plus"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="@id/tvCount" />
+
+                    <TextView
+                        android:id="@+id/tvTongTien"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/dp_10"
+                        android:layout_marginTop="@dimen/dp_20"
+                        android:text="@string/count_money_total"
+                        android:textColor="@color/main_color"
+                        android:textSize="20sp"
+                        android:textStyle="bold"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/tvSl" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/robotoregular"
+                        android:gravity="center"
+                        android:paddingStart="@dimen/dp_12"
+                        android:textColor="@color/teal_200"
+                        android:textSize="20sp"
+                        app:counter="@{countItem}"
+                        app:layout_constraintBottom_toBottomOf="@id/tvTongTien"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@id/tvTongTien"
+                        app:layout_constraintTop_toTopOf="@id/tvTongTien"
+                        app:pricesvalue="@{pricesInt}" />
+
+                    <TextView
+                        android:id="@+id/btnAddCart"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/dp_20"
+                        android:background="@drawable/bg_button_login"
+                        android:fontFamily="@font/open_bold"
+                        android:paddingStart="@dimen/dp_30"
+                        android:paddingTop="@dimen/dp_12"
+                        android:paddingEnd="@dimen/dp_30"
+                        android:paddingBottom="@dimen/dp_12"
+                        android:text="@string/add_to_cart"
+                        android:textColor="@color/white"
+                        android:textSize="20sp"
+                        android:textStyle="bold"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/tvTongTien" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <com.github.ybq.android.spinkit.SpinKitView
+                    android:id="@+id/spin_kit"
+                    style="@style/SpinKitView.Circle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    app:SpinKit_Color="@color/purple_700"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.core.widget.NestedScrollView>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

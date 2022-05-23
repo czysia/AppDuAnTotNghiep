@@ -12,7 +12,6 @@ import android.view.ViewGroup;
 
 import com.example.app_ban_hang_tot_nghiep.R;
 import com.example.app_ban_hang_tot_nghiep.adapter.CatogoryAdapter;
-import com.example.app_ban_hang_tot_nghiep.adapter.HomeAdapter;
 import com.example.app_ban_hang_tot_nghiep.databinding.FragmentCatorogyCommonBinding;
 import com.example.app_ban_hang_tot_nghiep.model.Product;
 import com.example.app_ban_hang_tot_nghiep.viewmodel.CatogoryViewModel;
@@ -101,7 +100,7 @@ public class CatorogyCommonFragment extends Fragment implements CatogoryAdapter.
     public void ItemClick(Product items) {
         ArrayList arrayList = new ArrayList<String>();
         arrayList.addAll(items.getImage());
-        gotaDetail(items.getId(), items.getName(), items.getPrice(), items.getDetail(), items.getQuantily(), arrayList);
+        gotaDetail(items.getId(), items.getName(), 0, items.getDetail(), 0, arrayList);
     }
 
     public void gotaDetail(String idProduce, String name, int prices, String des, int quality, ArrayList<String> listImage) {

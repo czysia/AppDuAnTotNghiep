@@ -8,7 +8,6 @@ import androidx.lifecycle.ViewModelProviders;
 
 import android.text.Editable;
 import android.text.TextWatcher;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -120,7 +119,7 @@ public class SearchFragment extends Fragment implements CatogoryAdapter.onItemCa
     public void ItemClick(Product items) {
         ArrayList arrayList = new ArrayList<String>();
         arrayList.addAll(items.getImage());
-        gotaDetail(items.getId(), items.getName(), items.getPrice(), items.getDetail(), items.getQuantily(), arrayList);
+        gotaDetail(items.getId(), items.getName(), 0, items.getDetail(), 0, arrayList);
     }
 
     public void gotaDetail(String idProduce, String name, int prices, String des, int quality, ArrayList<String> listImage) {

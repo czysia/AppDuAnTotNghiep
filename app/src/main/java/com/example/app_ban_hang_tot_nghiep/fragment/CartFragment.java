@@ -20,6 +20,7 @@ import com.example.app_ban_hang_tot_nghiep.adapter.CartAdapter;
 import com.example.app_ban_hang_tot_nghiep.databinding.FragmentCartBinding;
 import com.example.app_ban_hang_tot_nghiep.model.Cart;
 import com.example.app_ban_hang_tot_nghiep.model.ItemCartMoreInfo;
+import com.example.app_ban_hang_tot_nghiep.model.ItemProductCart;
 import com.example.app_ban_hang_tot_nghiep.utils.Utils;
 import com.example.app_ban_hang_tot_nghiep.viewmodel.CartViewModel;
 import com.example.app_ban_hang_tot_nghiep.viewmodel.MainViewModel;
@@ -39,9 +40,10 @@ public class CartFragment extends Fragment implements CartAdapter.onItemClick {
     private MainViewModel mViewModel;
     private CartViewModel mCartViewModel;
     private CartAdapter mAdapter;
-    public List<ItemCartMoreInfo> mListData = new ArrayList<>();
+    public List<ItemProductCart> mListData = new ArrayList<>();
     public Cart mCart;
     public int totalMoney = 0;
+    Boolean isDelete = false;
     static CartFragment sCartFragment;
     SharedPreferences sharedPreferences;
     String token;
@@ -52,6 +54,51 @@ public class CartFragment extends Fragment implements CartAdapter.onItemClick {
 
     public CartFragment() {
         // Required empty public constructor
+    }
+
+    @Override
+    public void onPlusClick(ItemProductCart items) {
+        List<ItemProductCart> data = new ArrayList<>();
+        data.clear();
+        data.addAll(mListData);
+        for (int i = 0; i < data.size(); i++) {
+            if (data.get(i).getVariantId().equals(items.getVariantId())) {
+                data.get(i).setAmount(items.getAmount() + 1);
+            }
+        }
+        mCartViewModel.updateCart(token, data);
+        mBinding.spinKit.setVisibility(View.VISIBLE);
+    }
+
+    @Override
+    public void onMinusClick(ItemProductCart items) {
+        List<ItemProductCart> data = new ArrayList<>();
+        data.clear();
+        data.addAll(mListData);
+        for (int i = 0; i < data.size(); i++) {
+            if (data.get(i).getVariantId().equals(items.getVariantId())) {
+                if (data.get(i).getAmount() == 1) {
+                    new AlertDialog.Builder(requireContext()).setMessage(R.string.delete_item)
+                            .setTitle(R.string.delete_item_title)
+                            .setPositiveButton(R.string.yes, (arg0, arg1) -> {
+                                mBinding.spinKit.setVisibility(View.VISIBLE);
+                                mCartViewModel.deleteItemCart(items.getVariantId(), token);
+                                isDelete = true;
+                            })
+                            .setNegativeButton(R.string.no, (arg0, arg1) -> {
+
+                            })
+                            .show();
+                } else {
+                    data.get(i).setAmount(items.getAmount() - 1);
+                }
+            }
+        }
+        if (!isDelete) {
+            mBinding.spinKit.setVisibility(View.VISIBLE);
+            mCartViewModel.updateCart(token, data);
+            isDelete = false;
+        }
     }
 
     // TODO: Rename and change types and number of parameters
@@ -87,43 +134,7 @@ public class CartFragment extends Fragment implements CartAdapter.onItemClick {
         mBinding.spinKit.setVisibility(View.VISIBLE);
         sharedPreferences = requireContext().getSharedPreferences(MY_PREFS_NAME, Context.MODE_PRIVATE);
         token = sharedPreferences.getString("tokenID", "xxx");
-        mCartViewModel.getListCartData(token);
-        mCartViewModel.listCart.observe(getViewLifecycleOwner(), cart -> {
-            mCart = cart;
-            List<ItemCartMoreInfo> listItem = new ArrayList<>();
-            mBinding.spinKit.setVisibility(View.GONE);
-            if (mViewModel.listSearch.size() > 0) {
-
-                for (int i = 0; i < cart.getProducts().size(); i++) {
-                    for (int j = 0; j < mViewModel.listSearch.size(); j++) {
-                        if (cart.getProducts().get(i).getProductId().equals(mViewModel.listSearch.get(j).getId())) {
-                            ItemCartMoreInfo itemCart = new ItemCartMoreInfo();
-                            itemCart.setAmount(cart.getProducts().get(i).getAmount());
-                            itemCart.setPrice(cart.getProducts().get(i).getPrice());
-                            itemCart.setImage(mViewModel.listSearch.get(j).getImage().get(0));
-                            itemCart.setProductName(cart.getProducts().get(i).getProductName());
-                            itemCart.setProductId(cart.getProducts().get(i).getProductId());
-                            listItem.add(itemCart);
-                        }
-                    }
-                }
-                totalMoney = cart.getTotal();
-                mBinding.setTotal(new Utils().convertMoney(cart.getTotal()));
-                mListData.clear();
-                mListData.addAll(listItem);
-                mBinding.recycleCart.getAdapter().notifyDataSetChanged();
-            }
-        });
-        mCartViewModel.deleteSuccess.observe(getViewLifecycleOwner(), data -> {
-            mBinding.spinKit.setVisibility(View.GONE);
-            if (data) {
-                Toast.makeText(requireContext(), "Xóa sản phẩm thành công", Toast.LENGTH_SHORT).show();
-                return;
-            } else {
-                Toast.makeText(requireContext(), "Xóa sản phẩm không thành công", Toast.LENGTH_SHORT).show();
-                return;
-            }
-        });
+        setUpViewModel();
         onClick();
 
         // Inflate the layout for this fragment
@@ -131,22 +142,13 @@ public class CartFragment extends Fragment implements CartAdapter.onItemClick {
     }
 
     @Override
-    public void ItemClick(ItemCartMoreInfo items) {
+    public void ItemClick(ItemProductCart items) {
 
     }
 
     @Override
-    public void onLongClick(ItemCartMoreInfo items) {
-        new AlertDialog.Builder(requireContext()).setMessage(R.string.delete_item)
-                .setTitle(R.string.delete_item_title)
-                .setPositiveButton(R.string.yes, (arg0, arg1) -> {
-                    mBinding.spinKit.setVisibility(View.VISIBLE);
-                    mCartViewModel.deleteItemCart(items.getProductId(), token);
-                })
-                .setNegativeButton(R.string.no, (arg0, arg1) -> {
+    public void onLongClick(ItemProductCart items) {
 
-                })
-                .show();
     }
 
     public void setUpAdapter() {
@@ -189,5 +191,42 @@ public class CartFragment extends Fragment implements CartAdapter.onItemClick {
             }
         });
         fragmentManager.beginTransaction().add(R.id.parent_content, fragment, "pay").commit();
+    }
+
+    public void setUpViewModel() {
+        mCartViewModel.getListCartData(token);
+        mCartViewModel.listCart.observe(getViewLifecycleOwner(), cart -> {
+            mCart = cart;
+            mBinding.spinKit.setVisibility(View.GONE);
+            totalMoney = cart.getTotal();
+            mBinding.setTotal(new Utils().convertMoney(cart.getTotal()));
+            if (cart.getProducts().size() > 0) {
+                mBinding.group.setVisibility(View.GONE);
+            } else {
+                mBinding.group.setVisibility(View.VISIBLE);
+            }
+            mListData.clear();
+            mListData.addAll(cart.getProducts());
+            mBinding.recycleCart.getAdapter().notifyDataSetChanged();
+        });
+        mCartViewModel.deleteSuccess.observe(getViewLifecycleOwner(), data -> {
+            mBinding.spinKit.setVisibility(View.GONE);
+            isDelete = false;
+            if (data) {
+                Toast.makeText(requireContext(), "Xóa sản phẩm thành công", Toast.LENGTH_SHORT).show();
+                return;
+            } else {
+                Toast.makeText(requireContext(), "Xóa sản phẩm không thành công", Toast.LENGTH_SHORT).show();
+                return;
+            }
+        });
+        mCartViewModel.updateData.observe(getViewLifecycleOwner(), data -> {
+            if (data) {
+                mCartViewModel.getListCartData(token);
+            } else {
+                mBinding.spinKit.setVisibility(View.GONE);
+                Toast.makeText(requireContext(), "Thay đổi không thành công", Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 }

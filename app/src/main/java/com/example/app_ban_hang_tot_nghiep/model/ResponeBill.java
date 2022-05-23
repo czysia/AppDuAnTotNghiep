@@ -11,7 +11,7 @@ public class ResponeBill implements Serializable {
 	private boolean payment_status;
 	private String startAt;
 	private boolean bill_status;
-	private List<ProductsItem> products;
+	private List<ItemProductCart> products;
 	private String feedback;
 	private int total;
 	private String paymentType;
@@ -50,7 +50,7 @@ public class ResponeBill implements Serializable {
 		return bill_status;
 	}
 
-	public List<ProductsItem> getProducts(){
+	public List<ItemProductCart> getProducts(){
 		return products;
 	}
 

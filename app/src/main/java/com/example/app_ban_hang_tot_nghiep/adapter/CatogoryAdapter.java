@@ -8,7 +8,6 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.app_ban_hang_tot_nghiep.databinding.ItemHomeProductBinding;
 import com.example.app_ban_hang_tot_nghiep.databinding.ItemListProductCategoryBinding;
 import com.example.app_ban_hang_tot_nghiep.model.Product;
 import com.example.app_ban_hang_tot_nghiep.utils.Utils;
@@ -74,8 +73,8 @@ public class CatogoryAdapter extends RecyclerView.Adapter<CatogoryAdapter.ViewHo
 
         public void onBind(Product items) {
             mBinding.setTitle(items.getName().toString());
-            mBinding.setPrices(new Utils().convertMoney(items.getPrice()));
-            mBinding.setDes(items.getPackaging().toString());
+//            mBinding.setPrices(new Utils().convertMoney(items.getPrice()));
+//            mBinding.setDes(items.getPackaging().toString());
             mBinding.setUrlImage(items.getImage().get(0));
         }
     }

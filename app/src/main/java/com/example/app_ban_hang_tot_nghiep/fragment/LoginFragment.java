@@ -57,11 +57,11 @@ public class LoginFragment extends Fragment {
         mViewModel.isLoginSucess.observe(getViewLifecycleOwner(), aBoolean -> {
             mLoginBinding.spinKit.setVisibility(View.GONE);
             if (!aBoolean) {
-                Toast.makeText(getContext(), "Login Failed", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getContext(), "Đăng nhập không thành công", Toast.LENGTH_SHORT).show();
             } else {
                 requireActivity().setResult(RESULT_CODE_SUCCESS);
                 requireActivity().finish();
-                Toast.makeText(getContext(), "Login Success", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getContext(), "Đăng nhập thành công", Toast.LENGTH_SHORT).show();
             }
         });
         mViewModel.token.observe(getViewLifecycleOwner(), token -> {
@@ -76,7 +76,7 @@ public class LoginFragment extends Fragment {
         mViewModel.accountNotSuccess.observe(getViewLifecycleOwner(), data -> {
             mLoginBinding.spinKit.setVisibility(View.GONE);
             if (data) {
-                Toast.makeText(requireContext(), "Tài khoản không chính xác", Toast.LENGTH_SHORT).show();
+                Toast.makeText(requireContext(), "Tài khoản không chính xác hoặc bạn chưa xác nhận đăng kí trong email", Toast.LENGTH_SHORT).show();
             }
         });
     }

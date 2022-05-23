@@ -1,16 +1,14 @@
 package com.example.app_ban_hang_tot_nghiep.viewmodel;
 
 import android.util.Log;
-import android.widget.Toast;
 
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
 import com.example.app_ban_hang_tot_nghiep.ApiService;
 import com.example.app_ban_hang_tot_nghiep.ApiUtils;
-import com.example.app_ban_hang_tot_nghiep.model.Cart;
-import com.example.app_ban_hang_tot_nghiep.model.CartData;
 import com.example.app_ban_hang_tot_nghiep.model.Category;
+import com.example.app_ban_hang_tot_nghiep.model.DetailProduct;
 import com.example.app_ban_hang_tot_nghiep.model.Product;
 import com.example.app_ban_hang_tot_nghiep.model.ResponeBill;
 
@@ -26,6 +24,7 @@ public class MainViewModel extends ViewModel {
     public MutableLiveData<List<Category>> listCate = new MutableLiveData<>();
     public MutableLiveData<List<Product>> listData = new MutableLiveData<>();
     public MutableLiveData<List<Product>> listHomeData = new MutableLiveData<>();
+    public MutableLiveData<List<DetailProduct>> listFavourite = new MutableLiveData<>();
     public MutableLiveData<ResponeBill> listBill = new MutableLiveData<>();
     public List<Product> listSearch = new ArrayList<>();
 
@@ -82,6 +81,24 @@ public class MainViewModel extends ViewModel {
 
             @Override
             public void onFailure(Call<List<Product>> call, Throwable t) {
+
+            }
+        });
+    }
+
+    public void getListFavourite(String token) {
+        mApiService = ApiUtils.getApiService();
+        mApiService.getFavorite(token).enqueue(new Callback<List<DetailProduct>>() {
+            @Override
+            public void onResponse(Call<List<DetailProduct>> call, Response<List<DetailProduct>> response) {
+                if (response.isSuccessful() && response.code() == 200) {
+                    listFavourite.postValue(response.body());
+                    Log.d("TAG", "onResponse: " + response.body().size());
+                }
+            }
+
+            @Override
+            public void onFailure(Call<List<DetailProduct>> call, Throwable t) {
 
             }
         });

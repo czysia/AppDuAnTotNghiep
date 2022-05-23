@@ -1,7 +1,6 @@
 package com.example.app_ban_hang_tot_nghiep.adapter;
 
 import android.content.Context;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -68,7 +67,7 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.ViewHolder> {
         }
 
         public void onBind(Product items) {
-            mBinding.tvPrices.setText(new Utils().convertMoney(items.getPrice()));
+//            mBinding.tvPrices.setText(new Utils().convertMoney(items.getPrice()));
             mBinding.setUrlImage(items.getImage().get(0));
             mBinding.tvName.setText(items.getName());
         }

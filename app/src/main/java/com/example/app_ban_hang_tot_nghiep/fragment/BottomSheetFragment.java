@@ -20,9 +20,11 @@ import androidx.lifecycle.ViewModelProvider;
 import androidx.lifecycle.ViewModelProviders;
 
 import com.example.app_ban_hang_tot_nghiep.R;
+import com.example.app_ban_hang_tot_nghiep.adapter.BillInfoAdapter;
 import com.example.app_ban_hang_tot_nghiep.adapter.CartAdapter;
 import com.example.app_ban_hang_tot_nghiep.databinding.LayoutDetailBillBinding;
 import com.example.app_ban_hang_tot_nghiep.model.ItemCartMoreInfo;
+import com.example.app_ban_hang_tot_nghiep.model.ItemProductCart;
 import com.example.app_ban_hang_tot_nghiep.model.ResponeBill;
 import com.example.app_ban_hang_tot_nghiep.utils.Utils;
 import com.example.app_ban_hang_tot_nghiep.viewmodel.BottomDetailViewModel;
@@ -35,28 +37,28 @@ import com.google.android.material.bottomsheet.BottomSheetDialogFragment;
 import java.util.ArrayList;
 import java.util.List;
 
-public class BottomSheetFragment extends BottomSheetDialogFragment implements CartAdapter.onItemClick {
+public class BottomSheetFragment extends BottomSheetDialogFragment implements BillInfoAdapter.onItemClick {
 
     public static final String MY_PREFS_NAME = "MyPrefsFile";
 
     private LayoutDetailBillBinding mBinding;
     private BottomSheetBehavior mSheetBehavior;
-    private CartAdapter mAdapter;
+    private BillInfoAdapter mAdapter;
     private MainViewModel mViewModel;
     private BottomDetailViewModel mDetailViewModel;
-    public List<ItemCartMoreInfo> mListData = new ArrayList<>();
+    public List<ItemProductCart> mListData = new ArrayList<>();
     private ResponeBill dataBill;
     private String iD;
     String token;
     SharedPreferences sharedPreferences;
 
     @Override
-    public void ItemClick(ItemCartMoreInfo items) {
+    public void ItemClick(ItemProductCart items) {
 
     }
 
     @Override
-    public void onLongClick(ItemCartMoreInfo items) {
+    public void onLongClick(ItemProductCart items) {
 
     }
 
@@ -142,51 +144,31 @@ public class BottomSheetFragment extends BottomSheetDialogFragment implements Ca
     }
 
     private void setupData() {
-        if (mViewModel.listSearch.size() > 0) {
-            List<ItemCartMoreInfo> listItem = new ArrayList<>();
-            for (int i = 0; i < dataBill.getProducts().size(); i++) {
-                Log.d("TAG", "setupData: " + dataBill.getProducts().get(i).getProductId());
-                for (int j = 0; j < mViewModel.listSearch.size(); j++) {
-                    Log.d("TAG", "search: " + mViewModel.listSearch.get(j).getId());
-                    if (dataBill.getProducts().get(i).getProductId().equals(mViewModel.listSearch.get(j).getId())) {
-                        ItemCartMoreInfo itemCart = new ItemCartMoreInfo();
-                        itemCart.setAmount(dataBill.getProducts().get(i).getAmount());
-                        itemCart.setPrice(dataBill.getProducts().get(i).getPrice());
-                        itemCart.setImage(mViewModel.listSearch.get(j).getImage().get(0));
-                        itemCart.setProductName(dataBill.getProducts().get(i).getProductName());
-                        itemCart.setProductId(dataBill.getProducts().get(i).getProductId());
-                        listItem.add(itemCart);
-                    }
-                }
-                mListData.clear();
-                mListData.addAll(listItem);
-                mAdapter = new CartAdapter(mListData, getContext(), this);
-                mBinding.recycleOrder.setAdapter(mAdapter);
-                mBinding.recycleOrder.getAdapter().notifyDataSetChanged();
-                mBinding.tvCodeShow.setText(dataBill.getId());
-                iD = dataBill.getId();
-                mBinding.tvNameCustomer.setText(dataBill.getUsername());
-                Log.d("TAG", "setupData: " + dataBill.isBillStatus() + dataBill.isPaymentStatus() + dataBill.isTransporting());
-                if (dataBill.isBillStatus() && dataBill.isPaymentStatus() && dataBill.isTransporting()) {
-                    mBinding.tvStatusBill.setText("Đã nhận và thanh toán hàng");
-                    mBinding.btnSuccess.setVisibility(View.GONE);
-                    mBinding.btnCancel.setVisibility(View.GONE);
-                } else if (dataBill.isBillStatus() && dataBill.isTransporting()) {
-                    mBinding.tvStatusBill.setText("Đang giao hàng");
-                    mBinding.btnCancel.setVisibility(View.GONE);
-                } else if (dataBill.isBillStatus()) {
-                    mBinding.tvStatusBill.setText("Đã xác nhận");
-                    mBinding.btnCancel.setVisibility(View.GONE);
-                } else if (!dataBill.isBillStatus()) {
-                    mBinding.tvStatusBill.setText("Đang chờ xác nhận");
-                    mBinding.btnSuccess.setVisibility(View.GONE);
-                } else {
-                    mBinding.tvStatusBill.setText("Đang giao hàng");
-                    mBinding.btnCancel.setVisibility(View.GONE);
-                }
-                mBinding.tvMoneyCount.setText(new Utils().convertMoney(dataBill.getTotal()));
-            }
+        mAdapter = new BillInfoAdapter(dataBill.getProducts(), getContext(), this);
+        mBinding.recycleOrder.setAdapter(mAdapter);
+        mBinding.recycleOrder.getAdapter().notifyDataSetChanged();
+        mBinding.tvCodeShow.setText(dataBill.getId());
+        iD = dataBill.getId();
+        mBinding.tvNameCustomer.setText(dataBill.getUsername());
+        Log.d("TAG", "setupData: " + dataBill.isBillStatus() + dataBill.isPaymentStatus() + dataBill.isTransporting());
+        if (dataBill.isBillStatus() && dataBill.isPaymentStatus() && dataBill.isTransporting()) {
+            mBinding.tvStatusBill.setText("Đã nhận và thanh toán hàng");
+            mBinding.btnSuccess.setVisibility(View.GONE);
+            mBinding.btnCancel.setVisibility(View.GONE);
+        } else if (dataBill.isBillStatus() && dataBill.isTransporting()) {
+            mBinding.tvStatusBill.setText("Đang giao hàng");
+            mBinding.btnCancel.setVisibility(View.GONE);
+        } else if (dataBill.isBillStatus()) {
+            mBinding.tvStatusBill.setText("Đã xác nhận");
+            mBinding.btnCancel.setVisibility(View.GONE);
+        } else if (!dataBill.isBillStatus()) {
+            mBinding.tvStatusBill.setText("Đang chờ xác nhận");
+            mBinding.btnSuccess.setVisibility(View.GONE);
+        } else {
+            mBinding.tvStatusBill.setText("Đang giao hàng");
+            mBinding.btnCancel.setVisibility(View.GONE);
         }
+        mBinding.tvMoneyCount.setText(new Utils().convertMoney(dataBill.getTotal()));
     }
 
     public void setUpViewModel() {
@@ -220,7 +202,7 @@ public class BottomSheetFragment extends BottomSheetDialogFragment implements Ca
     }
 
     public void setUpAdapter() {
-        mAdapter = new CartAdapter(mListData, getContext(), this);
+        mAdapter = new BillInfoAdapter(mListData, getContext(), this);
         mBinding.recycleOrder.setAdapter(mAdapter);
     }
 }

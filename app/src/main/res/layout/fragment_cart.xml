@@ -84,6 +84,38 @@
             app:layout_constraintTop_toBottomOf="@id/viewController"
             tools:listitem="@layout/item_list_product_category" />
 
+        <ImageView
+            android:id="@+id/imgEmpty"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:src="@drawable/empty_data"
+            app:layout_constraintBottom_toTopOf="@id/ctlTT"
+            app:layout_constraintDimensionRatio="3 : 2"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/viewDivide"
+            app:layout_constraintWidth_percent="0.6" />
+
+        <TextView
+            android:id="@+id/tvEmpty"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/robotoregular"
+            android:gravity="center_horizontal"
+            android:text="@string/notifi_empty_cart"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            app:layout_constraintEnd_toEndOf="@id/imgEmpty"
+            app:layout_constraintStart_toStartOf="@id/imgEmpty"
+            app:layout_constraintTop_toBottomOf="@id/imgEmpty" />
+
+        <androidx.constraintlayout.widget.Group
+            android:id="@+id/group"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            app:constraint_referenced_ids="imgEmpty,tvEmpty" />
+
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/ctlTT"
             android:layout_width="match_parent"
